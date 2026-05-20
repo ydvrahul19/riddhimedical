@@ -3,32 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Riddhi Medical – Trusted Healthcare Clinic, Alwar</title>
+<title>O3 Physiotherapy Clinic – Pain-Free Ahmedabad | Dr. Hiren Patel (MPT)</title>
 <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
 <link rel="apple-touch-icon" href="images/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-
+<!-- Framer Motion via CDN (UMD) -->
+<script src="https://cdn.jsdelivr.net/npm/framer-motion@11/dist/framer-motion.js"></script>
 <style>
 /* ===== ROOT VARIABLES ===== */
 :root {
-  --navy: #1a3a5c;
-  --blue: #1a6fb5;
-  --sky: #2196F3;
-  --green: #00897B;
-  --mint: #00796B;
-  --light-green: #e0f2f1;
-  --light: #e3f2fd;
-  --white: #FAFFFE;
-  --gray: #f0f7ff;
-  --mint-bg: #e0f2f1;
-  --text: #0d1b2b;
-  --muted: #4a6580;
-  --gold: #FF8F00;
-  --shadow: 0 4px 24px rgba(26,111,181,0.10);
-  --shadow-lg: 0 20px 60px rgba(26,111,181,0.15);
+  --navy: #1a2e4a;
+  --blue: #2b7cbf;
+  --sky: #5db8e8;
+  --green: #1a6b3c;
+  --mint: #2d9e5f;
+  --light-green: #d8f3dc;
+  --light: #e8f4fb;
+  --white: #ffffff;
+  --gray: #f4f7fb;
+  --mint-bg: #f0f7f4;
+  --text: #2d3748;
+  --muted: #718096;
+  --gold: #e6a817;
+  --ozone: #00b4d8;
+  --ozone-dark: #0077b6;
+  --shadow: 0 4px 24px rgba(26,46,74,0.08);
+  --shadow-lg: 0 20px 60px rgba(26,46,74,0.12);
 }
-
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; font-size:16px; }
 body { font-family:'DM Sans',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; }
@@ -41,12 +43,12 @@ ul { list-style:none; }
 .color-green { color:var(--green); }
 .color-navy { color:var(--navy); }
 .color-blue { color:var(--blue); }
-.gradient-text { background:linear-gradient(135deg,var(--sky),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.gradient-text { background:linear-gradient(135deg,var(--ozone),var(--blue)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 
 .section-pill {
   display:inline-flex; align-items:center;
-  background:rgba(26,111,181,.08); color:var(--blue);
-  border:1px solid rgba(26,111,181,.2); border-radius:50px;
+  background:rgba(0,180,216,.1); color:var(--ozone-dark);
+  border:1px solid rgba(0,180,216,.25); border-radius:50px;
   padding:6px 18px; font-size:0.8rem; font-weight:600;
   letter-spacing:0.5px; margin-bottom:1rem;
 }
@@ -56,6 +58,7 @@ ul { list-style:none; }
   line-height:1.2; color:var(--navy); margin-bottom:1.2rem;
 }
 .section-sub { color:var(--muted); font-size:1.02rem; line-height:1.8; max-width:580px; }
+.section-desc { color:var(--muted); font-size:1rem; line-height:1.85; margin-bottom:1.5rem; }
 
 /* ===== BUTTONS ===== */
 .btn-primary {
@@ -65,7 +68,7 @@ ul { list-style:none; }
   font-weight:600; font-size:0.95rem; text-decoration:none;
   transition:all .3s; border:none; cursor:pointer; font-family:'DM Sans',sans-serif;
 }
-.btn-primary:hover { background:var(--navy); transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,137,123,.35); }
+.btn-primary:hover { background:var(--navy); transform:translateY(-2px); box-shadow:0 12px 30px rgba(26,107,60,.35); }
 .btn-ghost {
   display:inline-flex; align-items:center; gap:8px;
   background:transparent; color:white;
@@ -73,7 +76,7 @@ ul { list-style:none; }
   font-weight:600; font-size:0.95rem; text-decoration:none;
   border:2px solid rgba(255,255,255,.35); transition:all .3s; cursor:pointer;
 }
-.btn-ghost:hover { border-color:var(--sky); color:var(--sky); transform:translateY(-2px); }
+.btn-ghost:hover { border-color:var(--ozone); color:var(--ozone); transform:translateY(-2px); }
 .btn-white {
   display:inline-flex; align-items:center; gap:8px;
   background:white; color:var(--navy);
@@ -82,14 +85,14 @@ ul { list-style:none; }
   transition:all .3s; cursor:pointer;
 }
 .btn-white:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,0,0,.2); }
-.btn-outline-green {
+.btn-ghost-white {
   display:inline-flex; align-items:center; gap:8px;
-  background:transparent; color:var(--green);
-  padding:12px 28px; border-radius:50px;
+  background:transparent; color:white;
+  padding:13px 28px; border-radius:50px;
   font-weight:600; font-size:0.95rem; text-decoration:none;
-  border:2px solid var(--green); transition:all .3s;
+  border:2px solid rgba(255,255,255,.35); transition:all .3s;
 }
-.btn-outline-green:hover { background:var(--green); color:white; transform:translateY(-2px); }
+.btn-ghost-white:hover { border-color:white; transform:translateY(-2px); }
 .whatsapp-book-btn {
   display:inline-flex; align-items:center; gap:10px;
   background:#25D366; color:white;
@@ -101,15 +104,13 @@ ul { list-style:none; }
 
 /* ===== TOP BAR ===== */
 .top-bar {
-  background:var(--navy); color:rgba(255,255,255,.8);
+  background:var(--navy); color:rgba(255,255,255,.85);
   font-size:0.78rem; padding:8px 5%;
-  display:flex; align-items:center; justify-content:space-between;
+  display:flex; justify-content:space-between; align-items:center;
   position:fixed; top:0; left:0; right:0; z-index:1001;
 }
-.tb-item { display:flex; align-items:center; gap:6px; }
-.tb-items { display:flex; gap:20px; flex-wrap:wrap; }
-.tb-item a { color:rgba(255,255,255,.8); text-decoration:none; transition:.2s; }
-.tb-item a:hover { color:white; }
+.top-bar a { color:rgba(255,255,255,.85); text-decoration:none; }
+.top-bar a:hover { color:var(--ozone); }
 
 /* ===== NAVBAR ===== */
 #navbar {
@@ -125,12 +126,12 @@ ul { list-style:none; }
   padding:0 4%; height:68px;
   gap: 16px; overflow:visible;
 }
-.nav-logo { display:flex; flex-direction:row; align-items:center; text-align:left; gap:12px; text-decoration:none; flex-shrink:0; }
-.nav-logo-icon { width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg,var(--green),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:1.4rem; flex-shrink:0; transition:transform .3s; }
-.nav-logo:hover .nav-logo-icon { transform:rotate(10deg) scale(1.08); }
+.nav-logo { display:flex; flex-direction:row; align-items:center; text-align:left; gap:10px; text-decoration:none; flex-shrink:0; }
+.nav-logo-img { width:46px; height:46px; border-radius:10px; object-fit:cover; transition:transform .3s ease; flex-shrink:0; }
+.nav-logo:hover .nav-logo-img { transform:rotate(10deg) scale(1.08); }
 .nav-brand-text { display:flex; flex-direction:column; line-height:1; gap:3px; }
-.nav-brand-name { font-weight:800; font-size:1.05rem; color:#0d1b2a; letter-spacing:0.2px; font-family:'Playfair Display',serif; line-height:1.15; white-space:nowrap; }
-.nav-brand-tagline { font-weight:400; font-size:0.63rem; color:#666; letter-spacing:0.5px; text-transform:uppercase; white-space:nowrap; }
+.nav-brand-name { font-weight:800; font-size:1rem; color:#0d1b2a; letter-spacing:0.2px; font-family:'Playfair Display',serif; line-height:1.15; white-space:nowrap; }
+.nav-brand-tagline { font-weight:400; font-size:0.65rem; color:#666; letter-spacing:0.3px; white-space:nowrap; }
 .nav-links { display:flex; align-items:center; gap:0; flex:1; justify-content:center; }
 .nav-link {
   color:#1a1a2e; text-decoration:none; font-weight:500; font-size:0.88rem;
@@ -140,11 +141,11 @@ ul { list-style:none; }
 }
 .nav-link::after {
   content:''; position:absolute; bottom:0; left:50%;
-  width:0; height:2px; background:linear-gradient(90deg,var(--sky),var(--blue));
+  width:0; height:2px; background:linear-gradient(90deg,var(--ozone),var(--blue));
   transition:all .3s ease; transform:translateX(-50%); border-radius:2px;
 }
 .nav-link:hover::after { width:80%; }
-.nav-link:hover { color:var(--blue); }
+.nav-link:hover { color:var(--ozone-dark); }
 .has-dropdown { position:relative; }
 .dropdown-menu {
   position:absolute; top:calc(100% + 4px); left:0;
@@ -184,327 +185,374 @@ ul { list-style:none; }
 .hamburger.active span:nth-child(2) { opacity:0; }
 .hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
 
+/* ===== MOBILE NAV ===== */
+.mobile-nav {
+  display:none; position:fixed; top:104px; left:0; right:0; z-index:998;
+  background:white; box-shadow:0 20px 40px rgba(0,0,0,.1);
+  padding:20px 5%; flex-direction:column; gap:4px;
+}
+.mobile-nav.open { display:flex; }
+.mobile-nav-link { padding:12px 16px; border-radius:12px; font-weight:500; text-decoration:none; color:var(--text); transition:.2s; }
+.mobile-nav-link:hover { background:var(--gray); color:var(--ozone-dark); }
+
 /* ===== PAGES ===== */
 .page { display:none; padding-top:104px; }
-.page.active { display:block; }
+.page.active { display:block; animation:fadeInUp 0.5s cubic-bezier(0.4,0,0.2,1) both; }
+
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+@keyframes scrollAnim {
+  0%,100% { transform:translateY(0); opacity:1; }
+  50% { transform:translateY(8px); opacity:.4; }
+}
 
 /* ===== PAGE HEADER ===== */
 .page-header {
-  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
+  background:linear-gradient(135deg,var(--navy) 0%,var(--ozone-dark) 100%);
   padding:50px 5% 40px; text-align:center; position:relative; overflow:hidden;
 }
 .page-header::before {
   content:''; position:absolute; inset:0;
-  background:radial-gradient(ellipse at 80% 50%,rgba(33,150,243,0.12) 0%,transparent 60%);
+  background:radial-gradient(ellipse at 80% 50%,rgba(0,180,216,0.12) 0%,transparent 60%);
 }
 .ph-breadcrumb { font-size:0.82rem; color:rgba(255,255,255,.5); margin-bottom:1rem; }
 .page-header h1 {
   font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.2rem);
   margin-bottom:0.8rem;
-  background:linear-gradient(135deg,#fff 0%,var(--sky) 100%);
+  background:linear-gradient(135deg,#fff 0%,var(--ozone) 100%);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  position:relative; z-index:1;
 }
-.page-header p { color:rgba(255,255,255,.7); font-size:1.05rem; max-width:600px; margin:0 auto; }
+.page-header p { color:rgba(255,255,255,.7); font-size:1.05rem; max-width:600px; margin:0 auto; position:relative; z-index:1; }
 
 /* ===== HERO ===== */
 .hero-section {
-  min-height:100vh; display:flex; align-items:center;
-  background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 40%,#1a5080 100%);
-  padding:0 5%; position:relative; overflow:hidden;
+  min-height:calc(100vh - 104px); display:flex; align-items:center;
+  background:linear-gradient(135deg,#f0f9ff 0%,#e8f4fb 50%,#f0fff4 100%);
+  position:relative; overflow:hidden; padding:60px 5%;
 }
-.hero-bg-orbs { position:absolute; inset:0; pointer-events:none; }
-.hero-orb { position:absolute; border-radius:50%; filter:blur(60px); opacity:0.2; }
-.hero-orb-1 { width:500px; height:500px; background:var(--sky); top:-100px; right:-100px; }
-.hero-orb-2 { width:300px; height:300px; background:var(--green); bottom:50px; left:10%; }
-.hero-inner { max-width:1320px; margin:0 auto; display:flex; align-items:center; gap:60px; width:100%; position:relative; z-index:1; }
-.hero-left { flex:1; display:flex; flex-direction:column; justify-content:center; }
-.hero-clinic-brand { display:flex; align-items:center; gap:18px; margin-bottom:1.8rem; }
-.hero-brand-icon { width:60px; height:60px; border-radius:16px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; font-size:1.8rem; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.15); }
-.hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); border-radius:50px; padding:8px 18px; color:rgba(255,255,255,.85); font-size:0.8rem; font-weight:600; letter-spacing:0.3px; }
-.hero-title { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,4.5vw,4rem); color:white; font-weight:800; line-height:1.15; margin-bottom:1.4rem; }
-.hero-accent { background:linear-gradient(135deg,#64B5F6,#00E5FF); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.hero-sub { color:rgba(255,255,255,.72); font-size:1.05rem; line-height:1.8; margin-bottom:2rem; max-width:520px; }
-.hero-actions { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:2.5rem; }
-.hero-btn-primary { display:inline-flex; align-items:center; gap:8px; background:var(--green); color:white; padding:15px 30px; border-radius:50px; font-weight:700; font-size:0.95rem; text-decoration:none; transition:all .3s; }
-.hero-btn-primary:hover { background:#00695C; transform:translateY(-2px); box-shadow:0 12px 30px rgba(0,137,123,.4); }
-.hero-btn-ghost { display:inline-flex; align-items:center; gap:8px; background:transparent; color:white; padding:15px 30px; border-radius:50px; font-weight:600; font-size:0.95rem; text-decoration:none; border:2px solid rgba(255,255,255,.3); transition:all .3s; }
-.hero-btn-ghost:hover { border-color:var(--sky); color:var(--sky); transform:translateY(-2px); }
-.hero-stats { display:flex; gap:28px; flex-wrap:wrap; }
-.hs-item { text-align:left; }
-.hs-num { font-size:1.8rem; font-weight:800; color:white; font-family:'Playfair Display',serif; line-height:1; }
-.hs-label { font-size:0.75rem; color:rgba(255,255,255,.55); letter-spacing:0.3px; margin-top:4px; }
-.hero-right { flex:1; display:flex; justify-content:center; align-items:center; position:relative; }
-.hero-img-wrap { position:relative; width:100%; max-width:480px; }
-.hero-img-main { width:100%; border-radius:24px; box-shadow:0 30px 80px rgba(0,0,0,.35); aspect-ratio:4/5; object-fit:cover; }
-.hero-img-badge { position:absolute; bottom:-20px; left:-30px; background:white; border-radius:18px; padding:16px 22px; box-shadow:0 12px 40px rgba(0,0,0,.18); }
-.hib-num { font-size:1.6rem; font-weight:800; color:var(--green); font-family:'Playfair Display',serif; line-height:1; }
-.hib-txt { font-size:0.72rem; color:var(--muted); font-weight:500; margin-top:2px; }
-.hero-img-badge2 { position:absolute; top:20px; right:-30px; background:white; border-radius:14px; padding:12px 18px; box-shadow:0 8px 30px rgba(0,0,0,.15); display:flex; align-items:center; gap:10px; }
-.hib2-icon { font-size:1.4rem; }
-.hib2-txt { font-size:0.78rem; font-weight:700; color:var(--navy); }
-.hib2-sub { font-size:0.68rem; color:var(--muted); }
+.hero-blob {
+  position:absolute; border-radius:50%; filter:blur(80px); opacity:.35; pointer-events:none;
+}
+.hero-blob-1 { width:500px; height:500px; background:radial-gradient(circle,var(--ozone) 0%,transparent 70%); top:-150px; right:-100px; }
+.hero-blob-2 { width:350px; height:350px; background:radial-gradient(circle,var(--light-green) 0%,transparent 70%); bottom:-100px; left:5%; }
+.hero-blob-3 { width:250px; height:250px; background:radial-gradient(circle,rgba(0,180,216,.3) 0%,transparent 70%); top:40%; left:30%; }
+.hero-inner {
+  max-width:1320px; margin:0 auto; width:100%;
+  display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+}
+.hero-clinic-brand { display:flex; align-items:center; gap:12px; margin-bottom:1.5rem; }
+.hero-brand-logo { width:52px; height:52px; border-radius:12px; object-fit:cover; }
+.hero-brand-words { display:flex; flex-direction:column; line-height:1.1; }
+.hbw-line1 { font-family:'Playfair Display',serif; font-weight:800; font-size:1.3rem; color:var(--navy); }
+.hbw-line2 { font-family:'Playfair Display',serif; font-weight:700; font-size:1rem; color:var(--ozone-dark); }
+.hero-slide-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(0,180,216,.1); color:var(--ozone-dark);
+  border:1px solid rgba(0,180,216,.25); border-radius:50px;
+  padding:8px 18px; font-size:0.82rem; font-weight:600;
+  margin-bottom:1.4rem;
+}
+.hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,4.5vw,3.8rem); font-weight:800;
+  line-height:1.12; color:var(--navy); margin-bottom:1.2rem;
+}
+.hero-accent {
+  background:linear-gradient(135deg,var(--ozone),var(--green));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero-sub { color:var(--muted); font-size:1.02rem; line-height:1.85; margin-bottom:2rem; max-width:540px; }
+.hero-btns { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:2.2rem; }
+.hero-btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--green); color:white;
+  padding:14px 30px; border-radius:50px;
+  font-weight:700; font-size:0.95rem; text-decoration:none;
+  transition:all .3s; box-shadow:0 8px 24px rgba(26,107,60,.35);
+}
+.hero-btn-primary:hover { background:var(--navy); transform:translateY(-2px); box-shadow:0 14px 36px rgba(26,107,60,.45); }
+.hero-btn-ghost {
+  display:inline-flex; align-items:center; gap:8px;
+  background:transparent; color:var(--navy);
+  padding:14px 30px; border-radius:50px;
+  font-weight:600; font-size:0.95rem; text-decoration:none;
+  border:2px solid rgba(26,46,74,.2); transition:all .3s;
+}
+.hero-btn-ghost:hover { border-color:var(--ozone); color:var(--ozone-dark); transform:translateY(-2px); }
+.hero-right { display:flex; justify-content:center; }
+.hero-oval-wrap {
+  position:relative; width:420px; max-width:100%;
+}
+.hero-oval-inner {
+  border-radius:60% 60% 60% 60% / 50% 50% 50% 50%;
+  overflow:hidden; width:100%; aspect-ratio:3/4;
+  box-shadow:0 30px 80px rgba(26,46,74,.2);
+}
+.hero-oval-inner img { width:100%; height:100%; object-fit:cover; object-position:center top; }
+.oval-badge {
+  position:absolute; background:white;
+  border-radius:50px; padding:10px 20px;
+  box-shadow:0 8px 30px rgba(26,46,74,.15);
+  display:flex; align-items:center; gap:8px;
+  font-size:0.8rem; font-weight:600; color:var(--navy);
+}
+.oval-badge-top { top:20px; left:-30px; }
+.oval-badge-bot { bottom:30px; right:-20px; background:var(--navy); color:white; }
+.hero-dots { display:flex; gap:8px; }
+.hero-dot { width:8px; height:8px; border-radius:50%; background:rgba(26,46,74,.2); cursor:pointer; transition:.3s; }
+.hero-dot.active { background:var(--ozone-dark); width:24px; border-radius:4px; }
+.hero-slide { display:none; }
+.hero-slide.active { display:block; }
 
-/* ===== TRUST BAR ===== */
-.trust-bar { background:white; border-bottom:1px solid #eef3f8; padding:18px 5%; display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; }
-.trust-item { display:flex; align-items:center; gap:8px; font-size:0.86rem; font-weight:600; color:var(--navy); }
-.trust-item span { font-size:1rem; }
+/* ===== QUALITY / ABOUT SECTION ===== */
+.quality-section { padding:100px 5%; background:var(--white); }
+.quality-inner { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
 
-/* ===== QUALITY SECTION ===== */
-.quality-section { padding:100px 5%; background:white; }
-.quality-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-.quality-imgs { position:relative; }
-.qi-main { width:100%; border-radius:20px; aspect-ratio:4/5; object-fit:cover; }
-.qi-badge { position:absolute; bottom:-20px; right:-20px; background:var(--navy); color:white; border-radius:16px; padding:18px 22px; font-size:0.85rem; font-weight:600; box-shadow:var(--shadow-lg); }
-.qi-badge-num { font-size:1.8rem; font-weight:800; font-family:'Playfair Display',serif; color:var(--sky); margin-bottom:4px; }
-.qc-list { display:flex; flex-direction:column; gap:18px; margin:2rem 0; }
-.qc-item { display:flex; gap:14px; align-items:flex-start; }
-.qc-dot { width:20px; height:20px; min-width:20px; background:var(--light-green); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-top:2px; }
-.qc-dot::after { content:''; width:8px; height:8px; background:var(--green); border-radius:50%; display:block; }
-.qc-item h4 { font-weight:700; color:var(--navy); font-size:0.97rem; }
-.qc-item p { color:var(--muted); font-size:0.88rem; line-height:1.65; margin-top:3px; }
+/* ===== PATIENT NOTE ===== */
+.patient-note-section { position:relative; background:linear-gradient(135deg,#0a1f44 0%,#0d3b6e 50%,#003d7a 100%); padding:90px 5%; overflow:hidden; }
+.pn-bg-blobs { position:absolute; inset:0; pointer-events:none; }
+.pn-blob { position:absolute; border-radius:50%; filter:blur(80px); opacity:.25; }
+.pn-blob1 { width:400px; height:400px; background:#00b4d8; top:-100px; left:-80px; }
+.pn-blob2 { width:300px; height:300px; background:#2d9e5f; bottom:-60px; right:10%; }
+.pn-blob3 { width:200px; height:200px; background:#0077b6; top:40%; right:-50px; }
+.pn-inner { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; position:relative; z-index:2; }
+.pn-tag { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:50px; padding:6px 16px; margin-bottom:20px; color:rgba(255,255,255,.9); font-size:.72rem; font-weight:700; letter-spacing:.8px; text-transform:uppercase; }
+.pn-tag-dot { width:7px; height:7px; background:#00e5b0; border-radius:50%; display:inline-block; animation:pn-pulse 2s infinite; }
+@keyframes pn-pulse { 0%,100% { box-shadow:0 0 0 0 rgba(0,229,176,.5); } 50% { box-shadow:0 0 0 6px rgba(0,229,176,0); } }
+.pn-quote-mark { font-size:7rem; line-height:.7; color:rgba(255,255,255,.08); font-family:Georgia,serif; margin-bottom:-10px; }
+.pn-heading { font-size:2rem; font-weight:800; color:white; line-height:1.25; margin-bottom:1.2rem; font-family:'Playfair Display',serif; }
+.pn-body { color:rgba(255,255,255,.75); font-size:.93rem; line-height:1.9; margin-bottom:1rem; }
+.pn-body strong { color:white; }
+.pn-cta { margin-top:1.5rem; display:inline-block; }
+.pn-promise-cards { display:flex; flex-direction:column; gap:14px; margin-bottom:28px; }
+.pn-pcard { display:flex; gap:16px; align-items:flex-start; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:18px 20px; backdrop-filter:blur(8px); transition:background .25s,transform .25s; }
+.pn-pcard:hover { background:rgba(255,255,255,.12); transform:translateX(5px); }
+.pn-pcard-icon { font-size:1.6rem; flex-shrink:0; width:44px; height:44px; background:rgba(255,255,255,.1); border-radius:12px; display:flex; align-items:center; justify-content:center; }
+.pn-pcard-title { color:white; font-weight:700; font-size:.88rem; margin-bottom:4px; }
+.pn-pcard-desc { color:rgba(255,255,255,.65); font-size:.78rem; line-height:1.6; }
+.pn-signoff { display:flex; align-items:center; gap:16px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:16px; padding:18px 22px; backdrop-filter:blur(8px); }
+.pn-doc-img { width:58px; height:58px; border-radius:50%; object-fit:cover; object-position:top; border:2px solid rgba(255,255,255,.3); flex-shrink:0; }
+.pn-doc-name { color:white; font-weight:700; font-size:.95rem; }
+.pn-doc-creds { color:rgba(255,255,255,.55); font-size:.72rem; margin:.2rem 0 .4rem; }
+.pn-signature { color:#00e5b0; font-size:.78rem; font-style:italic; font-weight:500; }
 
-/* ===== WHY US ===== */
-.why-section { padding:100px 5%; background:var(--gray); }
-.mva-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:3rem; }
-.mva-card { background:white; border-radius:20px; padding:32px; box-shadow:var(--shadow); transition:all .3s; border:1px solid rgba(26,111,181,.05); }
-.mva-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
-.mva-card-icon { font-size:2rem; margin-bottom:1rem; width:56px; height:56px; background:var(--light); border-radius:14px; display:flex; align-items:center; justify-content:center; }
-.mva-card h3 { font-family:'Playfair Display',serif; font-size:1.15rem; color:var(--navy); margin-bottom:0.6rem; }
-.mva-card p { color:var(--muted); font-size:0.9rem; line-height:1.7; }
-.mva-cta-banner { display:flex; align-items:center; justify-content:space-between; gap:2rem; background:var(--navy); border-radius:20px; padding:28px 36px; margin-top:2.5rem; flex-wrap:wrap; }
-.mcb-left { display:flex; align-items:center; gap:20px; }
-.mcb-icon { font-size:2rem; }
-.mcb-text h3 { color:white; font-family:'Playfair Display',serif; font-size:1.25rem; }
-.mcb-text p { color:rgba(255,255,255,.6); font-size:0.88rem; margin-top:4px; }
+/* ===== SERVICES GRID ===== */
+.services-section { padding:100px 5%; background:var(--gray); }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
+.service-card {
+  background:white; border-radius:24px; overflow:hidden;
+  box-shadow:var(--shadow); transition:all .35s; cursor:pointer;
+}
+.service-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+.service-img { width:100%; height:200px; object-fit:cover; }
+.service-body { padding:24px; }
+.service-icon { font-size:1.8rem; margin-bottom:12px; }
+.service-title { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--navy); margin-bottom:8px; }
+.service-desc { color:var(--muted); font-size:.875rem; line-height:1.7; }
+.service-tag { display:inline-block; background:rgba(0,180,216,.1); color:var(--ozone-dark); border-radius:50px; padding:4px 12px; font-size:.72rem; font-weight:600; margin-top:14px; }
 
-/* ===== SERVICES CARDS ===== */
-.services-home-section { padding:100px 5%; background:white; }
-.shc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:2.5rem; }
-.shc-card { border-radius:20px; overflow:hidden; position:relative; aspect-ratio:4/5; cursor:pointer; }
-.shc-bg-img { position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .7s cubic-bezier(0.4,0,0.2,1); }
-.shc-card:hover .shc-bg-img { transform:scale(1.06); }
-.shc-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(10,30,60,.85) 40%,rgba(10,30,60,.2)); }
-.shc-content { position:absolute; bottom:0; left:0; right:0; padding:28px 24px; color:white; }
-.shc-icon-wrap { font-size:1.8rem; margin-bottom:0.8rem; width:50px; height:50px; background:rgba(255,255,255,.15); backdrop-filter:blur(10px); border-radius:12px; display:flex; align-items:center; justify-content:center; }
-.shc-content h3 { font-family:'Playfair Display',serif; font-size:1.25rem; margin-bottom:0.4rem; }
-.shc-content p { font-size:0.84rem; color:rgba(255,255,255,.72); line-height:1.6; margin-bottom:1rem; }
-.shc-arrow { width:36px; height:36px; background:rgba(255,255,255,.15); backdrop-filter:blur(8px); border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1rem; transition:background .2s,transform .2s; }
-.shc-card:hover .shc-arrow { background:var(--green); transform:translateX(4px); }
+/* ===== STEPS RECOVERY ===== */
+.steps6-section { padding:100px 5%; background:var(--white); position:relative; overflow:hidden; }
+.steps6-bg-accent { position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--ozone),var(--green),var(--blue)); }
+.steps6-timeline { display:flex; flex-direction:column; gap:0; }
+.s6-row { display:grid; grid-template-columns:1fr 80px 1fr; align-items:stretch; }
+.s6-card { background:white; border-radius:20px; padding:32px; box-shadow:var(--shadow); border:1px solid rgba(26,46,74,.06); transition:all .3s; }
+.s6-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+.s6-card-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
+.s6-icon-wrap { width:52px; height:52px; border-radius:16px; display:flex; align-items:center; justify-content:center; }
+.s6-icon-wrap svg { width:36px; height:36px; }
+.s6-icon-blue { background:rgba(0,180,216,.1); }
+.s6-icon-teal { background:rgba(26,107,60,.1); }
+.s6-icon-navy { background:rgba(26,46,74,.08); }
+.s6-step-badge { border-radius:8px; padding:4px 12px; font-size:.72rem; font-weight:700; letter-spacing:.05em; }
+.s6-badge-blue { background:rgba(0,180,216,.12); color:var(--ozone-dark); }
+.s6-badge-teal { background:rgba(26,107,60,.1); color:var(--green); }
+.s6-badge-navy { background:rgba(26,46,74,.08); color:var(--navy); }
+.s6-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--navy); margin-bottom:8px; }
+.s6-desc { color:var(--muted); font-size:.875rem; line-height:1.75; margin-bottom:14px; }
+.s6-tags { display:flex; gap:6px; flex-wrap:wrap; }
+.s6-tag { background:var(--gray); color:var(--navy); border-radius:50px; padding:4px 12px; font-size:.72rem; font-weight:600; }
+.s6-spine-col { display:flex; flex-direction:column; align-items:center; }
+.s6-node { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.9rem; color:white; flex-shrink:0; margin-top:32px; z-index:2; }
+.s6-node-blue { background:linear-gradient(135deg,var(--ozone),var(--blue)); box-shadow:0 6px 20px rgba(0,180,216,.4); }
+.s6-node-teal { background:linear-gradient(135deg,var(--green),var(--mint)); box-shadow:0 6px 20px rgba(26,107,60,.4); }
+.s6-node-navy { background:linear-gradient(135deg,var(--navy),var(--blue)); box-shadow:0 6px 20px rgba(26,46,74,.3); }
+.s6-vline { flex:1; width:2px; background:linear-gradient(180deg,rgba(0,180,216,.3),rgba(26,46,74,.1)); }
+.s6-spacer { background:transparent; }
 
-/* ===== PAIN SECTION ===== */
-.pain-section { padding:100px 5%; background:linear-gradient(135deg,var(--navy),#102a50); position:relative; overflow:hidden; }
-.pain-bg-img { position:absolute; inset:0; background:url('images/session1.jpg') center/cover no-repeat; opacity:0.18; }
-.pain-inner { position:relative; z-index:1; max-width:1200px; margin:0 auto; }
-.pain-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:60px; align-items:center; }
-.pain-list { margin-top:1.5rem; }
-.attn-row { display:flex; align-items:center; gap:14px; padding:13px 28px; border-bottom:1px solid rgba(255,255,255,0.08); color:white; font-size:0.92rem; font-weight:500; cursor:pointer; transition:all .25s ease; position:relative; }
-.attn-row::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--sky); transform:scaleY(0); transition:transform .25s; border-radius:0 3px 3px 0; }
-.attn-row:hover { background:rgba(255,255,255,.04); padding-left:34px; }
-.attn-row:hover::before { transform:scaleY(1); }
-.attn-icon { font-size:1.3rem; }
-.pain-right { display:flex; flex-direction:column; gap:16px; }
-.pain-card { background:rgba(255,255,255,.07); backdrop-filter:blur(10px); border-radius:16px; padding:22px; border:1px solid rgba(255,255,255,.1); transition:.3s; display:flex; gap:16px; align-items:flex-start; }
-.pain-card:hover { background:rgba(255,255,255,.12); transform:translateX(6px); }
-.pain-card-img { width:80px; height:80px; border-radius:12px; object-fit:cover; flex-shrink:0; }
-.pain-card h4 { color:white; font-weight:700; font-size:0.97rem; margin-bottom:5px; }
-.pain-card p { color:rgba(255,255,255,.6); font-size:0.83rem; line-height:1.6; }
+/* ===== DYNAMIC STATS ===== */
+.dynamic-stats-section { background:linear-gradient(135deg,var(--navy) 0%,var(--ozone-dark) 100%); padding:70px 5%; position:relative; overflow:hidden; }
+.ds-bg-overlay { position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.ds-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:30px; position:relative; z-index:1; }
+.ds-stat { text-align:center; flex:1; min-width:140px; }
+.ds-icon { font-size:2rem; margin-bottom:12px; }
+.ds-num { font-size:2.8rem; font-weight:800; color:white; font-family:'Playfair Display',serif; line-height:1; }
+.ds-label { color:rgba(255,255,255,.65); font-size:.82rem; margin-top:6px; }
+.ds-divider { width:1px; height:60px; background:rgba(255,255,255,.15); }
 
-/* ===== STEPS ===== */
-.steps-section { padding:100px 5%; background:white; }
-.steps-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:2.5rem; }
-.step-card { background:var(--gray); border-radius:20px; padding:32px 24px; text-align:center; position:relative; transition:.3s; }
-.step-card:hover { background:var(--navy); color:white; transform:translateY(-6px); }
-.step-num { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:800; color:var(--blue); opacity:0.25; line-height:1; }
-.step-card:hover .step-num { color:rgba(255,255,255,.2); }
-.step-icon { font-size:2rem; margin:10px 0; }
-.step-card h3 { font-weight:700; font-size:1rem; color:var(--navy); margin-bottom:0.5rem; }
-.step-card:hover h3 { color:white; }
-.step-card p { font-size:0.86rem; color:var(--muted); line-height:1.65; }
-.step-card:hover p { color:rgba(255,255,255,.65); }
+/* ===== LOCATIONS SECTION ===== */
+.locations-section { padding:100px 5%; background:var(--gray); }
+.locations-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:50px; }
+.loc-card {
+  background:white; border-radius:20px; padding:28px;
+  box-shadow:var(--shadow); border:1px solid rgba(26,46,74,.06);
+  transition:all .3s;
+}
+.loc-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+.loc-num { width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg,var(--ozone),var(--blue)); color:white; font-weight:800; font-size:.95rem; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+.loc-name { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.loc-addr { color:var(--muted); font-size:.82rem; line-height:1.7; margin-bottom:14px; }
+.loc-link { display:inline-flex; align-items:center; gap:6px; color:var(--ozone-dark); font-size:.8rem; font-weight:600; text-decoration:none; }
+.loc-link:hover { color:var(--green); }
+
+/* ===== TEAM SECTION ===== */
+.team-section { padding:100px 5%; background:var(--white); }
+.team-featured { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; margin-bottom:80px; }
+.team-img-wrap { position:relative; }
+.team-img-main { width:100%; border-radius:28px; object-fit:cover; aspect-ratio:4/5; box-shadow:0 30px 80px rgba(26,46,74,.2); }
+.team-badge { position:absolute; bottom:24px; left:24px; background:rgba(255,255,255,.15); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.25); border-radius:14px; padding:14px 20px; }
+.team-badge-title { color:rgba(255,255,255,.8); font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.team-badge-name { color:white; font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; margin-top:4px; }
+.cred-badge { display:inline-flex; align-items:center; gap:6px; background:var(--gray); border-radius:50px; padding:6px 14px; font-size:.8rem; font-weight:600; color:var(--navy); margin:4px; }
 
 /* ===== TESTIMONIALS ===== */
 .testimonials-section { padding:100px 5%; background:var(--gray); }
-.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:2.5rem; }
-.testi-card { background:white; border-radius:20px; padding:30px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:16px; transition:.3s; }
-.testi-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
-.testi-stars { color:#FFB300; font-size:0.9rem; }
-.testi-text { color:var(--muted); font-size:0.92rem; line-height:1.75; font-style:italic; flex:1; }
-.testi-author { display:flex; align-items:center; gap:12px; margin-top:auto; }
-.ta-avatar { width:44px; height:44px; border-radius:50%; background:var(--navy); color:white; font-weight:700; font-size:0.9rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-.ta-name { font-weight:700; color:var(--navy); font-size:0.9rem; }
-.ta-sub { font-size:0.78rem; color:var(--muted); }
-.testi-stats-row { display:flex; justify-content:center; gap:40px; margin:1.5rem 0 2rem; flex-wrap:wrap; }
-.ts-stat { text-align:center; }
-.ts-num { font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:800; color:var(--navy); line-height:1; }
-.ts-label { font-size:0.82rem; color:var(--muted); margin-top:5px; }
-
-/* ===== GALLERY ===== */
-.gallery-section { padding:100px 5%; background:white; overflow:hidden; }
-.gallery-scroll { display:flex; gap:16px; overflow-x:auto; padding-bottom:16px; scroll-behavior:smooth; }
-.gallery-scroll::-webkit-scrollbar { height:4px; }
-.gallery-scroll::-webkit-scrollbar-thumb { background:var(--light); border-radius:4px; }
-.gallery-item { flex-shrink:0; width:280px; height:320px; border-radius:16px; overflow:hidden; position:relative; cursor:pointer; }
-.gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform .5s; }
-.gallery-item:hover img { transform:scale(1.06); }
-.gallery-item-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(10,30,60,.6),transparent); opacity:0; transition:.3s; display:flex; align-items:flex-end; padding:16px; }
-.gallery-item:hover .gallery-item-overlay { opacity:1; }
-.gallery-item-label { color:white; font-size:0.82rem; font-weight:600; }
-
-/* ===== STATS ===== */
-.stats-section { padding:80px 5%; background:linear-gradient(135deg,var(--navy),#102a50); position:relative; overflow:hidden; }
-.ds-bg-overlay { position:absolute; inset:0; background:url('images/session5.jpg') center/cover no-repeat; opacity:0.06; }
-.ds-inner { position:relative; z-index:2; display:flex; align-items:center; justify-content:center; gap:0; flex-wrap:wrap; }
-.ds-stat { padding:24px 50px; text-align:center; position:relative; }
-.ds-stat:not(:last-child)::after { content:''; position:absolute; right:0; top:20%; height:60%; width:1px; background:rgba(255,255,255,.12); }
-.ds-num { font-family:'Playfair Display',serif; font-size:3rem; font-weight:800; color:white; line-height:1; }
-.ds-label { font-size:0.82rem; color:rgba(255,255,255,.55); margin-top:8px; letter-spacing:0.3px; }
-.ds-icon { font-size:1.4rem; margin-bottom:8px; }
-
-/* ===== ABOUT PAGE ===== */
-.dr-profile-section { padding:90px 5%; background:white; }
-.dr-profile-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1.5fr; gap:70px; align-items:start; }
-.dr-img-wrap { position:sticky; top:120px; }
-.dr-img-wrap img { width:100%; border-radius:24px; object-fit:cover; aspect-ratio:3/4; }
-.dr-qual-list { display:flex; flex-direction:column; gap:16px; margin:1.5rem 0 2rem; }
-.dr-qual-item { display:flex; gap:14px; }
-.dqi-dot { width:8px; height:8px; border-radius:50%; background:var(--green); flex-shrink:0; margin-top:6px; }
-.dr-qual-item strong { display:block; color:var(--navy); font-size:0.95rem; }
-.dr-qual-item span { display:block; color:var(--muted); font-size:0.85rem; margin-top:2px; }
-
-/* ===== TEAM PAGE ===== */
-.team-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
-.team-card { background:white; border-radius:20px; overflow:hidden; box-shadow:var(--shadow); transition:.3s; }
-.team-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
-.team-card-img { width:100%; aspect-ratio:1; object-fit:cover; }
-.team-card-body { padding:20px; }
-.team-card-body h3 { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--navy); }
-.team-card-body .role { font-size:0.82rem; color:var(--green); font-weight:600; margin:4px 0; }
-.team-card-body p { font-size:0.82rem; color:var(--muted); line-height:1.6; }
-
-/* ===== BOOKING ===== */
-.booking-wrap { display:grid; grid-template-columns:1fr 1.5fr; gap:50px; align-items:start; max-width:1000px; margin:0 auto; }
-.booking-info { background:var(--navy); border-radius:24px; padding:40px; color:white; }
-.booking-info h3 { font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:2rem; }
-.bi-item { display:flex; gap:14px; margin-bottom:1.5rem; align-items:flex-start; }
-.bi-icon { font-size:1.2rem; flex-shrink:0; margin-top:2px; }
-.bi-text strong { display:block; color:rgba(255,255,255,.9); font-size:0.9rem; }
-.bi-text span { display:block; color:rgba(255,255,255,.55); font-size:0.83rem; margin-top:3px; line-height:1.6; }
-.booking-form { background:white; border-radius:24px; padding:40px; box-shadow:var(--shadow); }
-.form-group { margin-bottom:1.2rem; }
-.form-group label { display:block; font-weight:600; font-size:0.85rem; color:var(--navy); margin-bottom:6px; }
-.form-group input, .form-group select, .form-group textarea {
-  width:100%; padding:13px 16px; border:1.5px solid #dde8f2; border-radius:12px;
-  font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--text);
-  background:var(--gray); transition:.2s; outline:none;
-}
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--blue); background:white; }
-.form-group textarea { resize:vertical; min-height:100px; }
-
-/* ===== CONTACT ===== */
-.contact-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:50px; align-items:start; max-width:1000px; margin:0 auto; }
-.contact-info-card { background:var(--navy); border-radius:24px; padding:40px; color:white; }
-.contact-info-card h3 { font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:2rem; }
-.ci-item { display:flex; gap:14px; margin-bottom:1.5rem; align-items:flex-start; }
-.ci-icon { font-size:1.2rem; flex-shrink:0; margin-top:2px; }
-.ci-text strong { display:block; color:rgba(255,255,255,.9); font-size:0.9rem; }
-.ci-text span { display:block; color:rgba(255,255,255,.55); font-size:0.83rem; margin-top:3px; line-height:1.5; }
-.map-embed { border-radius:16px; overflow:hidden; margin-top:1.5rem; }
-.map-embed iframe { width:100%; height:300px; border:none; display:block; }
-
-/* ===== FAQ ===== */
-.faq-section { padding:100px 5%; background:white; }
-.faq-list { max-width:760px; margin:2rem auto 0; }
-.faq-item { border:1.5px solid #e8f0f8; border-radius:14px; margin-bottom:12px; overflow:hidden; }
-.faq-q { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; cursor:pointer; font-weight:600; color:var(--navy); font-size:0.95rem; transition:.2s; }
-.faq-q:hover { background:var(--gray); }
-.faq-toggle { font-size:1.2rem; color:var(--blue); transition:transform .3s; flex-shrink:0; }
-.faq-item.open .faq-toggle { transform:rotate(45deg); }
-.faq-a { max-height:0; overflow:hidden; transition:max-height .4s ease; }
-.faq-a-inner { padding:0 24px 20px; color:var(--muted); font-size:0.9rem; line-height:1.75; }
-.faq-item.open .faq-a { max-height:400px; }
+.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
+.testi-card { background:white; border-radius:20px; padding:28px; box-shadow:var(--shadow); border:1px solid rgba(26,46,74,.05); transition:all .3s; }
+.testi-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+.testi-stars { color:#f59e0b; font-size:1rem; margin-bottom:14px; }
+.testi-text { color:var(--text); font-size:.9rem; line-height:1.8; margin-bottom:18px; font-style:italic; }
+.testi-author { display:flex; align-items:center; gap:12px; }
+.testi-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--ozone),var(--blue)); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1rem; flex-shrink:0; }
+.testi-name { font-weight:700; font-size:.9rem; color:var(--navy); }
+.testi-role { font-size:.75rem; color:var(--muted); }
 
 /* ===== FINAL CTA ===== */
-.final-cta { padding:100px 5%; background:linear-gradient(135deg,var(--navy),var(--blue)); text-align:center; position:relative; overflow:hidden; }
-.final-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center,rgba(33,150,243,.15) 0%,transparent 70%); }
-.final-cta-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; }
-.final-cta h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); color:white; margin-bottom:1.2rem; }
-.final-cta p { color:rgba(255,255,255,.7); font-size:1.05rem; line-height:1.8; margin-bottom:2rem; }
-.final-cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.final-cta {
+  background:linear-gradient(135deg,var(--navy) 0%,var(--ozone-dark) 100%);
+  padding:100px 5%; text-align:center; position:relative; overflow:hidden;
+}
+.fca-orb { position:absolute; border-radius:50%; filter:blur(80px); opacity:.2; }
+.fca-orb1 { width:400px; height:400px; background:var(--ozone); top:-100px; right:-80px; }
+.fca-orb2 { width:300px; height:300px; background:var(--green); bottom:-80px; left:-60px; }
+
+/* ===== BOOKING PAGE ===== */
+.booking-form-section { padding:60px 5%; }
+.booking-inner { max-width:700px; margin:0 auto; }
+.form-card { background:white; border-radius:24px; padding:40px; box-shadow:var(--shadow-lg); border:1px solid rgba(26,46,74,.06); }
+.form-group { margin-bottom:20px; }
+.form-group label { display:block; font-weight:600; font-size:.88rem; color:var(--navy); margin-bottom:6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width:100%; padding:12px 16px; border:1.5px solid rgba(26,46,74,.12);
+  border-radius:12px; font-family:'DM Sans',sans-serif; font-size:.9rem;
+  color:var(--text); background:var(--gray); transition:.2s;
+  outline:none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--ozone); background:white; }
+.form-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-submit {
+  width:100%; padding:15px; background:var(--green); color:white;
+  border:none; border-radius:50px; font-family:'DM Sans',sans-serif;
+  font-size:1rem; font-weight:700; cursor:pointer; transition:.3s;
+}
+.form-submit:hover { background:var(--navy); box-shadow:0 12px 30px rgba(26,107,60,.35); }
+
+/* ===== CONTACT PAGE ===== */
+.contact-section { padding:60px 5%; }
+.contact-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; max-width:1100px; margin:0 auto; }
+.contact-info-card { background:white; border-radius:20px; padding:32px; box-shadow:var(--shadow); border:1px solid rgba(26,46,74,.06); margin-bottom:20px; }
+.ci-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:var(--navy); margin-bottom:12px; }
+.ci-item { display:flex; align-items:center; gap:12px; color:var(--muted); font-size:.88rem; margin-bottom:8px; }
 
 /* ===== FOOTER ===== */
 footer {
-  background:var(--navy); color:rgba(255,255,255,.65);
-  padding:70px 5% 0;
+  background:var(--navy); color:rgba(255,255,255,.75);
+  padding:60px 5% 30px;
 }
-.footer-inner { display:grid; grid-template-columns:1.4fr 1fr 1.3fr 1.2fr; gap:40px; max-width:1200px; margin:0 auto; padding-bottom:50px; }
-.footer-brand p { font-size:0.85rem; line-height:1.7; color:rgba(255,255,255,.45); max-width:260px; margin-bottom:1.5rem; }
-.footer-socials { display:flex; gap:10px; }
-.fs-btn { width:38px; height:38px; background:rgba(255,255,255,.08); border-radius:10px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1rem; transition:.2s; }
-.fs-btn:hover { background:rgba(255,255,255,.18); transform:translateY(-2px); }
-.footer-col h4 { color:white; font-weight:700; font-size:0.88rem; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:1.5rem; position:relative; padding-bottom:0.75rem; }
-.footer-col h4::after { content:''; position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--sky); border-radius:2px; transition:.3s; }
-.footer-col:hover h4::after { width:60px; }
-.footer-col ul li { margin-bottom:0.65rem; }
-.footer-col ul li a { color:rgba(255,255,255,.45); text-decoration:none; font-size:0.86rem; transition:all .3s ease; display:inline-block; }
-.footer-col ul li a:hover { color:var(--sky); transform:translateX(6px); }
-.footer-bottom { border-top:1px solid rgba(255,255,255,.07); padding:20px 0; max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; flex-wrap:wrap; gap:12px; }
-.footer-logo-row { display:flex; align-items:center; gap:12px; margin-bottom:1.2rem; }
-.footer-logo-icon { width:42px; height:42px; border-radius:10px; background:linear-gradient(135deg,var(--green),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+.footer-inner { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+.footer-brand-name { font-family:'Playfair Display',serif; font-weight:800; font-size:1.3rem; color:white; margin-bottom:6px; }
+.footer-brand-tagline { font-size:.78rem; color:rgba(255,255,255,.5); margin-bottom:16px; }
+.footer-desc { font-size:.84rem; line-height:1.9; color:rgba(255,255,255,.6); max-width:280px; }
+.footer-col-title { color:white; font-weight:700; font-size:.88rem; margin-bottom:16px; letter-spacing:.5px; }
+.footer-link { display:block; color:rgba(255,255,255,.6); font-size:.84rem; margin-bottom:8px; text-decoration:none; cursor:pointer; transition:.2s; }
+.footer-link:hover { color:var(--ozone); transform:translateX(4px); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.08); padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+.footer-copy { font-size:.8rem; color:rgba(255,255,255,.4); }
+.social-icons { display:flex; gap:10px; }
+.social-icon { width:38px; height:38px; border-radius:10px; background:rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; font-size:1rem; cursor:pointer; transition:.2s; text-decoration:none; color:rgba(255,255,255,.7); }
+.social-icon:hover { background:var(--ozone-dark); color:white; }
 
-/* ===== WHATSAPP FLOAT ===== */
-.wa-float { position:fixed; bottom:28px; right:28px; z-index:999; }
-.wa-float-btn { width:60px; height:60px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.6rem; text-decoration:none; box-shadow:0 8px 25px rgba(37,211,102,.5); transition:.3s; animation:waPulse 2.5s infinite; }
-.wa-float-btn:hover { transform:scale(1.1); background:#128C7E; }
-@keyframes waPulse { 0%,100%{box-shadow:0 8px 25px rgba(37,211,102,.5)} 50%{box-shadow:0 8px 40px rgba(37,211,102,.8)} }
+/* ===== FLOATING WHATSAPP ===== */
+.float-wa {
+  position:fixed; bottom:28px; right:28px; z-index:900;
+  background:#25D366; color:white; border-radius:50%;
+  width:58px; height:58px; display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem; box-shadow:0 8px 24px rgba(37,211,102,.5);
+  text-decoration:none; transition:.3s;
+}
+.float-wa:hover { background:#128C7E; transform:scale(1.1); }
 
-/* ===== MOBILE MENU ===== */
-.mobile-menu { display:none; position:fixed; inset:0; z-index:999; background:rgba(10,25,50,.95); padding:100px 5% 40px; overflow-y:auto; flex-direction:column; gap:8px; }
-.mobile-menu.open { display:flex; }
-.mm-link { display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-radius:12px; text-decoration:none; color:white; font-weight:600; font-size:1rem; border-bottom:1px solid rgba(255,255,255,.06); }
-.mm-link:hover { background:rgba(255,255,255,.06); }
+/* ===== AOS-LIKE REVEAL ===== */
+[data-reveal] { opacity:0; transform:translateY(30px); transition:opacity .7s ease,transform .7s ease; }
+[data-reveal].visible { opacity:1; transform:none; }
+[data-reveal-left] { opacity:0; transform:translateX(-40px); transition:opacity .7s ease,transform .7s ease; }
+[data-reveal-left].visible { opacity:1; transform:none; }
+[data-reveal-right] { opacity:0; transform:translateX(40px); transition:opacity .7s ease,transform .7s ease; }
+[data-reveal-right].visible { opacity:1; transform:none; }
 
-/* ===== TOAST ===== */
-.toast { position:fixed; bottom:100px; left:50%; transform:translateX(-50%) translateY(100px); background:var(--navy); color:white; padding:14px 28px; border-radius:50px; font-weight:600; font-size:0.9rem; box-shadow:var(--shadow-lg); z-index:9999; transition:all .4s; opacity:0; }
-.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+/* ===== MEDIA SECTION ===== */
+.media-section { padding:100px 5%; background:white; overflow:hidden; }
+.photo-mosaic { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:48px; }
+.mosaic-item { border-radius:16px; overflow:hidden; cursor:pointer; aspect-ratio:1; }
+.mosaic-item.tall { grid-row:span 2; aspect-ratio:auto; }
+.mosaic-item img { width:100%; height:100%; object-fit:cover; transition:.4s; }
+.mosaic-item:hover img { transform:scale(1.06); }
 
-/* ===== ANIMATIONS (Framer Motion fallback + scroll triggers) ===== */
-[data-fm] { opacity:0; }
-[data-fm].fm-done { opacity:1; }
+/* ===== PAIN CONDITIONS ===== */
+.conditions-section { padding:100px 5%; background:var(--white); }
+.conditions-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:50px; }
+.cond-card { background:var(--gray); border-radius:18px; padding:24px 20px; text-align:center; transition:.3s; cursor:pointer; }
+.cond-card:hover { background:var(--light); transform:translateY(-4px); box-shadow:var(--shadow); }
+.cond-img { width:64px; height:64px; margin:0 auto 14px; }
+.cond-name { font-weight:700; font-size:.9rem; color:var(--navy); }
+
+/* ===== GALLERY LIGHTBOX ===== */
+#photo-lightbox { display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:9999; background:rgba(8,18,36,.97); }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px) {
-  .shc-grid { grid-template-columns:repeat(2,1fr); }
-  .mva-grid { grid-template-columns:repeat(2,1fr); }
-  .steps-grid { grid-template-columns:repeat(2,1fr); }
-  .quality-inner { gap:40px; }
+  .services-grid { grid-template-columns:repeat(2,1fr); }
+  .conditions-grid { grid-template-columns:repeat(2,1fr); }
+  .footer-inner { grid-template-columns:1fr 1fr; }
 }
 @media(max-width:768px) {
-  .nav-links, .nav-actions .nav-book-btn { display:none; }
-  .hamburger { display:flex; }
-  .hero-inner { flex-direction:column; padding:60px 0 40px; }
+  .top-bar .top-right { display:none; }
+  .hero-inner { grid-template-columns:1fr; }
   .hero-right { display:none; }
-  .top-bar .tb-items { display:none; }
-  .trust-bar { gap:18px; }
   .quality-inner { grid-template-columns:1fr; }
-  .pain-grid { grid-template-columns:1fr; }
-  .shc-grid { grid-template-columns:1fr; }
-  .mva-grid { grid-template-columns:1fr; }
-  .steps-grid { grid-template-columns:1fr 1fr; }
+  .pn-inner { grid-template-columns:1fr; gap:40px; }
+  .s6-row { grid-template-columns:1fr; }
+  .s6-spine-col, .s6-spacer { display:none; }
+  .services-grid { grid-template-columns:1fr; }
+  .team-featured { grid-template-columns:1fr; }
   .testi-grid { grid-template-columns:1fr; }
-  .team-grid { grid-template-columns:repeat(2,1fr); }
-  .footer-inner { grid-template-columns:1fr 1fr; }
-  .dr-profile-inner { grid-template-columns:1fr; }
-  .booking-wrap, .contact-grid { grid-template-columns:1fr; }
-  .ds-inner { gap:0; }
-  .ds-stat { padding:18px 28px; }
-  .mva-cta-banner { flex-direction:column; text-align:center; }
-  .final-cta-btns { flex-direction:column; align-items:center; }
-  .hero-stats { gap:20px; }
+  .contact-inner { grid-template-columns:1fr; }
+  .footer-inner { grid-template-columns:1fr 1fr; gap:32px; }
+  .locations-grid { grid-template-columns:1fr; }
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  .conditions-grid { grid-template-columns:repeat(2,1fr); }
+  .photo-mosaic { grid-template-columns:repeat(2,1fr); }
+  .mosaic-item.tall { grid-row:span 1; }
+  .ds-inner { justify-content:center; }
+  .ds-divider { display:none; }
 }
 @media(max-width:480px) {
-  .steps-grid { grid-template-columns:1fr; }
-  .team-grid { grid-template-columns:1fr 1fr; }
   .footer-inner { grid-template-columns:1fr; }
+  .form-grid-2 { grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -512,392 +560,410 @@ footer {
 
 <!-- TOP BAR -->
 <div class="top-bar">
-  <div class="tb-items">
-    <div class="tb-item">📍 <span>Alwar, Rajasthan</span></div>
-    <div class="tb-item">📞 <a href="tel:+919462591098">+91 94625 91098</a></div>
-    <div class="tb-item">🕐 <span>Mon–Sat: 9 AM – 8 PM</span></div>
-  </div>
-  <div class="tb-item" style="display:flex;gap:12px;">
-    <a href="https://wa.me/919462591098" target="_blank" style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.78rem;">💬 WhatsApp</a>
-    <a href="https://maps.app.goo.gl/zubhZPbdfSnZEMMD8" target="_blank" style="color:rgba(255,255,255,.8);text-decoration:none;font-size:.78rem;">🗺 Get Directions</a>
+  <div>📍 Prahlad Nagar · Thaltej · South Bopal · Ambawadi · Science City · Mumbai</div>
+  <div class="top-right">
+    <a href="tel:918128700700">📞 +91 81287 00700</a> &nbsp;|&nbsp;
+    <span>Mon–Sat 8AM–8PM</span>
   </div>
 </div>
 
 <!-- NAVBAR -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#" onclick="showPage('home');return false;" class="nav-logo">
-      <div class="nav-logo-icon">🏥</div>
+    <a href="#" class="nav-logo" onclick="showPage('home');return false;">
+      <img src="images/logo.webp" alt="O3 Physio" class="nav-logo-img">
       <div class="nav-brand-text">
-        <span class="nav-brand-name">Riddhi Medical</span>
-        <span class="nav-brand-tagline">Trusted Healthcare, Alwar</span>
+        <span class="nav-brand-name">O3 Physiotherapy Clinic</span>
+        <span class="nav-brand-tagline">Pain-Free Ahmedabad · Dr. Hiren Patel</span>
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#" onclick="showPage('home');return false;" class="nav-link">Home</a></li>
-      <li><a href="#" onclick="showPage('about');return false;" class="nav-link">About</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('home');return false;">Home</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('about');return false;">About</a></li>
       <li class="has-dropdown">
-        <a href="#" onclick="showPage('services');return false;" class="nav-link">Services ▾</a>
+        <a href="#" class="nav-link" onclick="showPage('services');return false;">Services ▾</a>
         <div class="dropdown-menu">
-          <a href="#" onclick="showPage('services');return false;" class="dropdown-item">
-            <div class="dd-icon">🦴</div>
-            <div><div class="dd-title">Physiotherapy</div><div class="dd-sub">Pain relief & rehabilitation</div></div>
-          </a>
-          <a href="#" onclick="showPage('services');return false;" class="dropdown-item">
-            <div class="dd-icon">💆</div>
-            <div><div class="dd-title">Manual Therapy</div><div class="dd-sub">Hands-on treatment techniques</div></div>
-          </a>
-          <a href="#" onclick="showPage('services');return false;" class="dropdown-item">
-            <div class="dd-icon">🧠</div>
-            <div><div class="dd-title">Neuro Rehabilitation</div><div class="dd-sub">Recovery from neurological conditions</div></div>
-          </a>
-          <a href="#" onclick="showPage('services');return false;" class="dropdown-item">
-            <div class="dd-icon">🏃</div>
-            <div><div class="dd-title">Sports Injury</div><div class="dd-sub">Sports & orthopaedic care</div></div>
-          </a>
+          <a href="#" class="dropdown-item" onclick="showPage('services');return false;"><div class="dd-icon">🦴</div><div><div class="dd-title">Physiotherapy</div><div class="dd-sub">Ortho, sports & neuro rehab</div></div></a>
+          <a href="#" class="dropdown-item" onclick="showPage('services');return false;"><div class="dd-icon">💆</div><div><div class="dd-title">Massage Therapy</div><div class="dd-sub">Deep tissue & relaxation</div></div></a>
+          <a href="#" class="dropdown-item" onclick="showPage('services');return false;"><div class="dd-icon">🤸</div><div><div class="dd-title">Chiropractic</div><div class="dd-sub">Spinal alignment & care</div></div></a>
+          <a href="#" class="dropdown-item" onclick="showPage('services');return false;"><div class="dd-icon">🏃</div><div><div class="dd-title">Sports Injury</div><div class="dd-sub">Athlete-focused recovery</div></div></a>
+          <a href="#" class="dropdown-item" onclick="showPage('services');return false;"><div class="dd-icon">⚡</div><div><div class="dd-title">Pain Management</div><div class="dd-sub">Chronic pain solutions</div></div></a>
         </div>
       </li>
-      <li><a href="#" onclick="showPage('team');return false;" class="nav-link">Team</a></li>
-      <li><a href="#" onclick="showPage('testimonials');return false;" class="nav-link">Reviews</a></li>
-      <li><a href="#" onclick="showPage('contact');return false;" class="nav-link">Contact</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('team');return false;">Our Team</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('locations');return false;">Locations</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="https://wa.me/919462591098" target="_blank" class="nav-book-btn">💬 Book Appointment</a>
+      <a href="https://wa.me/918128700700" target="_blank" class="nav-book-btn">📅 Book Now</a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <button class="hamburger" id="hamBtn" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#" onclick="showPage('home');closeMenu();return false;" class="mm-link">🏠 Home</a>
-  <a href="#" onclick="showPage('about');closeMenu();return false;" class="mm-link">ℹ️ About Us</a>
-  <a href="#" onclick="showPage('services');closeMenu();return false;" class="mm-link">🩺 Services</a>
-  <a href="#" onclick="showPage('team');closeMenu();return false;" class="mm-link">👥 Our Team</a>
-  <a href="#" onclick="showPage('testimonials');closeMenu();return false;" class="mm-link">⭐ Reviews</a>
-  <a href="#" onclick="showPage('contact');closeMenu();return false;" class="mm-link">📞 Contact</a>
-  <a href="https://wa.me/919462591098" target="_blank" class="btn-primary" style="margin-top:16px;justify-content:center;">💬 Book on WhatsApp</a>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#" class="mobile-nav-link" onclick="showPage('home');closeMobileNav();return false;">Home</a>
+  <a href="#" class="mobile-nav-link" onclick="showPage('about');closeMobileNav();return false;">About</a>
+  <a href="#" class="mobile-nav-link" onclick="showPage('services');closeMobileNav();return false;">Services</a>
+  <a href="#" class="mobile-nav-link" onclick="showPage('team');closeMobileNav();return false;">Our Team</a>
+  <a href="#" class="mobile-nav-link" onclick="showPage('locations');closeMobileNav();return false;">Locations</a>
+  <a href="#" class="mobile-nav-link" onclick="showPage('booking');closeMobileNav();return false;">Book Appointment</a>
+  <a href="#" class="mobile-nav-link" onclick="showPage('contact');closeMobileNav();return false;">Contact</a>
 </div>
 
-<!-- ===================== HOME PAGE ===================== -->
+<!-- ========================== HOME PAGE ========================== -->
 <div id="page-home" class="page active">
 
   <!-- HERO -->
   <section class="hero-section" id="heroSection">
-    <div class="hero-bg-orbs">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-    </div>
+    <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
     <div class="hero-inner">
-      <div class="hero-left" data-fm="fadeUp">
+      <div class="hero-left" id="heroLeft">
         <div class="hero-clinic-brand">
-          <div class="hero-brand-icon">🏥</div>
-          <span class="hero-badge">⭐ Trusted Clinic in Alwar, Rajasthan</span>
+          <img src="images/logo.webp" alt="O3 Physio" class="hero-brand-logo">
+          <div class="hero-brand-words">
+            <span class="hbw-line1">O3 Physiotherapy</span>
+            <span class="hbw-line2">Clinic</span>
+          </div>
         </div>
-        <h1 class="hero-title">
-          Heal Better.<br>
-          <span class="hero-accent">Live Stronger.</span><br>
-          Move Freely.
-        </h1>
-        <p class="hero-sub">Expert physiotherapy, orthopaedic care, and rehabilitation for all age groups — at Riddhi Medical, Alwar, Rajasthan.</p>
-        <div class="hero-actions">
-          <a href="https://wa.me/919462591098" target="_blank" class="hero-btn-primary">💬 Book Appointment</a>
-          <a href="#" onclick="showPage('services');return false;" class="hero-btn-ghost">🩺 Our Services</a>
+        <div class="hero-slide-badge" id="heroBadge">🫧 Pain-Free Ahmedabad Mission</div>
+        <h1 class="hero-title" id="heroTitle">Heal Better.<br><span class="hero-accent">Move Freely.</span><br>Live Pain-Free.</h1>
+        <p class="hero-sub" id="heroSub">Expert physiotherapy, sports injury management & chiropractic care — led by Dr. Hiren Patel (MPT Ortho & Sports) and a team of specialised professionals across 7 clinics in Ahmedabad & Mumbai.</p>
+        <div class="hero-btns">
+          <a href="#" onclick="showPage('booking');return false;" class="hero-btn-primary" id="heroBtnPrimary">📅 Book Appointment</a>
+          <a href="https://wa.me/918128700700" target="_blank" class="hero-btn-ghost">💬 WhatsApp Us</a>
         </div>
-        <div class="hero-stats">
-          <div class="hs-item"><div class="hs-num">5000+</div><div class="hs-label">Patients Treated</div></div>
-          <div class="hs-item"><div class="hs-num">10+</div><div class="hs-label">Years Experience</div></div>
-          <div class="hs-item"><div class="hs-num">4.9★</div><div class="hs-label">Patient Rating</div></div>
+        <div class="hero-dots" id="heroDots">
+          <span class="hero-dot active" onclick="goHeroSlide(0)"></span>
+          <span class="hero-dot" onclick="goHeroSlide(1)"></span>
+          <span class="hero-dot" onclick="goHeroSlide(2)"></span>
+          <span class="hero-dot" onclick="goHeroSlide(3)"></span>
         </div>
       </div>
-      <div class="hero-right" data-fm="fadeLeft">
-        <div class="hero-img-wrap">
-          <img src="images/session2.jpg" alt="Riddhi Medical Clinic" class="hero-img-main">
-          <div class="hero-img-badge">
-            <div class="hib-num">10+</div>
-            <div class="hib-txt">Years of<br>Trusted Care</div>
+      <div class="hero-right">
+        <div class="hero-oval-wrap">
+          <div class="hero-oval-inner">
+            <div class="hero-slide active"><img src="images/session5.jpg" alt="Physiotherapy Session" style="object-position:center"></div>
+            <div class="hero-slide"><img src="images/session2.jpg" alt="Treatment" style="object-position:center"></div>
+            <div class="hero-slide"><img src="images/manual_therapy.webp" alt="Manual Therapy" style="object-position:center"></div>
+            <div class="hero-slide"><img src="images/clinic/new_img9.jpg" alt="O3 Clinic" style="object-position:top"></div>
           </div>
-          <div class="hero-img-badge2">
-            <div class="hib2-icon">✅</div>
-            <div><div class="hib2-txt">Certified Experts</div><div class="hib2-sub">Qualified Professionals</div></div>
-          </div>
+          <div class="oval-badge oval-badge-top"><span>⭐ 5.0 Google Rating</span></div>
+          <div class="oval-badge oval-badge-bot"><span id="slideConditionTag">Physio & Sports</span></div>
         </div>
       </div>
     </div>
+    <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:#aaa;font-size:0.78rem;">
+      <div style="width:24px;height:38px;border:2px solid #ddd;border-radius:12px;display:flex;justify-content:center;padding-top:6px;"><div style="width:4px;height:8px;background:#bbb;border-radius:2px;animation:scrollAnim 2s ease-in-out infinite;"></div></div>
+      <span>Scroll to explore</span>
+    </div>
   </section>
 
-  <!-- TRUST BAR -->
-  <div class="trust-bar" data-fm="fadeUp">
-    <div class="trust-item"><span>🏥</span> NABH-Quality Standards</div>
-    <div class="trust-item"><span>🎓</span> Certified Physiotherapists</div>
-    <div class="trust-item"><span>💊</span> Evidence-Based Treatment</div>
-    <div class="trust-item"><span>📍</span> Alwar, Rajasthan</div>
-    <div class="trust-item"><span>💬</span> Personalized Care Plans</div>
-  </div>
-
-  <!-- QUALITY -->
+  <!-- ABOUT SPOTLIGHT -->
   <section class="quality-section">
-    <div class="max-wrap">
-      <div class="quality-inner">
-        <div class="quality-imgs" data-fm="fadeRight">
-          <img src="images/session3.jpg" alt="Riddhi Medical Care" class="qi-main">
-          <div class="qi-badge">
-            <div class="qi-badge-num">5000+</div>
-            <div>Patients<br>Successfully Treated</div>
-          </div>
+    <div class="quality-inner max-wrap">
+      <div data-reveal-left style="position:relative;border-radius:24px;overflow:hidden;box-shadow:0 24px 70px rgba(26,46,74,.18);">
+        <img src="images/clinic/new_img9.jpg" alt="O3 Physio Clinic" style="width:100%;height:480px;object-fit:cover;object-position:center;display:block;">
+        <div style="position:absolute;bottom:20px;left:20px;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:12px 18px;">
+          <div style="color:rgba(255,255,255,.8);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Our Clinic</div>
+          <div style="color:#fff;font-size:.95rem;font-weight:700;font-family:'Playfair Display',serif;margin-top:2px;">7 Locations Across Gujarat</div>
         </div>
-        <div data-fm="fadeLeft">
-          <span class="section-pill">✦ About Riddhi Medical</span>
-          <h2 class="section-title">Comprehensive Healthcare You Can <span style="color:var(--green)">Trust</span></h2>
-          <p style="color:var(--muted);line-height:1.8;margin-bottom:1rem;">Riddhi Medical is a premier healthcare clinic in Alwar, Rajasthan. We combine advanced medical technology with personalised care to deliver outstanding health outcomes for every patient.</p>
-          <div class="qc-list">
-            <div class="qc-item">
-              <div class="qc-dot"></div>
-              <div>
-                <h4>Expert Physiotherapy & Rehabilitation</h4>
-                <p>Specialised physiotherapy for orthopaedic, neurological and sports conditions with evidence-based protocols.</p>
-              </div>
-            </div>
-            <div class="qc-item">
-              <div class="qc-dot"></div>
-              <div>
-                <h4>Advanced Modalities & Technology</h4>
-                <p>LASER therapy, TENS, Ultrasound, IFT, Manual Therapy and more — all under one roof.</p>
-              </div>
-            </div>
-            <div class="qc-item">
-              <div class="qc-dot"></div>
-              <div>
-                <h4>Personalised Patient Care</h4>
-                <p>Every patient receives an individual assessment and a tailored treatment plan for the best outcomes.</p>
-              </div>
-            </div>
+      </div>
+      <div data-reveal-right>
+        <div class="section-pill">About O3 Physio</div>
+        <h2 class="section-title">Where Pain Ends &amp; <span class="color-green">Freedom Begins</span></h2>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.2rem;">O3 Physiotherapy Clinic exclusively focuses on healing all sorts of body pain and sports injuries with preeminent physiotherapy treatment. We provide a variety of treatment techniques including Cupping Therapy, Musculofascial Release, Taping, Sports Spine Injury Physio, Instrument Assisted Soft Tissue Mobilization, and Manual Therapy.</p>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:2rem;">Our mission is simple: <strong style="color:var(--navy);">Pain-Free Ahmedabad</strong> — and we've been working towards it for over a decade, now expanding across Gujarat.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;background:#f0f7ff;border-radius:50px;padding:8px 16px;">
+            <span style="color:var(--ozone-dark);font-size:1rem;">🏥</span>
+            <span style="font-size:.8rem;font-weight:600;color:var(--navy);">Decade of Excellence</span>
           </div>
-          <a href="https://wa.me/919462591098" target="_blank" class="btn-primary">💬 Book a Consultation</a>
+          <div style="display:flex;align-items:center;gap:8px;background:#e0f4f1;border-radius:50px;padding:8px 16px;">
+            <span style="font-size:1rem;">🏆</span>
+            <span style="font-size:.8rem;font-weight:600;color:#00695C;">7 Clinic Locations</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;background:#fff3e0;border-radius:50px;padding:8px 16px;">
+            <span style="font-size:1rem;">⚗️</span>
+            <span style="font-size:.8rem;font-weight:600;color:#e65100;">O3 = Ozone – Always Protecting You</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY CHOOSE US -->
-  <section class="why-section">
-    <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ Why Choose Riddhi Medical</span>
-        <h2 class="section-title">The Riddhi Medical <span style="color:var(--green)">Difference</span></h2>
-        <p class="section-sub" style="margin:0 auto 0;">What makes us the most trusted clinic in Alwar, Rajasthan — from the first visit to full recovery.</p>
+  <!-- PATIENT NOTE -->
+  <section class="patient-note-section">
+    <div class="pn-bg-blobs">
+      <div class="pn-blob pn-blob1"></div>
+      <div class="pn-blob pn-blob2"></div>
+      <div class="pn-blob pn-blob3"></div>
+    </div>
+    <div class="max-wrap pn-inner">
+      <div class="pn-left" data-reveal>
+        <div class="pn-tag"><span class="pn-tag-dot"></span><span>A Note to New Patients</span></div>
+        <div class="pn-quote-mark">"</div>
+        <h2 class="pn-heading">You deserve more than<br>just temporary relief.</h2>
+        <p class="pn-body">At O3 Physio Clinic, we take a <strong>holistic and integrative approach</strong> to your recovery. We begin with a thorough detailed assessment to understand your condition, movement patterns, and lifestyle — before designing a structured programme for lasting relief.</p>
+        <p class="pn-body">Our rehabilitation is evidence-based and sport-specific — ensuring you not only recover from pain but <strong>regain full confidence and strength.</strong></p>
+        <a href="#" onclick="showPage('booking');return false;" class="btn-primary pn-cta">Start Your Recovery Today</a>
       </div>
-      <div class="mva-grid">
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.1s">
-          <div class="mva-card-icon">🩺</div>
-          <h3>Qualified Specialists</h3>
-          <p>Our team of certified physiotherapists, doctors, and rehab specialists bring years of clinical expertise to every case.</p>
+      <div class="pn-right" data-reveal>
+        <div class="pn-promise-cards">
+          <div class="pn-pcard"><div class="pn-pcard-icon">🎯</div><div><div class="pn-pcard-title">Detailed Assessment First</div><div class="pn-pcard-desc">Every treatment plan starts with a comprehensive evaluation — no one-size-fits-all approach here.</div></div></div>
+          <div class="pn-pcard"><div class="pn-pcard-icon">🤝</div><div><div class="pn-pcard-title">Personalised Programme</div><div class="pn-pcard-desc">Dr. Hiren personally oversees your progress and adapts your treatment as you recover.</div></div></div>
+          <div class="pn-pcard"><div class="pn-pcard-icon">📈</div><div><div class="pn-pcard-title">Evidence-Based Results</div><div class="pn-pcard-desc">Advanced techniques backed by research — so every session moves you measurably forward.</div></div></div>
         </div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.2s">
-          <div class="mva-card-icon">⚙️</div>
-          <h3>Advanced Equipment</h3>
-          <p>We invest in the latest physiotherapy and diagnostic technology for faster, more effective healing results.</p>
-        </div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.3s">
-          <div class="mva-card-icon">❤️</div>
-          <h3>Compassionate Approach</h3>
-          <p>We treat every patient like family. Warm, attentive care — from the moment you walk in to full recovery.</p>
-        </div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.1s">
-          <div class="mva-card-icon">📋</div>
-          <h3>Personalised Plans</h3>
-          <p>No cookie-cutter treatments. Each patient gets a fully customised diagnosis and recovery programme.</p>
-        </div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.2s">
-          <div class="mva-card-icon">📍</div>
-          <h3>Convenient Location</h3>
-          <p>Easily accessible in Alwar, Rajasthan with ample parking and flexible appointment timings.</p>
-        </div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.3s">
-          <div class="mva-card-icon">📈</div>
-          <h3>Proven Results</h3>
-          <p>Over 5,000 patients treated successfully with a 4.9-star average rating and a reputation built on real outcomes.</p>
-        </div>
-      </div>
-      <div class="mva-cta-banner" data-fm="fadeUp">
-        <div class="mcb-left">
-          <div class="mcb-icon">💬</div>
-          <div class="mcb-text">
-            <h3>Ready to Start Your Recovery?</h3>
-            <p>Book your consultation today — call, WhatsApp, or walk in.</p>
+        <div class="pn-signoff">
+          <img src="images/dr_hiren_new.png" class="pn-doc-img" alt="Dr. Hiren Patel">
+          <div class="pn-signoff-text">
+            <div class="pn-doc-name">Dr. Hiren Patel</div>
+            <div class="pn-doc-creds">MPT (Ortho & Sports) · Founder, O3 Physio Clinic</div>
+            <div class="pn-signature">— Personally committed to your recovery</div>
           </div>
         </div>
-        <a href="https://wa.me/919462591098" target="_blank" class="btn-white">💬 Book on WhatsApp</a>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES CARDS -->
-  <section class="services-home-section">
+  <!-- SERVICES PREVIEW -->
+  <section class="services-section">
     <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ Our Services</span>
-        <h2 class="section-title">Expert Care for Every <span style="color:var(--green)">Condition</span></h2>
+      <div class="text-center" data-reveal>
+        <div class="section-pill">Our Specialisations</div>
+        <h2 class="section-title">World-Class Care <span class="color-green">Under One Roof</span></h2>
+        <p class="section-sub" style="margin:0 auto;">Advanced treatment techniques tailored to your specific condition by Ahmedabad's most qualified physiotherapy team.</p>
       </div>
-      <div class="shc-grid">
-        <div class="shc-card" data-fm="fadeUp">
-          <div class="shc-bg-img" style="background-image:url('images/manual_therapy.webp')"></div>
-          <div class="shc-overlay"></div>
-          <div class="shc-content">
-            <div class="shc-icon-wrap">🦴</div>
-            <h3>Physiotherapy</h3>
-            <p>Evidence-based physiotherapy for pain relief, post-surgical recovery, and long-term rehabilitation.</p>
-            <div class="shc-arrow">→</div>
+      <div class="services-grid">
+        <div class="service-card" data-reveal onclick="showPage('services')">
+          <img src="images/manual_therapy.webp" alt="Physiotherapy" class="service-img">
+          <div class="service-body">
+            <div class="service-icon">🦴</div>
+            <div class="service-title">Physiotherapy</div>
+            <div class="service-desc">Comprehensive orthopaedic, neurological and sports physiotherapy using evidence-based techniques for lasting recovery.</div>
+            <span class="service-tag">Ortho · Neuro · Sports</span>
           </div>
         </div>
-        <div class="shc-card" data-fm="fadeUp" style="--delay:.15s">
-          <div class="shc-bg-img" style="background-image:url('images/dry_needling.webp')"></div>
-          <div class="shc-overlay"></div>
-          <div class="shc-content">
-            <div class="shc-icon-wrap">💆</div>
-            <h3>Manual & Advanced Therapy</h3>
-            <p>Dry needling, cupping, LASER therapy, ultrasound and electrotherapy modalities for faster healing.</p>
-            <div class="shc-arrow">→</div>
+        <div class="service-card" data-reveal onclick="showPage('services')">
+          <img src="images/osteopathy.webp" alt="Massage Therapy" class="service-img">
+          <div class="service-body">
+            <div class="service-icon">💆</div>
+            <div class="service-title">Massage Therapy</div>
+            <div class="service-desc">Deep tissue, musculofascial release and sports massage to relieve tension, improve circulation and accelerate healing.</div>
+            <span class="service-tag">Deep Tissue · MFR · Sports</span>
           </div>
         </div>
-        <div class="shc-card" data-fm="fadeUp" style="--delay:.3s">
-          <div class="shc-bg-img" style="background-image:url('images/rehabilitation.webp')"></div>
-          <div class="shc-overlay"></div>
-          <div class="shc-content">
-            <div class="shc-icon-wrap">🧠</div>
-            <h3>Neuro Rehabilitation</h3>
-            <p>Specialised neurological physiotherapy for stroke, Parkinson's, spinal cord injury and more.</p>
-            <div class="shc-arrow">→</div>
+        <div class="service-card" data-reveal onclick="showPage('services')">
+          <img src="images/alignment.webp" alt="Chiropractic" class="service-img">
+          <div class="service-body">
+            <div class="service-icon">🤸</div>
+            <div class="service-title">Chiropractic Therapy</div>
+            <div class="service-desc">Precision spinal alignment and chiropractic adjustments to correct posture, relieve nerve compression and reduce chronic pain.</div>
+            <span class="service-tag">Spinal · Nerve · Posture</span>
           </div>
         </div>
-        <div class="shc-card" data-fm="fadeUp">
-          <div class="shc-bg-img" style="background-image:url('images/session4.jpg')"></div>
-          <div class="shc-overlay"></div>
-          <div class="shc-content">
-            <div class="shc-icon-wrap">🏃</div>
-            <h3>Sports Injury Rehab</h3>
-            <p>Comprehensive sports injury assessment and return-to-sport rehabilitation protocols.</p>
-            <div class="shc-arrow">→</div>
+        <div class="service-card" data-reveal onclick="showPage('services')">
+          <img src="images/dry_needling.webp" alt="Sports Injury" class="service-img">
+          <div class="service-body">
+            <div class="service-icon">🏃</div>
+            <div class="service-title">Sports Injury</div>
+            <div class="service-desc">Specialised assessment and rehabilitation for athletes — from acute sprains to complex post-surgical recovery and return-to-sport programmes.</div>
+            <span class="service-tag">Athletes · ACL · Shoulder</span>
           </div>
         </div>
-        <div class="shc-card" data-fm="fadeUp" style="--delay:.15s">
-          <div class="shc-bg-img" style="background-image:url('images/osteopathy.webp')"></div>
-          <div class="shc-overlay"></div>
-          <div class="shc-content">
-            <div class="shc-icon-wrap">🩺</div>
-            <h3>Orthopaedic Care</h3>
-            <p>Joint pain, arthritis, spinal conditions, fracture recovery, and post-surgical orthopaedic rehab.</p>
-            <div class="shc-arrow">→</div>
+        <div class="service-card" data-reveal onclick="showPage('services')">
+          <img src="images/cupping.webp" alt="Pain Management" class="service-img">
+          <div class="service-body">
+            <div class="service-icon">⚡</div>
+            <div class="service-title">Pain Management</div>
+            <div class="service-desc">Chronic pain solutions using cupping therapy, dry needling, IASTM, taping techniques and electrotherapy modalities.</div>
+            <span class="service-tag">Cupping · IASTM · Laser</span>
           </div>
         </div>
-        <div class="shc-card" data-fm="fadeUp" style="--delay:.3s">
-          <div class="shc-bg-img" style="background-image:url('images/alignment.webp')"></div>
-          <div class="shc-overlay"></div>
-          <div class="shc-content">
-            <div class="shc-icon-wrap">🧘</div>
-            <h3>Posture & Ergonomics</h3>
-            <p>Posture correction, ergonomic assessments, and preventive care programmes for daily life.</p>
-            <div class="shc-arrow">→</div>
+        <div class="service-card" data-reveal onclick="showPage('services')">
+          <img src="images/rehabilitation.webp" alt="Work Injury" class="service-img">
+          <div class="service-body">
+            <div class="service-icon">💼</div>
+            <div class="service-title">Work Injury Rehab</div>
+            <div class="service-desc">Ergonomic consultation and targeted rehab for occupational injuries — helping you return to work stronger and injury-free.</div>
+            <span class="service-tag">Ergonomics · Office · Back</span>
           </div>
         </div>
       </div>
-      <div class="text-center" style="margin-top:2.5rem;">
-        <a href="#" onclick="showPage('services');return false;" class="btn-primary">View All Services →</a>
+    </div>
+  </section>
+
+  <!-- RECOVERY STEPS -->
+  <section class="steps6-section">
+    <div class="steps6-bg-accent"></div>
+    <div class="max-wrap" style="position:relative;z-index:2;">
+      <div class="text-center" data-reveal style="margin-bottom:64px;">
+        <div class="section-pill">Our Treatment Approach</div>
+        <h2 class="section-title">Your Road to <span class="color-green">Complete Recovery</span></h2>
+        <p class="section-sub" style="margin:.6rem auto 0;max-width:560px;">A structured, progressive framework — from your first consultation to lasting pain freedom.</p>
+      </div>
+      <div class="steps6-timeline">
+        <div class="s6-row" data-reveal-left style="margin-bottom:24px;">
+          <div class="s6-card">
+            <div class="s6-card-top">
+              <div class="s6-icon-wrap s6-icon-blue"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" r="12" stroke="#00b4d8" stroke-width="3"/><path d="M31 31L40 40" stroke="#00b4d8" stroke-width="3.5" stroke-linecap="round"/><path d="M18 22h8M22 18v8" stroke="#00b4d8" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+              <div class="s6-step-badge s6-badge-blue">Step 01</div>
+            </div>
+            <h3 class="s6-title">Detailed Assessment</h3>
+            <p class="s6-desc">A thorough 30–45 minute evaluation of your injury, movement patterns, strength and lifestyle before any treatment begins.</p>
+            <div class="s6-tags"><span class="s6-tag">Pain History</span><span class="s6-tag">Movement Analysis</span><span class="s6-tag">Goal Setting</span></div>
+          </div>
+          <div class="s6-spine-col"><div class="s6-node s6-node-blue"><span>1</span></div><div class="s6-vline"></div></div>
+          <div class="s6-spacer"></div>
+        </div>
+        <div class="s6-row" data-reveal-right style="margin-bottom:24px;">
+          <div class="s6-spacer"></div>
+          <div class="s6-spine-col"><div class="s6-node s6-node-teal"><span>2</span></div><div class="s6-vline"></div></div>
+          <div class="s6-card">
+            <div class="s6-card-top">
+              <div class="s6-icon-wrap s6-icon-teal"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 8C24 8 12 16 12 26a12 12 0 0 0 24 0C36 16 24 8 24 8z" stroke="#1a6b3c" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+              <div class="s6-step-badge s6-badge-teal">Step 02</div>
+            </div>
+            <h3 class="s6-title">Pain Relief Phase</h3>
+            <p class="s6-desc">Targeted manual therapy, electrotherapy and modalities to reduce pain and inflammation — giving you immediate relief.</p>
+            <div class="s6-tags"><span class="s6-tag">Manual Therapy</span><span class="s6-tag">IFT / TENS</span><span class="s6-tag">Ultrasound</span></div>
+          </div>
+        </div>
+        <div class="s6-row" data-reveal-left style="margin-bottom:24px;">
+          <div class="s6-card">
+            <div class="s6-card-top">
+              <div class="s6-icon-wrap s6-icon-blue"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 38L20 28l8 8 10-16" stroke="#00b4d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="s6-step-badge s6-badge-blue">Step 03</div>
+            </div>
+            <h3 class="s6-title">Mobility Restoration</h3>
+            <p class="s6-desc">Structured stretching, joint mobilisation and flexibility work to restore your full range of motion safely and progressively.</p>
+            <div class="s6-tags"><span class="s6-tag">Stretching</span><span class="s6-tag">Joint Mob</span><span class="s6-tag">Flexibility</span></div>
+          </div>
+          <div class="s6-spine-col"><div class="s6-node s6-node-blue"><span>3</span></div><div class="s6-vline"></div></div>
+          <div class="s6-spacer"></div>
+        </div>
+        <div class="s6-row" data-reveal-right style="margin-bottom:24px;">
+          <div class="s6-spacer"></div>
+          <div class="s6-spine-col"><div class="s6-node s6-node-teal"><span>4</span></div><div class="s6-vline"></div></div>
+          <div class="s6-card">
+            <div class="s6-card-top">
+              <div class="s6-icon-wrap s6-icon-teal"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="14" stroke="#1a6b3c" stroke-width="2.5"/><path d="M24 14v10l6 6" stroke="#1a6b3c" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+              <div class="s6-step-badge s6-badge-teal">Step 04</div>
+            </div>
+            <h3 class="s6-title">Strength & Conditioning</h3>
+            <p class="s6-desc">Progressive strengthening exercises specific to your condition and goals — rebuilding the muscle support your body needs.</p>
+            <div class="s6-tags"><span class="s6-tag">Core Stability</span><span class="s6-tag">Muscle Rehab</span><span class="s6-tag">Graded Load</span></div>
+          </div>
+        </div>
+        <div class="s6-row" data-reveal-left style="margin-bottom:24px;">
+          <div class="s6-card">
+            <div class="s6-card-top">
+              <div class="s6-icon-wrap s6-icon-blue"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 32l10-12 8 8 6-8 8 12" stroke="#00b4d8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="s6-step-badge s6-badge-blue">Step 05</div>
+            </div>
+            <h3 class="s6-title">Functional Training</h3>
+            <p class="s6-desc">Sport and activity-specific exercises to ensure you can return safely to the activities and sports you love.</p>
+            <div class="s6-tags"><span class="s6-tag">Sport-Specific</span><span class="s6-tag">Proprioception</span><span class="s6-tag">Agility</span></div>
+          </div>
+          <div class="s6-spine-col"><div class="s6-node s6-node-blue"><span>5</span></div><div class="s6-vline"></div></div>
+          <div class="s6-spacer"></div>
+        </div>
+        <div class="s6-row" data-reveal-right>
+          <div class="s6-spacer"></div>
+          <div class="s6-spine-col"><div class="s6-node s6-node-navy"><span>6</span></div></div>
+          <div class="s6-card">
+            <div class="s6-card-top">
+              <div class="s6-icon-wrap s6-icon-navy"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 10l3.5 7 7.5 1.1-5.5 5.3 1.3 7.5L24 27l-6.8 3.9 1.3-7.5L13 18.1l7.5-1.1z" stroke="#1a2e4a" stroke-width="2.5" stroke-linejoin="round"/></svg></div>
+              <div class="s6-step-badge s6-badge-navy">Step 06</div>
+            </div>
+            <h3 class="s6-title">Prevention & Independence</h3>
+            <p class="s6-desc">Home exercise programme and self-management strategies so you stay pain-free long after your treatment ends.</p>
+            <div class="s6-tags"><span class="s6-tag">Home Plan</span><span class="s6-tag">Education</span><span class="s6-tag">Maintenance</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PAIN CONDITIONS -->
-  <section class="pain-section">
-    <div class="pain-bg-img"></div>
-    <div class="pain-inner">
-      <div class="text-center" data-fm="fadeUp" style="margin-bottom:3rem;">
-        <span class="section-pill" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.2);">✦ Conditions We Treat</span>
-        <h2 class="section-title" style="color:white;">We Treat What's <span style="color:#64B5F6">Holding You Back</span></h2>
+  <section class="conditions-section">
+    <div class="max-wrap">
+      <div class="text-center" data-reveal>
+        <div class="section-pill">We Treat</div>
+        <h2 class="section-title">Conditions We <span class="color-green">Specialise In</span></h2>
+        <p class="section-sub" style="margin:0 auto 0;">From common aches to complex sports injuries — our team has seen it all and treated it all.</p>
       </div>
-      <div class="pain-grid">
-        <div class="pain-list" data-fm="fadeRight">
-          <div class="attn-row"><span class="attn-icon">🦴</span> Back & Neck Pain</div>
-          <div class="attn-row"><span class="attn-icon">🦵</span> Knee & Hip Problems</div>
-          <div class="attn-row"><span class="attn-icon">💪</span> Shoulder & Rotator Cuff</div>
-          <div class="attn-row"><span class="attn-icon">🤲</span> Wrist, Elbow & Hand Conditions</div>
-          <div class="attn-row"><span class="attn-icon">🧠</span> Stroke & Neurological Conditions</div>
-          <div class="attn-row"><span class="attn-icon">🏃</span> Sports & Overuse Injuries</div>
-          <div class="attn-row"><span class="attn-icon">🩺</span> Post-Surgical Rehabilitation</div>
-          <div class="attn-row"><span class="attn-icon">👶</span> Paediatric Physiotherapy</div>
-          <div class="attn-row"><span class="attn-icon">🧘</span> Postural Problems & Scoliosis</div>
-          <div style="margin-top:2rem;">
-            <a href="https://wa.me/919462591098" target="_blank" class="btn-ghost">💬 Ask a Specialist</a>
-          </div>
-        </div>
-        <div class="pain-right" data-fm="fadeLeft">
-          <div class="pain-card">
-            <img src="images/pain_back.png" alt="Back Pain" class="pain-card-img">
-            <div>
-              <h4>Back & Spinal Pain</h4>
-              <p>Herniated discs, sciatica, spondylitis — non-surgical treatment with lasting results.</p>
-            </div>
-          </div>
-          <div class="pain-card">
-            <img src="images/pain_neck.png" alt="Neck Pain" class="pain-card-img">
-            <div>
-              <h4>Neck Pain & Cervical Spondylosis</h4>
-              <p>Manual therapy, traction, and guided exercise to relieve chronic neck pain and stiffness.</p>
-            </div>
-          </div>
-          <div class="pain-card">
-            <img src="images/pain_injury.png" alt="Sports Injury" class="pain-card-img">
-            <div>
-              <h4>Sports & Trauma Injuries</h4>
-              <p>ACL, meniscus, muscle tears and ligament injuries — expert care from acute to recovery.</p>
-            </div>
-          </div>
-          <div class="pain-card">
-            <img src="images/pain_headache.png" alt="Headache" class="pain-card-img">
-            <div>
-              <h4>Headaches & Migraines</h4>
-              <p>Cervicogenic headache, tension headache, and TMJ-related pain treated effectively.</p>
-            </div>
-          </div>
-        </div>
+      <div class="conditions-grid" style="margin-top:50px;">
+        <div class="cond-card" data-reveal><img src="images/pain_back.png" alt="Back Pain" class="cond-img"><div class="cond-name">Back & Spine Pain</div></div>
+        <div class="cond-card" data-reveal><img src="images/pain_neck.png" alt="Neck Pain" class="cond-img"><div class="cond-name">Neck & Shoulder Pain</div></div>
+        <div class="cond-card" data-reveal><img src="images/pain_headache.png" alt="Headache" class="cond-img"><div class="cond-name">Chronic Headaches</div></div>
+        <div class="cond-card" data-reveal><img src="images/pain_injury.png" alt="Sports Injury" class="cond-img"><div class="cond-name">Sports Injuries</div></div>
+        <div class="cond-card" data-reveal><img src="images/pain_posture.png" alt="Posture" class="cond-img"><div class="cond-name">Posture Correction</div></div>
+        <div class="cond-card" data-reveal><img src="images/rehabilitation.webp" alt="Rehab" class="cond-img" style="width:64px;height:64px;object-fit:cover;border-radius:8px;"><div class="cond-name">Post-Surgery Rehab</div></div>
+        <div class="cond-card" data-reveal><img src="images/dry_needling.webp" alt="Dry Needling" class="cond-img" style="width:64px;height:64px;object-fit:cover;border-radius:8px;"><div class="cond-name">Frozen Shoulder</div></div>
+        <div class="cond-card" data-reveal><img src="images/cupping.webp" alt="Joint Pain" class="cond-img" style="width:64px;height:64px;object-fit:cover;border-radius:8px;"><div class="cond-name">Joint & Knee Pain</div></div>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS STEPS -->
-  <section class="steps-section">
+  <!-- STATS COUNTER -->
+  <section class="dynamic-stats-section">
+    <div class="ds-bg-overlay"></div>
+    <div class="max-wrap ds-inner">
+      <div class="ds-stat" data-target="50000" data-suffix="+"><div class="ds-icon">🏥</div><div class="ds-num" id="stat-patients">50,000+</div><div class="ds-label">Patients Treated</div></div>
+      <div class="ds-divider"></div>
+      <div class="ds-stat" data-target="7" data-suffix=""><div class="ds-icon">📍</div><div class="ds-num" id="stat-locations">7</div><div class="ds-label">Clinic Locations</div></div>
+      <div class="ds-divider"></div>
+      <div class="ds-stat" data-target="10" data-suffix="+"><div class="ds-icon">🏃</div><div class="ds-num" id="stat-exp">10+</div><div class="ds-label">Years of Excellence</div></div>
+      <div class="ds-divider"></div>
+      <div class="ds-stat" data-target="100" data-suffix="%"><div class="ds-icon">⭐</div><div class="ds-num" id="stat-satisfaction">100%</div><div class="ds-label">Patient Satisfaction</div></div>
+    </div>
+  </section>
+
+  <!-- MEDIA GALLERY -->
+  <section class="media-section">
     <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ Your Recovery Journey</span>
-        <h2 class="section-title">How Your Recovery <span style="color:var(--green)">Works</span></h2>
+      <div class="text-center" data-reveal>
+        <div class="section-pill">Clinic Gallery</div>
+        <h2 class="section-title">Inside <span class="color-green">O3 Physio</span></h2>
+        <p class="section-sub" style="margin:0 auto;">State-of-the-art equipment, expert care and a healing environment — all waiting for you.</p>
       </div>
-      <div class="steps-grid">
-        <div class="step-card" data-fm="fadeUp">
-          <div class="step-num">01</div>
-          <div class="step-icon">📞</div>
-          <h3>Book Appointment</h3>
-          <p>Call, WhatsApp, or visit us directly. We'll set you up with the right specialist quickly.</p>
-        </div>
-        <div class="step-card" data-fm="fadeUp" style="--delay:.1s">
-          <div class="step-num">02</div>
-          <div class="step-icon">🔍</div>
-          <h3>Detailed Assessment</h3>
-          <p>Thorough evaluation of your condition, movement, and medical history by our specialists.</p>
-        </div>
-        <div class="step-card" data-fm="fadeUp" style="--delay:.2s">
-          <div class="step-num">03</div>
-          <div class="step-icon">📋</div>
-          <h3>Personalised Treatment</h3>
-          <p>A customised treatment plan — physiotherapy, modalities, exercises — designed just for you.</p>
-        </div>
-        <div class="step-card" data-fm="fadeUp" style="--delay:.3s">
-          <div class="step-num">04</div>
-          <div class="step-icon">🏆</div>
-          <h3>Full Recovery</h3>
-          <p>We track your progress every session and adjust your plan until you're back at your best.</p>
-        </div>
+      <div class="photo-mosaic" style="margin-top:48px;">
+        <div class="mosaic-item tall" onclick="openLightbox(0)"><img src="images/clinic/new_img1.jpg" alt="O3 Clinic"></div>
+        <div class="mosaic-item" onclick="openLightbox(1)"><img src="images/session1.jpg" alt="Session"></div>
+        <div class="mosaic-item" onclick="openLightbox(2)"><img src="images/clinic/new_img2.jpg" alt="Treatment Room"></div>
+        <div class="mosaic-item tall" onclick="openLightbox(3)"><img src="images/clinic/new_img3.jpg" alt="Clinic"></div>
+        <div class="mosaic-item" onclick="openLightbox(4)"><img src="images/session3.jpg" alt="Session"></div>
+        <div class="mosaic-item" onclick="openLightbox(5)"><img src="images/clinic/new_img4.jpg" alt="Equipment"></div>
+        <div class="mosaic-item" onclick="openLightbox(6)"><img src="images/clinic/new_img5.jpg" alt="Clinic"></div>
+        <div class="mosaic-item" onclick="openLightbox(7)"><img src="images/session4.jpg" alt="Session"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO GALLERY -->
+  <section style="padding:80px 5%;background:var(--gray);overflow:hidden;">
+    <div class="max-wrap">
+      <div class="text-center" data-reveal>
+        <div class="section-pill">Treatment Videos</div>
+        <h2 class="section-title">Watch Our <span class="color-green">Sessions in Action</span></h2>
+        <p class="section-sub" style="margin:0 auto;">See the care, precision and passion behind every O3 Physio treatment session.</p>
+      </div>
+      <div id="videoGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;"></div>
+      <div style="text-align:center;margin-top:28px;">
+        <button id="loadMoreVideosBtn" onclick="loadMoreVideos()" style="background:transparent;border:2px solid var(--ozone-dark);color:var(--ozone-dark);padding:12px 32px;border-radius:50px;font-weight:600;font-size:.9rem;cursor:pointer;transition:.3s;" onmouseover="this.style.background='var(--ozone-dark)';this.style.color='white'" onmouseout="this.style.background='transparent';this.style.color='var(--ozone-dark)'">▶ Load More Videos</button>
+      </div>
+    </div>
+    <div id="videoModal" style="display:none;position:fixed;inset:0;background:rgba(8,18,36,.96);z-index:9999;align-items:center;justify-content:center;">
+      <div style="position:relative;max-width:820px;width:92%;background:#0a1527;border-radius:20px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.8);">
+        <button onclick="closeVideoModal()" style="position:absolute;top:12px;right:14px;background:rgba(255,255,255,.15);border:none;color:white;width:34px;height:34px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:2;">✕</button>
+        <video id="modalVideo" controls style="width:100%;display:block;max-height:75vh;"></video>
+        <div id="videoModalLabel" style="padding:14px 20px;color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;"></div>
       </div>
     </div>
   </section>
@@ -905,664 +971,692 @@ footer {
   <!-- TESTIMONIALS -->
   <section class="testimonials-section">
     <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ Patient Reviews</span>
-        <h2 class="section-title">Stories of <span style="color:var(--green)">Recovery</span></h2>
-      </div>
-      <div class="testi-stats-row" data-fm="fadeUp">
-        <div class="ts-stat"><div class="ts-num">4.9★</div><div class="ts-label">Average Rating</div></div>
-        <div class="ts-stat"><div class="ts-num">5000+</div><div class="ts-label">Happy Patients</div></div>
-        <div class="ts-stat"><div class="ts-num">10+</div><div class="ts-label">Years of Service</div></div>
+      <div class="text-center" data-reveal>
+        <div class="section-pill">Patient Stories</div>
+        <h2 class="section-title">What Our Patients <span class="color-green">Say</span></h2>
+        <p class="section-sub" style="margin:0 auto;">Real stories from real patients who found pain relief and regained their quality of life at O3 Physio.</p>
       </div>
       <div class="testi-grid">
-        <div class="testi-card" data-fm="fadeUp">
+        <div class="testi-card" data-reveal>
           <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"After months of back pain and two failed treatment attempts elsewhere, Riddhi Medical finally gave me real relief. The team is incredibly knowledgeable and caring — I'm now 100% pain free."</p>
-          <div class="testi-author">
-            <div class="ta-avatar">RJ</div>
-            <div><div class="ta-name">Ravi Joshi</div><div class="ta-sub">Back Pain Recovery</div></div>
-          </div>
+          <p class="testi-text">"I need to express my true thankfulness to Dr. Hiren Patel for his expert care given to my wife. Our experience with him was of the best we have ever experienced. He sets aside time to clarify all the treatment procedures."</p>
+          <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Ashika Shah</div><div class="testi-role">Shoulder Treatment Patient</div></div></div>
         </div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.1s">
+        <div class="testi-card" data-reveal>
           <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"My mother recovered from a stroke and the neurological physiotherapy here made all the difference. The therapists are patient, motivating and truly skilled. Highly recommended!"</p>
-          <div class="testi-author">
-            <div class="ta-avatar">PM</div>
-            <div><div class="ta-name">Priya Modi</div><div class="ta-sub">Stroke Rehabilitation</div></div>
-          </div>
+          <p class="testi-text">"Dr. Hiren Patel explained everything about the treatment so I could make an independent decision. O3 Physioclinic offers a holistic and integrative approach for evidence-based assessment. Truly world-class!"</p>
+          <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Suresh Thakkar</div><div class="testi-role">Chronic Pain Patient</div></div></div>
         </div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.2s">
+        <div class="testi-card" data-reveal>
           <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"Fantastic clinic. My ACL injury felt like a death sentence for my sports career, but the team here designed a perfect return-to-sport programme and I'm back playing at full intensity!"</p>
-          <div class="testi-author">
-            <div class="ta-avatar">AS</div>
-            <div><div class="ta-name">Arjun Shah</div><div class="ta-sub">Sports Injury Rehab</div></div>
-          </div>
-        </div>
-        <div class="testi-card" data-fm="fadeUp">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"I had chronic knee pain for 3 years and was dreading surgery. After 6 weeks at Riddhi Medical, my pain is gone and my surgeon was surprised at how well I responded!"</p>
-          <div class="testi-author">
-            <div class="ta-avatar">NK</div>
-            <div><div class="ta-name">Neeta Kapoor</div><div class="ta-sub">Knee Pain Treatment</div></div>
-          </div>
-        </div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.1s">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"The staff is warm and professional. They explained my condition clearly, created a detailed plan, and checked in every session. I've never felt more taken care of at any clinic."</p>
-          <div class="testi-author">
-            <div class="ta-avatar">DV</div>
-            <div><div class="ta-name">Deepak Vora</div><div class="ta-sub">Cervical Spondylosis</div></div>
-          </div>
-        </div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.2s">
-          <div class="testi-stars">★★★★★</div>
-          <p class="testi-text">"Post-knee replacement physiotherapy here was exceptional. Professional, encouraging, and genuinely invested in my recovery. I was walking normally in half the expected time!"</p>
-          <div class="testi-author">
-            <div class="ta-avatar">SB</div>
-            <div><div class="ta-name">Suresh Bhatt</div><div class="ta-sub">Post-Surgical Rehab</div></div>
-          </div>
+          <p class="testi-text">"O3 Physioclinic offers a holistic as well as integrative approach for evidence-based assessment and management of orthopaedic, musculoskeletal, and sports injuries. Highly recommend!"</p>
+          <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sarita Misra</div><div class="testi-role">Sports Rehabilitation Patient</div></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="gallery-section">
+  <!-- MEDICINES / PHARMACY SECTION -->
+  <section id="medicines-section" style="padding:100px 5% 80px;background:var(--white);overflow:hidden;position:relative;">
+    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--ozone),var(--green),var(--blue));"></div>
     <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ Clinic Gallery</span>
-        <h2 class="section-title">Our <span style="color:var(--green)">Clinic Spaces</span></h2>
-        <p class="section-sub" style="margin:0 auto 2rem;">A welcoming, well-equipped environment designed for healing and recovery.</p>
+      <div class="text-center" data-reveal style="margin-bottom:56px;">
+        <div class="section-pill" style="background:rgba(26,107,60,.08);color:var(--green);border-color:rgba(26,107,60,.2);">💊 Medical Store</div>
+        <h2 class="section-title">Medicines &amp; <span class="color-green">Healthcare Products</span></h2>
+        <p class="section-sub" style="margin:0 auto;">Prescribed supplements, physiotherapy aids &amp; wellness products — available at all O3 Physio clinic locations.</p>
       </div>
-    </div>
-    <div class="gallery-scroll" data-fm="fadeUp">
-      <div class="gallery-item"><img src="images/clinic/new_img1.jpg" alt="Clinic"><div class="gallery-item-overlay"><span class="gallery-item-label">Treatment Area</span></div></div>
-      <div class="gallery-item"><img src="images/clinic/new_img2.jpg" alt="Clinic"><div class="gallery-item-overlay"><span class="gallery-item-label">Physiotherapy Room</span></div></div>
-      <div class="gallery-item"><img src="images/clinic/new_img3.jpg" alt="Clinic"><div class="gallery-item-overlay"><span class="gallery-item-label">Equipment</span></div></div>
-      <div class="gallery-item"><img src="images/clinic/new_img4.jpg" alt="Clinic"><div class="gallery-item-overlay"><span class="gallery-item-label">Rehab Station</span></div></div>
-      <div class="gallery-item"><img src="images/clinic/new_img5.jpg" alt="Clinic"><div class="gallery-item-overlay"><span class="gallery-item-label">Recovery Zone</span></div></div>
-      <div class="gallery-item"><img src="images/clinic/new_img6.jpg" alt="Clinic"><div class="gallery-item-overlay"><span class="gallery-item-label">Clinic Interior</span></div></div>
-      <div class="gallery-item"><img src="images/clinic/new_img7.jpg" alt="Clinic"><div class="gallery-item-overlay"><span class="gallery-item-label">Therapy Suite</span></div></div>
-      <div class="gallery-item"><img src="images/clinic/new_img8.jpg" alt="Clinic"><div class="gallery-item-overlay"><span class="gallery-item-label">Modern Facility</span></div></div>
+
+      <!-- Category filter tabs -->
+      <div id="medCategoryBar" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;">
+        <button class="med-cat-btn active" onclick="filterMeds('all',this)">All Products</button>
+        <button class="med-cat-btn" onclick="filterMeds('supplement',this)">💊 Supplements</button>
+        <button class="med-cat-btn" onclick="filterMeds('pain',this)">⚡ Pain Relief</button>
+        <button class="med-cat-btn" onclick="filterMeds('support',this)">🦴 Braces & Supports</button>
+        <button class="med-cat-btn" onclick="filterMeds('therapy',this)">🏃 Therapy Aids</button>
+        <button class="med-cat-btn" onclick="filterMeds('wellness',this)">🌿 Wellness</button>
+      </div>
+
+      <!-- Auto-scroll marquee track -->
+      <div class="med-scroll-outer" id="medScrollOuter">
+        <div class="med-track" id="medTrack"></div>
+      </div>
+
+      <!-- Static grid below (filterable) -->
+      <div id="medGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;"></div>
+
+      <div style="text-align:center;margin-top:40px;">
+        <p style="color:var(--muted);font-size:.88rem;margin-bottom:16px;">All medicines available at our clinic · Ask our team for prescriptions</p>
+        <a href="https://wa.me/918128700700?text=Hello!%20I%20want%20to%20enquire%20about%20medicines%20and%20healthcare%20products." target="_blank" class="btn-primary">💬 Enquire on WhatsApp</a>
+      </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats-section">
-    <div class="ds-bg-overlay"></div>
-    <div class="ds-inner">
-      <div class="ds-stat" data-fm="fadeUp"><div class="ds-icon">👥</div><div class="ds-num" data-target="5000" data-suffix="+">5000+</div><div class="ds-label">Patients Treated</div></div>
-      <div class="ds-stat" data-fm="fadeUp" style="--delay:.1s"><div class="ds-icon">⭐</div><div class="ds-num">4.9★</div><div class="ds-label">Patient Rating</div></div>
-      <div class="ds-stat" data-fm="fadeUp" style="--delay:.2s"><div class="ds-icon">🏥</div><div class="ds-num" data-target="10" data-suffix="+">10+</div><div class="ds-label">Years of Excellence</div></div>
-      <div class="ds-stat" data-fm="fadeUp" style="--delay:.3s"><div class="ds-icon">👨‍⚕️</div><div class="ds-num" data-target="8" data-suffix="+">8+</div><div class="ds-label">Specialist Professionals</div></div>
-    </div>
-  </div>
+  <style>
+  .med-cat-btn {
+    padding:8px 20px; border-radius:50px; font-size:.82rem; font-weight:600;
+    border:1.5px solid rgba(26,46,74,.15); background:white; color:var(--navy);
+    cursor:pointer; transition:all .25s; font-family:'DM Sans',sans-serif;
+  }
+  .med-cat-btn:hover { border-color:var(--ozone); color:var(--ozone-dark); }
+  .med-cat-btn.active { background:var(--ozone-dark); color:white; border-color:var(--ozone-dark); }
+
+  /* Scroll strip */
+  .med-scroll-outer {
+    overflow:hidden; position:relative; padding:8px 0;
+    mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
+    -webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
+  }
+  .med-track {
+    display:flex; gap:20px; width:max-content;
+    animation:medScroll 38s linear infinite;
+  }
+  .med-track:hover { animation-play-state:paused; }
+  @keyframes medScroll {
+    0%   { transform:translateX(0); }
+    100% { transform:translateX(-50%); }
+  }
+  .med-scroll-card {
+    background:white; border-radius:18px; padding:20px;
+    width:200px; flex-shrink:0;
+    box-shadow:0 4px 20px rgba(26,46,74,.08);
+    border:1.5px solid rgba(26,46,74,.06);
+    text-align:center; cursor:pointer;
+    transition:transform .3s,box-shadow .3s;
+  }
+  .med-scroll-card:hover { transform:translateY(-5px); box-shadow:0 12px 32px rgba(26,46,74,.14); }
+  .med-scroll-img { width:80px; height:80px; object-fit:contain; margin:0 auto 12px; display:block; }
+  .med-scroll-name { font-weight:700; font-size:.82rem; color:var(--navy); margin-bottom:4px; line-height:1.3; }
+  .med-scroll-cat { font-size:.7rem; color:var(--muted); margin-bottom:8px; }
+  .med-scroll-price { font-weight:800; font-size:.95rem; color:var(--green); }
+  .med-scroll-mrp { font-size:.72rem; color:#bbb; text-decoration:line-through; margin-left:6px; }
+
+  /* Grid cards */
+  .med-grid-card {
+    background:white; border-radius:20px; overflow:hidden;
+    box-shadow:0 4px 20px rgba(26,46,74,.08);
+    border:1.5px solid rgba(26,46,74,.06);
+    transition:all .3s; cursor:pointer; position:relative;
+  }
+  .med-grid-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(26,46,74,.14); }
+  .med-grid-img-wrap { background:linear-gradient(135deg,#f0f9ff,#e8f4fb); padding:24px; display:flex; align-items:center; justify-content:center; height:160px; }
+  .med-grid-img { max-width:110px; max-height:120px; object-fit:contain; transition:.3s; }
+  .med-grid-card:hover .med-grid-img { transform:scale(1.08); }
+  .med-grid-body { padding:16px; }
+  .med-grid-badge { display:inline-block; font-size:.65rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:3px 10px; border-radius:50px; margin-bottom:8px; }
+  .med-grid-name { font-weight:700; font-size:.88rem; color:var(--navy); margin-bottom:4px; line-height:1.4; }
+  .med-grid-desc { font-size:.75rem; color:var(--muted); line-height:1.6; margin-bottom:10px; }
+  .med-grid-price-row { display:flex; align-items:center; justify-content:space-between; }
+  .med-grid-price { font-weight:800; font-size:1rem; color:var(--green); }
+  .med-grid-mrp { font-size:.75rem; color:#bbb; text-decoration:line-through; }
+  .med-grid-discount { font-size:.7rem; font-weight:700; color:#e53935; background:#fff3f3; padding:2px 8px; border-radius:50px; }
+  .med-grid-enquire { margin-top:12px; width:100%; padding:8px; background:transparent; border:1.5px solid var(--ozone-dark); color:var(--ozone-dark); border-radius:50px; font-size:.78rem; font-weight:600; cursor:pointer; transition:.25s; font-family:'DM Sans',sans-serif; }
+  .med-grid-enquire:hover { background:var(--ozone-dark); color:white; }
+  .med-rx-badge { position:absolute; top:12px; right:12px; background:var(--navy); color:white; font-size:.6rem; font-weight:700; padding:3px 8px; border-radius:50px; letter-spacing:.05em; }
+  @media(max-width:1024px){ #medGrid { grid-template-columns:repeat(3,1fr); } }
+  @media(max-width:768px){ #medGrid { grid-template-columns:repeat(2,1fr); } .med-scroll-card { width:170px; } }
+  @media(max-width:480px){ #medGrid { grid-template-columns:1fr 1fr; } }
+  </style>
 
   <!-- FINAL CTA -->
   <section class="final-cta">
-    <div class="final-cta-inner" data-fm="fadeUp">
-      <span class="section-pill" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.2);">✦ Start Your Recovery Today</span>
-      <h2>Your Best Health is <span style="background:linear-gradient(135deg,#64B5F6,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">One Call Away</span></h2>
-      <p>Don't let pain hold you back. Our specialists at Riddhi Medical are ready to help you recover, rebuild, and live fully again.</p>
-      <div class="final-cta-btns">
-        <a href="https://wa.me/919462591098" target="_blank" class="whatsapp-book-btn">💬 WhatsApp +91 94625 91098</a>
-        <a href="#" onclick="showPage('contact');return false;" class="btn-ghost">📍 Find Us</a>
+    <div class="fca-orb fca-orb1"></div>
+    <div class="fca-orb fca-orb2"></div>
+    <div class="max-wrap" style="position:relative;z-index:1">
+      <h2 class="section-title text-center" style="color:white">Ready to Live <span style="color:#00e5ff">Pain-Free?</span></h2>
+      <p style="color:rgba(255,255,255,.75);text-align:center;font-size:1.05rem;margin-bottom:2.5rem">Book your consultation today and take the first step toward a life without pain. 7 locations. Expert care. Real results.</p>
+      <div class="text-center" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="#" onclick="showPage('booking');return false;" class="btn-white">📅 Book Appointment</a>
+        <a href="https://wa.me/918128700700" target="_blank" class="btn-ghost-white">💬 WhatsApp +91 81287 00700</a>
       </div>
     </div>
   </section>
+</div>
 
-</div><!-- end home -->
-
-<!-- ===================== ABOUT PAGE ===================== -->
+<!-- ========================== ABOUT PAGE ========================== -->
 <div id="page-about" class="page">
   <div class="page-header">
-    <div style="position:relative;z-index:1;">
-      <p class="ph-breadcrumb">Home → About</p>
-      <h1>About Riddhi Medical</h1>
-      <p>Trusted healthcare in the heart of Alwar, Rajasthan — caring for patients since over a decade.</p>
-    </div>
+    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>About Us</span></div>
+    <h1>About O3 Physiotherapy Clinic</h1>
+    <p>Led by Dr. Hiren Patel (MPT Ortho & Sports) — on a mission to make Ahmedabad Pain-Free.</p>
   </div>
-  <section class="dr-profile-section">
-    <div class="max-wrap">
-      <div class="dr-profile-inner">
-        <div class="dr-img-wrap" data-fm="fadeRight">
-          <img src="images/dr_ruchit_new.jpg" alt="Doctor at Riddhi Medical">
-          <div style="background:var(--navy);color:white;border-radius:16px;padding:20px 24px;margin-top:20px;">
-            <div style="font-size:1.8rem;font-weight:800;font-family:'Playfair Display',serif;color:var(--sky);">10+ Years</div>
-            <div style="font-size:0.85rem;color:rgba(255,255,255,.65);margin-top:4px;">Of trusted clinical experience in Ahmedabad</div>
-          </div>
-        </div>
-        <div data-fm="fadeLeft">
-          <span class="section-pill">✦ Our Story</span>
-          <h2 class="section-title">Riddhi Medical — <span style="color:var(--green)">Built on Trust</span></h2>
-          <p style="color:var(--muted);line-height:1.8;margin-bottom:1.2rem;">Riddhi Medical was established with a single mission: to provide trusted healthcare and medicines to the community. Located on Tijara Road in Bhagwanpura — a well-connected part of Alwar — our medical store and clinic has grown into a trusted name for general physician care and everyday health needs.</p>
-          <p style="color:var(--muted);line-height:1.8;margin-bottom:1.5rem;">We believe every patient deserves a full hearing, a thorough assessment, and a truly personalised treatment plan. That belief is at the core of everything we do — from the way we greet patients to the way we design every recovery programme.</p>
-          <div class="dr-qual-list">
-            <div class="dr-qual-item"><div class="dqi-dot"></div><div><strong>Expert Physiotherapy Team</strong><span>Qualified physiotherapists specialising in orthopaedics, neurology, sports, and paediatrics.</span></div></div>
-            <div class="dr-qual-item"><div class="dqi-dot"></div><div><strong>Advanced Treatment Modalities</strong><span>LASER, Ultrasound, TENS, IFT, Dry Needling, Manual Therapy and more.</span></div></div>
-            <div class="dr-qual-item"><div class="dqi-dot"></div><div><strong>Patient-First Philosophy</strong><span>Every decision is guided by what's best for the patient — not just the condition.</span></div></div>
-            <div class="dr-qual-item"><div class="dqi-dot"></div><div><strong>Riddhi Medical (Bhagwanpura, Alwar)</strong><span>Serving Bhagwanpura, Alwar and surrounding communities.</span></div></div>
-          </div>
-          <a href="https://wa.me/919462591098" target="_blank" class="btn-primary">💬 Book Your Consultation</a>
+  <section style="padding:80px 5%;">
+    <div class="max-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+      <div data-reveal-left>
+        <div class="section-pill">Our Story</div>
+        <h2 class="section-title">Why O3? <span class="color-green">Ozone Protects Life.</span></h2>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.2rem;">O3 means Ozone gas — a safe, effective, and omnipresent protector of life on earth. Just like Ozone, O3 Clinic is ubiquitous and goes out of its way to protect you from injuries and take care of all your physical pain safely and effectively.</p>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.2rem;">We started with a single clinic and a single mission: <strong style="color:var(--navy);">Pain-Free Ahmedabad.</strong> A decade later, we have 7 clinics across Gujarat and Mumbai, having treated over 50,000 patients.</p>
+        <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:2rem;">Every patient at O3 receives a detailed assessment, a personalised treatment programme, and the personal attention of our expert team throughout recovery.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+          <div style="display:flex;align-items:center;gap:8px;background:rgba(0,180,216,.1);border-radius:50px;padding:8px 18px;"><span style="font-size:.85rem;font-weight:600;color:var(--ozone-dark);">⚗️ O3 = Ozone Protection</span></div>
+          <div style="display:flex;align-items:center;gap:8px;background:rgba(26,107,60,.1);border-radius:50px;padding:8px 18px;"><span style="font-size:.85rem;font-weight:600;color:var(--green);">🏥 10+ Years · 50,000+ Patients</span></div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- VALUES -->
-  <section style="padding:100px 5%;background:var(--gray);">
-    <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ Our Values</span>
-        <h2 class="section-title">What We Stand <span style="color:var(--green)">For</span></h2>
-      </div>
-      <div class="mva-grid" style="margin-top:2.5rem;">
-        <div class="mva-card" data-fm="fadeUp"><div class="mva-card-icon">❤️</div><h3>Compassion</h3><p>We treat every patient with empathy, patience, and genuine care for their wellbeing and recovery.</p></div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.1s"><div class="mva-card-icon">🔬</div><h3>Excellence</h3><p>We apply the latest evidence-based clinical practices and continuously update our team's skills.</p></div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.2s"><div class="mva-card-icon">🤝</div><h3>Integrity</h3><p>Honest assessments, transparent pricing, and genuine advice — always in your best interest.</p></div>
-      </div>
-    </div>
-  </section>
-  <section class="final-cta">
-    <div class="final-cta-inner" data-fm="fadeUp">
-      <h2>Come Meet the <span style="background:linear-gradient(135deg,#64B5F6,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Riddhi Medical Team</span></h2>
-      <p>Book a consultation and experience what patient-first care truly feels like.</p>
-      <div class="final-cta-btns">
-        <a href="https://wa.me/919462591098" target="_blank" class="whatsapp-book-btn">💬 WhatsApp Us</a>
-        <a href="#" onclick="showPage('contact');return false;" class="btn-ghost">📍 Our Location</a>
+      <div data-reveal-right>
+        <img src="images/clinic/new_img9.jpg" alt="O3 Clinic" style="width:100%;border-radius:24px;box-shadow:0 24px 70px rgba(26,46,74,.18);">
       </div>
     </div>
   </section>
 </div>
 
-<!-- ===================== SERVICES PAGE ===================== -->
+<!-- ========================== SERVICES PAGE ========================== -->
 <div id="page-services" class="page">
   <div class="page-header">
-    <div style="position:relative;z-index:1;">
-      <p class="ph-breadcrumb">Home → Services</p>
-      <h1>Our Services</h1>
-      <p>Comprehensive physiotherapy, rehabilitation, and medical care under one roof.</p>
-    </div>
+    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Services</span></div>
+    <h1>Our Services</h1>
+    <p>Comprehensive physiotherapy and pain management services — all under one roof.</p>
   </div>
-  <section style="padding:90px 5%;background:white;">
+  <section class="services-section" style="padding:80px 5%;">
     <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ Physiotherapy Services</span>
-        <h2 class="section-title">Evidence-Based <span style="color:var(--green)">Treatment</span></h2>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:2.5rem;">
-        <div class="mva-card" data-fm="fadeUp"><div class="mva-card-icon">🦴</div><h3>Orthopaedic Physiotherapy</h3><p>Joint replacements, fractures, arthritis, ligament injuries, and all musculoskeletal conditions.</p></div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.1s"><div class="mva-card-icon">🧠</div><h3>Neurological Physiotherapy</h3><p>Stroke rehab, Parkinson's, multiple sclerosis, spinal cord injury, and cerebral palsy treatment.</p></div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.2s"><div class="mva-card-icon">🏃</div><h3>Sports Physiotherapy</h3><p>ACL/PCL injuries, shoulder instability, muscle tears, and athlete-specific performance rehab.</p></div>
-        <div class="mva-card" data-fm="fadeUp"><div class="mva-card-icon">💉</div><h3>Dry Needling</h3><p>Trigger point dry needling for muscular pain, tension, and neuromuscular dysfunction relief.</p></div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.1s"><div class="mva-card-icon">🌊</div><h3>Cupping Therapy</h3><p>Traditional cupping and modern myofascial cupping to release tightness and promote circulation.</p></div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.2s"><div class="mva-card-icon">⚡</div><h3>Electrotherapy</h3><p>TENS, IFT, Ultrasound, LASER and SWD modalities for pain relief and tissue healing.</p></div>
-        <div class="mva-card" data-fm="fadeUp"><div class="mva-card-icon">🤲</div><h3>Manual Therapy</h3><p>Joint mobilisation, manipulation, and soft tissue techniques for pain and mobility issues.</p></div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.1s"><div class="mva-card-icon">👶</div><h3>Paediatric Physiotherapy</h3><p>Developmental delays, cerebral palsy, scoliosis, flat feet, and other childhood conditions.</p></div>
-        <div class="mva-card" data-fm="fadeUp" style="--delay:.2s"><div class="mva-card-icon">🧘</div><h3>Posture & Ergonomics</h3><p>Postural correction, ergonomic assessment, and injury prevention programmes for all lifestyles.</p></div>
-      </div>
-    </div>
-  </section>
-  <!-- ADVANCED TECH -->
-  <section style="padding:90px 5%;background:var(--gray);">
-    <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ Advanced Modalities</span>
-        <h2 class="section-title">Technology Meets <span style="color:var(--green)">Expertise</span></h2>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-top:3rem;">
-        <div data-fm="fadeRight">
-          <img src="images/session6.jpg" alt="Advanced Treatment" style="width:100%;border-radius:20px;aspect-ratio:4/3;object-fit:cover;">
+      <div class="services-grid">
+        <div class="service-card" data-reveal>
+          <img src="images/manual_therapy.webp" alt="Physiotherapy" class="service-img">
+          <div class="service-body"><div class="service-icon">🦴</div><div class="service-title">Physiotherapy</div><div class="service-desc">Comprehensive orthopaedic, neurological and sports physiotherapy using evidence-based techniques for lasting recovery. Includes musculofascial release, taping and instrument-assisted soft tissue mobilization.</div><span class="service-tag">Ortho · Neuro · Sports</span></div>
         </div>
-        <div data-fm="fadeLeft">
-          <div style="display:flex;flex-direction:column;gap:16px;">
-            <div class="pain-card" style="background:white;border:1px solid #e8f0f8;"><div><h4 style="color:var(--navy);">High-Power LASER Therapy</h4><p>Class IV LASER for deep tissue healing, pain relief and faster recovery.</p></div></div>
-            <div class="pain-card" style="background:white;border:1px solid #e8f0f8;"><div><h4 style="color:var(--navy);">Shockwave Therapy</h4><p>Radial shockwave for chronic tendinopathies, plantar fasciitis, and calcific shoulder.</p></div></div>
-            <div class="pain-card" style="background:white;border:1px solid #e8f0f8;"><div><h4 style="color:var(--navy);">Ultrasound Therapy</h4><p>Therapeutic ultrasound for soft tissue injuries, scar tissue and inflammation.</p></div></div>
-            <div class="pain-card" style="background:white;border:1px solid #e8f0f8;"><div><h4 style="color:var(--navy);">Traction Therapy</h4><p>Cervical and lumbar traction for disc problems and nerve root compression.</p></div></div>
-          </div>
+        <div class="service-card" data-reveal>
+          <img src="images/osteopathy.webp" alt="Massage" class="service-img">
+          <div class="service-body"><div class="service-icon">💆</div><div class="service-title">Massage Therapy</div><div class="service-desc">Deep tissue, musculofascial release and sports massage to relieve muscle tension, improve circulation and accelerate the body's natural healing process.</div><span class="service-tag">Deep Tissue · MFR · Sports</span></div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="final-cta">
-    <div class="final-cta-inner" data-fm="fadeUp">
-      <h2>Not Sure Which Service <span style="background:linear-gradient(135deg,#64B5F6,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">You Need?</span></h2>
-      <p>WhatsApp us your condition and our specialists will guide you to the right treatment.</p>
-      <div class="final-cta-btns">
-        <a href="https://wa.me/919462591098" target="_blank" class="whatsapp-book-btn">💬 Ask Our Team</a>
+        <div class="service-card" data-reveal>
+          <img src="images/alignment.webp" alt="Chiropractic" class="service-img">
+          <div class="service-body"><div class="service-icon">🤸</div><div class="service-title">Chiropractic Therapy</div><div class="service-desc">Precision spinal alignment and chiropractic adjustments to correct posture, relieve nerve compression, reduce chronic back and neck pain effectively.</div><span class="service-tag">Spinal · Nerve · Posture</span></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <img src="images/dry_needling.webp" alt="Sports Injury" class="service-img">
+          <div class="service-body"><div class="service-icon">🏃</div><div class="service-title">Sports Injury</div><div class="service-desc">Specialised sports injury assessment and rehabilitation for professional athletes and sports enthusiasts. Return-to-sport programmes for ACL, shoulder, ankle and more.</div><span class="service-tag">Athletes · ACL · Shoulder</span></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <img src="images/cupping.webp" alt="Pain Management" class="service-img">
+          <div class="service-body"><div class="service-icon">⚡</div><div class="service-title">Pain Management</div><div class="service-desc">Chronic pain solutions using cupping therapy, dry needling, IASTM, kinesio taping, laser therapy, IFT, TENS, ultrasound, SWD and advanced electrotherapy.</div><span class="service-tag">Cupping · IASTM · Laser</span></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <img src="images/rehabilitation.webp" alt="Work Injury" class="service-img">
+          <div class="service-body"><div class="service-icon">💼</div><div class="service-title">Work Injury Rehab</div><div class="service-desc">Ergonomic consultation and targeted rehabilitation for occupational injuries — helping you return to your workplace stronger, safer and pain-free.</div><span class="service-tag">Ergonomics · Office · Back</span></div>
+        </div>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ===================== TEAM PAGE ===================== -->
+<!-- ========================== TEAM PAGE ========================== -->
 <div id="page-team" class="page">
   <div class="page-header">
-    <div style="position:relative;z-index:1;">
-      <p class="ph-breadcrumb">Home → Team</p>
-      <h1>Our Expert Team</h1>
-      <p>Meet the dedicated healthcare professionals at Riddhi Medical, Alwar, Rajasthan.</p>
-    </div>
+    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Our Team</span></div>
+    <h1>Our Expert Team</h1>
+    <p>Led by one of India's most qualified physiotherapists — Dr. Hiren Patel, MPT (Ortho & Sports).</p>
   </div>
-  <section style="padding:100px 5%;background:white;">
+  <section class="team-section">
     <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ Our Specialists</span>
-        <h2 class="section-title">Qualified, Caring & <span style="color:var(--green)">Experienced</span></h2>
-        <p class="section-sub" style="margin:0 auto 3rem;">Every member of our team is handpicked for their clinical skills, compassion, and commitment to patient care.</p>
-      </div>
-      <div class="team-grid">
-        <div class="team-card" data-fm="fadeUp">
-          <img src="images/dr_ruchit.webp" alt="Lead Doctor" class="team-card-img">
-          <div class="team-card-body">
-            <h3>Dr. Lead Physiotherapist</h3>
-            <div class="role">Senior Physiotherapist & Founder</div>
-            <p>MPT (Orthopedics) · 10+ Years Experience · Sports & Orthopaedic Specialist</p>
+      <div class="team-featured" data-reveal>
+        <div class="team-img-wrap">
+          <img src="images/dr_hiren_new.png" alt="Dr. Hiren Patel" class="team-img-main">
+          <div class="team-badge">
+            <div class="team-badge-title">Lead Physiotherapist & Founder</div>
+            <div class="team-badge-name">Dr. Hiren Patel</div>
           </div>
         </div>
-        <div class="team-card" data-fm="fadeUp" style="--delay:.1s">
-          <img src="images/team_member_2.webp" alt="Team Member" class="team-card-img">
-          <div class="team-card-body">
-            <h3>Dr. Physio Specialist</h3>
-            <div class="role">Neurological Physiotherapist</div>
-            <p>MPT (Neurology) · Stroke Rehab · Parkinson's & Neuro Conditions Specialist</p>
+        <div>
+          <div class="section-pill">Meet the Founder</div>
+          <h2 class="section-title">Dr. Hiren Patel <span class="color-green">MPT (Ortho & Sports)</span></h2>
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.2rem;">Dr. Hiren Patel is one of the most qualified and sought-after physiotherapists in India — a distinguished alumnus of the prestigious Rajiv Gandhi University of Health Sciences, Bengaluru. He completed both his Bachelor's and Master's degrees in Orthopaedic & Sports Injury from one of India's most advanced Health Science Universities.</p>
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.5rem;">With unparalleled expertise in the treatment of Chronic Pain and Sports Injury Management, Dr. Hiren founded O3 Physio Clinic with a single mission: to make Gujarat Pain-Free. His avant-garde, evidence-based approach has helped tens of thousands of patients reclaim an active, pain-free life.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem;">
+            <span class="cred-badge">🎓 MPT (Ortho & Sports)</span>
+            <span class="cred-badge">🏫 RGUHS, Bengaluru</span>
+            <span class="cred-badge">🏆 Sports Injury Expert</span>
+            <span class="cred-badge">🏥 Chronic Pain Specialist</span>
+            <span class="cred-badge">📍 7 Clinic Locations</span>
           </div>
+          <a href="#" onclick="showPage('booking');return false;" class="btn-primary">Book with Dr. Hiren</a>
         </div>
-        <div class="team-card" data-fm="fadeUp" style="--delay:.2s">
-          <img src="images/team_member_3.webp" alt="Team Member" class="team-card-img">
-          <div class="team-card-body">
-            <h3>Dr. Sports Physio</h3>
-            <div class="role">Sports Physiotherapist</div>
-            <p>BPT + Sports Cert · ACL & Athletic Injury Specialist · Return-to-Sport Expert</p>
-          </div>
-        </div>
-        <div class="team-card" data-fm="fadeUp" style="--delay:.3s">
-          <img src="images/team_member_4.webp" alt="Team Member" class="team-card-img">
-          <div class="team-card-body">
-            <h3>Dr. Paediatric PT</h3>
-            <div class="role">Paediatric Physiotherapist</div>
-            <p>BPT · Child Development · Paediatric Ortho & Neuro Conditions Expert</p>
-          </div>
-        </div>
-        <div class="team-card" data-fm="fadeUp">
-          <img src="images/team_member_5.webp" alt="Team Member" class="team-card-img">
-          <div class="team-card-body">
-            <h3>Dr. Manual Therapist</h3>
-            <div class="role">Manual Therapy Specialist</div>
-            <p>MPT + Manual Cert · Joint Mobilisation · Soft Tissue & Spinal Manipulation Expert</p>
-          </div>
-        </div>
-        <div class="team-card" data-fm="fadeUp" style="--delay:.1s">
-          <img src="images/team_member_6.webp" alt="Team Member" class="team-card-img">
-          <div class="team-card-body">
-            <h3>Dr. Rehab Specialist</h3>
-            <div class="role">Rehabilitation Physiotherapist</div>
-            <p>BPT · Post-Surgical Rehab · Pain Management & Electrotherapy Expert</p>
-          </div>
-        </div>
-        <div class="team-card" data-fm="fadeUp" style="--delay:.2s">
-          <img src="images/team_member_7.webp" alt="Team Member" class="team-card-img">
-          <div class="team-card-body">
-            <h3>Dr. Senior Physio</h3>
-            <div class="role">Senior Physiotherapist</div>
-            <p>MPT · Dry Needling Certified · Posture & Ergonomics Specialist</p>
-          </div>
-        </div>
-        <div class="team-card" data-fm="fadeUp" style="--delay:.3s">
-          <img src="images/dr_hiren_new.png" alt="Team Member" class="team-card-img">
-          <div class="team-card-body">
-            <h3>Dr. Associate Physio</h3>
-            <div class="role">Associate Physiotherapist</div>
-            <p>BPT · Cupping & Taping Specialist · Sports & Orthopaedic Rehab</p>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center;margin-top:3rem;">
-        <a href="https://wa.me/919462591098" target="_blank" class="btn-primary">💬 Book With Our Team</a>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ===================== TESTIMONIALS PAGE ===================== -->
-<div id="page-testimonials" class="page">
+<!-- ========================== LOCATIONS PAGE ========================== -->
+<div id="page-locations" class="page">
   <div class="page-header">
-    <div style="position:relative;z-index:1;">
-      <p class="ph-breadcrumb">Home → Reviews</p>
-      <h1>Patient Reviews</h1>
-      <p>Real stories from patients who transformed their health at Riddhi Medical.</p>
-    </div>
+    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Locations</span></div>
+    <h1>Our 7 Clinics</h1>
+    <p>Find the O3 Physio clinic nearest to you — across Ahmedabad, Gujarat and Mumbai.</p>
   </div>
-  <section class="testimonials-section" style="background:#f4f7fb;">
+  <section class="locations-section" style="padding:80px 5%;background:var(--gray);">
     <div class="max-wrap">
-      <div class="testi-stats-row" data-fm="fadeUp">
-        <div class="ts-stat"><div class="ts-num">4.9★</div><div class="ts-label">Average Google Rating</div></div>
-        <div class="ts-stat"><div class="ts-num">500+</div><div class="ts-label">Written Reviews</div></div>
-        <div class="ts-stat"><div class="ts-num">98%</div><div class="ts-label">Would Recommend</div></div>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card" data-fm="fadeUp"><div class="testi-stars">★★★★★</div><p class="testi-text">"After months of back pain and two failed treatment attempts elsewhere, Riddhi Medical finally gave me real relief. The team is incredibly knowledgeable and caring."</p><div class="testi-author"><div class="ta-avatar">RJ</div><div><div class="ta-name">Ravi Joshi</div><div class="ta-sub">Back Pain Recovery</div></div></div></div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.1s"><div class="testi-stars">★★★★★</div><p class="testi-text">"My mother recovered from a stroke and the neurological physiotherapy here made all the difference. The therapists are patient, motivating and truly skilled."</p><div class="testi-author"><div class="ta-avatar">PM</div><div><div class="ta-name">Priya Modi</div><div class="ta-sub">Stroke Rehabilitation</div></div></div></div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.2s"><div class="testi-stars">★★★★★</div><p class="testi-text">"My ACL injury felt like a death sentence for my sports career, but the team here designed a perfect return-to-sport programme and I'm back playing at full intensity!"</p><div class="testi-author"><div class="ta-avatar">AS</div><div><div class="ta-name">Arjun Shah</div><div class="ta-sub">Sports Injury Rehab</div></div></div></div>
-        <div class="testi-card" data-fm="fadeUp"><div class="testi-stars">★★★★★</div><p class="testi-text">"Chronic knee pain for 3 years. After 6 weeks at Riddhi Medical, my pain is gone and my surgeon was surprised at how well I responded without surgery!"</p><div class="testi-author"><div class="ta-avatar">NK</div><div><div class="ta-name">Neeta Kapoor</div><div class="ta-sub">Knee Pain Treatment</div></div></div></div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.1s"><div class="testi-stars">★★★★★</div><p class="testi-text">"The staff is warm and professional. They explained my condition clearly and checked in every session. I've never felt more taken care of at any clinic."</p><div class="testi-author"><div class="ta-avatar">DV</div><div><div class="ta-name">Deepak Vora</div><div class="ta-sub">Cervical Spondylosis</div></div></div></div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.2s"><div class="testi-stars">★★★★★</div><p class="testi-text">"Post-knee replacement physiotherapy here was exceptional. Professional, encouraging, and I was walking normally in half the expected recovery time!"</p><div class="testi-author"><div class="ta-avatar">SB</div><div><div class="ta-name">Suresh Bhatt</div><div class="ta-sub">Post-Surgical Rehab</div></div></div></div>
-        <div class="testi-card" data-fm="fadeUp"><div class="testi-stars">★★★★★</div><p class="testi-text">"Great clinic with very experienced doctors. My shoulder impingement was treated perfectly and I can now play tennis again without any pain at all!"</p><div class="testi-author"><div class="ta-avatar">KP</div><div><div class="ta-name">Kavita Patel</div><div class="ta-sub">Shoulder Pain</div></div></div></div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.1s"><div class="testi-stars">★★★★★</div><p class="testi-text">"My father had Parkinson's and the neuro physiotherapy at Riddhi Medical improved his balance and mobility significantly. Truly compassionate team."</p><div class="testi-author"><div class="ta-avatar">MM</div><div><div class="ta-name">Mihir Mehta</div><div class="ta-sub">Parkinson's Rehab</div></div></div></div>
-        <div class="testi-card" data-fm="fadeUp" style="--delay:.2s"><div class="testi-stars">★★★★★</div><p class="testi-text">"Excellent and clean clinic. The physiotherapy for my cervical disc herniation was highly effective. Pain-free within 3 weeks of starting treatment here."</p><div class="testi-author"><div class="ta-avatar">HS</div><div><div class="ta-name">Hetal Shah</div><div class="ta-sub">Cervical Disc Pain</div></div></div></div>
+      <div class="locations-grid">
+        <div class="loc-card" data-reveal>
+          <div class="loc-num">1</div>
+          <div class="loc-name">Prahlad Nagar</div>
+          <div class="loc-addr">405, Sahjanand Palace, Opp. Rahul Tower, 100 Feet Road, Ahmedabad, Gujarat 380015</div>
+          <a href="https://www.google.com/maps?q=O3+Physio+Clinic+Prahladnagar" target="_blank" class="loc-link">🗺 Get Directions</a>
+        </div>
+        <div class="loc-card" data-reveal>
+          <div class="loc-num">2</div>
+          <div class="loc-name">Thaltej</div>
+          <div class="loc-addr">A-209/210, Silver Square, Opp. Bagban Party Plot, Thaltej-Shilaj Road, Thaltej, Ahmedabad, Gujarat 380054</div>
+          <a href="https://maps.app.goo.gl/zubhZPbdfSnZEMMD8" target="_blank" class="loc-link">🗺 Get Directions</a>
+        </div>
+        <div class="loc-card" data-reveal>
+          <div class="loc-num">3</div>
+          <div class="loc-name">South Bopal</div>
+          <div class="loc-addr">C-251 SOBO Centre, Gala Gymkhana Road, near Suncity, Bopal, Ahmedabad, Gujarat 380058</div>
+          <a href="https://goo.gl/maps/3D6ME8BkH532" target="_blank" class="loc-link">🗺 Get Directions</a>
+        </div>
+        <div class="loc-card" data-reveal>
+          <div class="loc-num">4</div>
+          <div class="loc-name">Ambawadi</div>
+          <div class="loc-addr">408-B, Sigma Legacy, IIM Road, Panjarapole Cross Road, Ambawadi, Ahmedabad, Gujarat</div>
+          <a href="https://www.google.com/maps/place/O3+Physio+Clinic,+Ambawadi" target="_blank" class="loc-link">🗺 Get Directions</a>
+        </div>
+        <div class="loc-card" data-reveal>
+          <div class="loc-num">5</div>
+          <div class="loc-name">Science City</div>
+          <div class="loc-addr">Second Floor, 10, JBR Arcade, Opp. Satyam Complex, Science City Road, Science City, Ahmedabad, Gujarat</div>
+          <a href="https://www.google.com/maps/place/O3+Physio+Clinic,+Science+City" target="_blank" class="loc-link">🗺 Get Directions</a>
+        </div>
+        <div class="loc-card" data-reveal>
+          <div class="loc-num">6</div>
+          <div class="loc-name">Shilaj</div>
+          <div class="loc-addr">Shilaj, Ahmedabad, Gujarat — Coming Soon</div>
+          <span style="color:var(--muted);font-size:.8rem;">🚧 Opening Soon</span>
+        </div>
+        <div class="loc-card" data-reveal>
+          <div class="loc-num">7</div>
+          <div class="loc-name">Dadar – Mumbai</div>
+          <div class="loc-addr">Goglekar Building, Dada Saheb Rege Marg, Opposite Shiv Sena Bhavan, Dadar West, Mumbai 400028</div>
+          <a href="https://www.google.com/maps?q=O3+Physio+Clinic+Dadar+Mumbai" target="_blank" class="loc-link">🗺 Get Directions</a>
+        </div>
       </div>
     </div>
   </section>
 </div>
 
-<!-- ===================== CONTACT PAGE ===================== -->
+<!-- ========================== BOOKING PAGE ========================== -->
+<div id="page-booking" class="page">
+  <div class="page-header">
+    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Book Appointment</span></div>
+    <h1>Book Your Appointment</h1>
+    <p>Take the first step toward a pain-free life — book your consultation today.</p>
+  </div>
+  <section class="booking-form-section">
+    <div class="booking-inner">
+      <div class="form-card">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--navy);margin-bottom:24px;">Schedule a Consultation</h2>
+        <div class="form-grid-2">
+          <div class="form-group"><label>Full Name *</label><input type="text" id="f-name" placeholder="Your full name"></div>
+          <div class="form-group"><label>Phone *</label><input type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group"><label>Age</label><input type="number" id="f-age" placeholder="Your age"></div>
+          <div class="form-group"><label>Email Address</label><input type="email" id="f-email" placeholder="your@email.com"></div>
+        </div>
+        <div class="form-group"><label>Select Clinic Location</label>
+          <select id="f-location">
+            <option value="">Choose a location</option>
+            <option>Prahlad Nagar, Ahmedabad</option>
+            <option>Thaltej, Ahmedabad</option>
+            <option>South Bopal, Ahmedabad</option>
+            <option>Ambawadi, Ahmedabad</option>
+            <option>Science City, Ahmedabad</option>
+            <option>Dadar, Mumbai</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Service Required</label>
+          <select id="f-service">
+            <option value="">Select a service</option>
+            <option>Physiotherapy</option>
+            <option>Massage Therapy</option>
+            <option>Chiropractic Therapy</option>
+            <option>Sports Injury Rehabilitation</option>
+            <option>Pain Management</option>
+            <option>Work Injury Rehabilitation</option>
+            <option>Detailed Assessment</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Describe Your Condition</label><textarea id="f-desc" rows="4" placeholder="Tell us about your pain or condition..."></textarea></div>
+        <button class="form-submit" onclick="submitBooking()">📅 Send Booking Request via WhatsApp</button>
+        <p style="text-align:center;color:var(--muted);font-size:.8rem;margin-top:12px;">Or call us directly: <a href="tel:918128700700" style="color:var(--ozone-dark);font-weight:600;">+91 81287 00700</a></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ========================== CONTACT PAGE ========================== -->
 <div id="page-contact" class="page">
   <div class="page-header">
-    <div style="position:relative;z-index:1;">
-      <p class="ph-breadcrumb">Home → Contact</p>
-      <h1>Contact Riddhi Medical</h1>
-      <p>Reach us via WhatsApp, phone, or visit us at our clinic in Bhagwanpura, Alwar — we're here to help.</p>
-    </div>
+    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Contact</span></div>
+    <h1>Get In Touch</h1>
+    <p>We're here for you — reach out and we'll get back to you promptly.</p>
   </div>
-  <section style="background:#f4f7fb;padding:90px 5%;">
-    <div class="max-wrap">
-      <div class="contact-grid">
-        <div class="contact-info-card" data-fm="fadeRight">
-          <h3>Get in Touch</h3>
-          <div class="ci-item">
-            <div class="ci-icon">📍</div>
-            <div class="ci-text">
-              <strong>Address</strong>
-              <span>Riddhi Medical, Ganpati Vihar, B-97,<br>Tijara Rd, Patak, Bhagwanpura,<br>Alwar, Rajasthan – 301001</span>
-            </div>
-          </div>
-          <div class="ci-item">
-            <div class="ci-icon">📞</div>
-            <div class="ci-text">
-              <strong>Phone / WhatsApp</strong>
-              <span><a href="tel:+919462591098" style="color:rgba(255,255,255,.8);text-decoration:none;">+91 94625 91098</a></span>
-            </div>
-          </div>
-          <div class="ci-item">
-            <div class="ci-icon">🕐</div>
-            <div class="ci-text">
-              <strong>Clinic Hours</strong>
-              <span>Mon – Sat: 9:00 AM – 8:00 PM<br>Sunday: 9:00 AM – 1:00 PM</span>
-            </div>
-          </div>
-          <div style="margin-top:2rem;display:flex;flex-direction:column;gap:10px;">
-            <a href="https://wa.me/919462591098" target="_blank" class="whatsapp-book-btn" style="justify-content:center;">💬 WhatsApp Us</a>
-            <a href="https://maps.app.goo.gl/zubhZPbdfSnZEMMD8" target="_blank" class="btn-ghost" style="justify-content:center;">🗺 Get Directions</a>
-          </div>
+  <section class="contact-section">
+    <div class="contact-inner">
+      <div>
+        <div class="contact-info-card">
+          <div class="ci-title">📞 Phone</div>
+          <div class="ci-item"><a href="tel:918128700700" style="text-decoration:none;color:inherit;">+91 81287 00700</a></div>
         </div>
-        <div data-fm="fadeLeft">
-          <div class="booking-form">
-            <h3 style="font-family:'Playfair Display',serif;color:var(--navy);font-size:1.5rem;margin-bottom:1.8rem;">Send Us a Message</h3>
-            <div class="form-group"><label>Your Name</label><input type="text" placeholder="Enter your full name"></div>
-            <div class="form-group"><label>Mobile Number</label><input type="tel" placeholder="+91 00000 00000"></div>
-            <div class="form-group"><label>Condition / Query</label><input type="text" placeholder="e.g. Back pain, sports injury..."></div>
-            <div class="form-group"><label>Message</label><textarea placeholder="Tell us more about your condition or question..."></textarea></div>
-            <a href="https://wa.me/919462591098" target="_blank" class="btn-primary" style="width:100%;justify-content:center;" onclick="showToast('Message sent! We\'ll contact you shortly ✅')">💬 Send via WhatsApp</a>
-          </div>
-          <div class="map-embed" style="margin-top:24px;">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3527.6!2d76.6269!3d27.5908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3972993daa5c21b3%3A0x8162766c59bc730c!2sRiddhi+Medical!5e0!3m2!1sen!2sin!4v1" width="100%" height="300" style="border:0;border-radius:16px;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
+        <div class="contact-info-card">
+          <div class="ci-title">📧 Email</div>
+          <div class="ci-item"><a href="mailto:info@o3physio.com" style="text-decoration:none;color:inherit;">info@o3physio.com</a></div>
+        </div>
+        <div class="contact-info-card">
+          <div class="ci-title">🕐 Clinic Hours</div>
+          <div class="ci-item">Monday – Saturday: 8:00 AM – 8:00 PM</div>
+          <div class="ci-item">Sunday: Closed</div>
+        </div>
+        <div class="contact-info-card">
+          <div class="ci-title">📍 Main Branch</div>
+          <div class="ci-item">405, Sahjanand Palace, Opp. Rahul Tower, 100 Feet Road, Prahlad Nagar, Ahmedabad, Gujarat 380015</div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- FAQ -->
-  <section class="faq-section">
-    <div class="max-wrap">
-      <div class="text-center" data-fm="fadeUp">
-        <span class="section-pill">✦ FAQ</span>
-        <h2 class="section-title">Frequently Asked <span style="color:var(--green)">Questions</span></h2>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Do I need a doctor's referral to visit Riddhi Medical? <span class="faq-toggle">+</span></div>
-          <div class="faq-a"><div class="faq-a-inner">No referral is needed. You can visit us directly or WhatsApp us to book an appointment. However, if you have reports or scans from a previous doctor, please bring them as they help us plan your treatment better.</div></div>
+      <div class="form-card">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--navy);margin-bottom:20px;">Send us a Message</h2>
+        <div class="form-group"><label>Your Name</label><input type="text" id="c-name" placeholder="Full name"></div>
+        <div class="form-grid-2">
+          <div class="form-group"><label>Phone</label><input type="tel" id="c-phone" placeholder="+91 XXXXX XXXXX"></div>
+          <div class="form-group"><label>Email</label><input type="email" id="c-email" placeholder="your@email.com"></div>
         </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">How many sessions of physiotherapy will I need? <span class="faq-toggle">+</span></div>
-          <div class="faq-a"><div class="faq-a-inner">The number of sessions depends on your condition, its severity, and your response to treatment. After a thorough initial assessment, we will give you a realistic estimate. Most acute conditions improve within 6–12 sessions; chronic or neurological conditions may require longer programmes.</div></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Do you offer home visit physiotherapy? <span class="faq-toggle">+</span></div>
-          <div class="faq-a"><div class="faq-a-inner">Yes, we do offer home visit physiotherapy for patients who are unable to travel due to post-surgical recovery, severe mobility limitations, or other health conditions. Please call or WhatsApp +91 94625 91098 to arrange a home visit and confirm availability.</div></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Can physiotherapy help after a stroke or neurological condition? <span class="faq-toggle">+</span></div>
-          <div class="faq-a"><div class="faq-a-inner">Absolutely. Our team specialises in neurological physiotherapy for stroke rehabilitation, Parkinson's disease, spinal cord injury, and cerebral palsy. We use task-specific training and neuroplasticity principles to help patients regain movement, strength, and independence.</div></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">What should I wear to my physiotherapy session? <span class="faq-toggle">+</span></div>
-          <div class="faq-a"><div class="faq-a-inner">Please wear comfortable, loose-fitting clothes that allow easy access to the affected area. For lower limb conditions, shorts are ideal. For shoulder or back conditions, a loose t-shirt is recommended. Comfortable footwear is also advised.</div></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q" onclick="toggleFaq(this)">Is physiotherapy painful? <span class="faq-toggle">+</span></div>
-          <div class="faq-a"><div class="faq-a-inner">Most physiotherapy techniques are not painful. You may experience some mild discomfort during certain manual therapy or exercise techniques, but our therapists always work within your pain threshold and will adjust any technique that causes excessive discomfort. Open communication with your therapist is always encouraged.</div></div>
-        </div>
+        <div class="form-group"><label>Your Message</label><textarea id="c-msg" rows="4" placeholder="How can we help you?"></textarea></div>
+        <button class="form-submit" onclick="submitContact()">Send Message via WhatsApp</button>
       </div>
     </div>
   </section>
 </div>
+
+<!-- LIGHTBOX -->
+<div id="photo-lightbox" onclick="closeLightbox()">
+  <div style="position:absolute;top:20px;right:20px;color:white;font-size:2rem;cursor:pointer;z-index:10" onclick="closeLightbox()">✕</div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:90%;max-height:90vh;">
+    <img id="lightbox-img" src="" alt="" style="max-width:100%;max-height:90vh;border-radius:16px;box-shadow:0 40px 100px rgba(0,0,0,.8);">
+  </div>
+</div>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/918128700700" target="_blank" class="float-wa" title="Chat on WhatsApp">💬</a>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner max-wrap">
-    <div class="footer-brand">
-      <div class="footer-logo-row">
-        <div class="footer-logo-icon">🏥</div>
-        <div><span style="color:white;font-weight:800;font-size:.9rem;font-family:'Playfair Display',serif;letter-spacing:0.5px;display:block;">RIDDHI MEDICAL</span><span style="color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:1px;">BHAGWANPURA, ALWAR</span></div>
-      </div>
-      <p>Alwar's trusted medical store & general physician clinic. Expert care, compassionate team, lasting results — for all age groups.</p>
-      <div class="footer-socials">
-        <a href="https://wa.me/919462591098" target="_blank" class="fs-btn">💬</a>
-        <a href="https://maps.app.goo.gl/zubhZPbdfSnZEMMD8" target="_blank" class="fs-btn">📍</a>
-        <a href="tel:+919462591098" class="fs-btn">📞</a>
+    <div>
+      <div class="footer-brand-name">O3 Physiotherapy Clinic</div>
+      <div class="footer-brand-tagline">Pain-Free Ahmedabad · Dr. Hiren Patel MPT</div>
+      <p class="footer-desc">O3 means Ozone — omnipresent protection for life. We go out of our way to protect you from pain and injuries. 7 clinics. 50,000+ patients healed.</p>
+      <div class="social-icons" style="margin-top:16px;">
+        <a href="https://www.facebook.com/DrHirenO3PhysioClinic" target="_blank" class="social-icon">f</a>
+        <a href="https://wa.me/918128700700" target="_blank" class="social-icon">💬</a>
+        <a href="tel:918128700700" class="social-icon">📞</a>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#" onclick="showPage('home');return false;">Home</a></li>
-        <li><a href="#" onclick="showPage('about');return false;">About Us</a></li>
-        <li><a href="#" onclick="showPage('services');return false;">Our Services</a></li>
-        <li><a href="#" onclick="showPage('team');return false;">Our Team</a></li>
-        <li><a href="#" onclick="showPage('testimonials');return false;">Patient Reviews</a></li>
-        <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
-      </ul>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <a href="#" class="footer-link" onclick="showPage('services');return false;">Physiotherapy</a>
+      <a href="#" class="footer-link" onclick="showPage('services');return false;">Massage Therapy</a>
+      <a href="#" class="footer-link" onclick="showPage('services');return false;">Chiropractic</a>
+      <a href="#" class="footer-link" onclick="showPage('services');return false;">Sports Injury</a>
+      <a href="#" class="footer-link" onclick="showPage('services');return false;">Pain Management</a>
+      <a href="#" class="footer-link" onclick="showPage('services');return false;">Work Injury</a>
     </div>
-    <div class="footer-col">
-      <h4>Our Services</h4>
-      <ul>
-        <li><a href="#" onclick="showPage('services');return false;">Orthopaedic Physiotherapy</a></li>
-        <li><a href="#" onclick="showPage('services');return false;">Neurological Physiotherapy</a></li>
-        <li><a href="#" onclick="showPage('services');return false;">Sports Injury Rehab</a></li>
-        <li><a href="#" onclick="showPage('services');return false;">Manual Therapy</a></li>
-        <li><a href="#" onclick="showPage('services');return false;">Dry Needling</a></li>
-        <li><a href="#" onclick="showPage('services');return false;">Cupping Therapy</a></li>
-        <li><a href="#" onclick="showPage('services');return false;">LASER Therapy</a></li>
-        <li><a href="#" onclick="showPage('services');return false;">Post-Surgical Rehab</a></li>
-        <li><a href="#" onclick="showPage('services');return false;">Paediatric Physio</a></li>
-      </ul>
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <a href="#" class="footer-link" onclick="showPage('home');return false;">Home</a>
+      <a href="#" class="footer-link" onclick="showPage('about');return false;">About Us</a>
+      <a href="#" class="footer-link" onclick="showPage('team');return false;">Our Team</a>
+      <a href="#" class="footer-link" onclick="showPage('locations');return false;">Locations</a>
+      <a href="#" class="footer-link" onclick="showPage('booking');return false;">Book Appointment</a>
+      <a href="#" class="footer-link" onclick="showPage('contact');return false;">Contact Us</a>
     </div>
-    <div class="footer-col">
-      <h4>Contact Info</h4>
-      <ul>
-        <li style="color:rgba(255,255,255,.5);font-size:.85rem;line-height:1.6">📍 Ganpati Vihar, B-97, Tijara Rd, Patak, Bhagwanpura, Alwar, Rajasthan – 301001</li>
-        <li><a href="tel:+919462591098">📞 +91 94625 91098</a></li>
-        <li style="color:rgba(255,255,255,.5);font-size:.85rem">🕐 Mon–Sat: 9 AM – 8 PM | Sun: 9 AM – 1 PM</li>
-        <li><a href="https://wa.me/919462591098" target="_blank">💬 WhatsApp Us</a></li>
-      </ul>
-      <a href="https://wa.me/919462591098" target="_blank" class="btn-primary" style="margin-top:1.2rem;font-size:.85rem;padding:10px 20px;display:inline-flex;">💬 Book Appointment</a>
+    <div>
+      <div class="footer-col-title">Our Clinics</div>
+      <a href="#" class="footer-link" onclick="showPage('locations');return false;">Prahlad Nagar</a>
+      <a href="#" class="footer-link" onclick="showPage('locations');return false;">Thaltej</a>
+      <a href="#" class="footer-link" onclick="showPage('locations');return false;">South Bopal</a>
+      <a href="#" class="footer-link" onclick="showPage('locations');return false;">Ambawadi</a>
+      <a href="#" class="footer-link" onclick="showPage('locations');return false;">Science City</a>
+      <a href="#" class="footer-link" onclick="showPage('locations');return false;">Dadar – Mumbai</a>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div>© 2026 Riddhi Medical, Alwar, Rajasthan. All rights reserved.</div>
-    <div style="display:flex;gap:1.5rem;align-items:center;">
-      <a href="https://maps.app.goo.gl/zubhZPbdfSnZEMMD8" target="_blank" style="color:inherit;text-decoration:none;">View on Maps</a>
-    </div>
+  <div class="footer-bottom max-wrap">
+    <div class="footer-copy">© 2026 O3 Physiotherapy Clinic. All rights reserved. | Dr. Hiren Patel MPT (Ortho & Sports)</div>
+    <div class="footer-copy"><a href="tel:918128700700" style="color:rgba(255,255,255,.4);text-decoration:none;">📞 +91 81287 00700</a> &nbsp;·&nbsp; <a href="mailto:info@o3physio.com" style="color:rgba(255,255,255,.4);text-decoration:none;">info@o3physio.com</a></div>
   </div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<div class="wa-float">
-  <a href="https://wa.me/919462591098" target="_blank" class="wa-float-btn" title="WhatsApp Us">💬</a>
-</div>
-
-<!-- TOAST -->
-<div class="toast" id="toast">✅ Sent! We'll contact you shortly.</div>
-
-<!-- ===================== SCRIPTS ===================== -->
-<!-- Framer Motion via CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.js" crossorigin="anonymous"></script>
-
+<!-- ==================== FRAMER MOTION ANIMATIONS ==================== -->
 <script>
-/* ========= PAGE NAVIGATION ========= */
+// ===== PAGE SWITCHER =====
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const page = document.getElementById('page-' + id);
-  if (page) {
-    page.classList.add('active');
+  const el = document.getElementById('page-' + id);
+  if (el) {
+    el.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Trigger FM animations for new page
-    setTimeout(() => initFM(page), 100);
+    initReveal();
+    if (id === 'home') initCounters();
   }
 }
 
-/* ========= MOBILE MENU ========= */
 function toggleMenu() {
-  const menu = document.getElementById('mobileMenu');
-  const btn = document.getElementById('hamBtn');
-  menu.classList.toggle('open');
-  btn.classList.toggle('active');
+  const h = document.getElementById('hamburger');
+  const n = document.getElementById('mobileNav');
+  h.classList.toggle('active');
+  n.classList.toggle('open');
 }
-function closeMenu() {
-  document.getElementById('mobileMenu').classList.remove('open');
-  document.getElementById('hamBtn').classList.remove('active');
-}
-
-/* ========= FAQ ========= */
-function toggleFaq(el) {
-  const item = el.closest('.faq-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+function closeMobileNav() {
+  document.getElementById('hamburger').classList.remove('active');
+  document.getElementById('mobileNav').classList.remove('open');
 }
 
-/* ========= TOAST ========= */
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg || '✅ Sent! We\'ll contact you shortly.';
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3500);
+// ===== HERO SLIDER =====
+const heroImages = [
+  { src:'images/session5.jpg', tag:'Physiotherapy' },
+  { src:'images/session2.jpg', tag:'Rehabilitation' },
+  { src:'images/manual_therapy.webp', tag:'Manual Therapy' },
+  { src:'images/clinic/new_img9.jpg', tag:'O3 Clinic' },
+];
+let currentSlide = 0, heroInterval;
+
+function goHeroSlide(i) {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  const tag = document.getElementById('slideConditionTag');
+  if (!slides.length) return;
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = i;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+  if (tag) tag.textContent = heroImages[currentSlide].tag;
 }
 
-/* ========= FRAMER MOTION ANIMATIONS ========= */
-function initFM(container) {
-  if (!container) container = document;
-  const elements = container.querySelectorAll('[data-fm]:not(.fm-done)');
+function startHeroAuto() {
+  heroInterval = setInterval(() => goHeroSlide((currentSlide + 1) % heroImages.length), 4000);
+}
+startHeroAuto();
 
-  // Use IntersectionObserver for scroll-triggered reveals
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        animateElement(el);
-        observer.unobserve(el);
+// ===== SCROLL REVEAL =====
+function initReveal() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  elements.forEach(el => observer.observe(el));
+  }, { threshold: 0.12 });
+  document.querySelectorAll('[data-reveal],[data-reveal-left],[data-reveal-right]').forEach(el => obs.observe(el));
 }
+initReveal();
 
-function animateElement(el) {
-  const type = el.getAttribute('data-fm') || 'fadeUp';
-  const delay = parseFloat(getComputedStyle(el).getPropertyValue('--delay') || '0') * 1000;
+// ===== FRAMER MOTION HERO ANIMATION =====
+(function initFramerMotion() {
+  if (typeof window.FramerMotion === 'undefined') return;
+  const { animate, stagger } = window.FramerMotion;
 
-  // Initial state
-  const initStyles = {
-    fadeUp: { opacity: 0, transform: 'translateY(40px)' },
-    fadeLeft: { opacity: 0, transform: 'translateX(60px)' },
-    fadeRight: { opacity: 0, transform: 'translateX(-60px)' },
-    fadeIn: { opacity: 0, transform: 'scale(0.95)' }
-  };
+  // Animate hero elements on load
+  const heroLeft = document.getElementById('heroLeft');
+  if (heroLeft) {
+    const children = heroLeft.children;
+    animate(children, { opacity: [0, 1], y: [30, 0] }, {
+      duration: 0.7,
+      delay: stagger(0.12),
+      ease: [0.25, 0.46, 0.45, 0.94]
+    });
+  }
 
-  const init = initStyles[type] || initStyles.fadeUp;
-  Object.assign(el.style, init, { transition: 'none' });
+  // Animate hero blobs
+  const blobs = document.querySelectorAll('.hero-blob');
+  blobs.forEach((blob, i) => {
+    animate(blob,
+      { scale: [1, 1.08, 1], rotate: [0, 5, 0] },
+      { duration: 6 + i * 2, repeat: Infinity, ease: 'easeInOut' }
+    );
+  });
 
-  setTimeout(() => {
-    el.style.transition = 'opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1)';
-    el.style.opacity = '1';
-    el.style.transform = 'none';
-    el.classList.add('fm-done');
+  // Animate hero image oval
+  const oval = document.querySelector('.hero-oval-wrap');
+  if (oval) {
+    animate(oval, { opacity: [0, 1], x: [40, 0] }, { duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] });
+  }
 
-    // Card stagger for children
-    if (el.classList.contains('shc-grid') || el.classList.contains('mva-grid') || el.classList.contains('testi-grid') || el.classList.contains('steps-grid') || el.classList.contains('team-grid')) {
-      el.querySelectorAll(':scope > *').forEach((child, i) => {
-        child.style.opacity = '0';
-        child.style.transform = 'translateY(30px)';
-        child.style.transition = `opacity 0.5s ${i * 0.1}s ease, transform 0.5s ${i * 0.1}s ease`;
-        requestAnimationFrame(() => {
-          child.style.opacity = '1';
-          child.style.transform = 'none';
-        });
-      });
-    }
-  }, delay);
-}
+  // Animate oval badges
+  const badges = document.querySelectorAll('.oval-badge');
+  badges.forEach((badge, i) => {
+    animate(badge, { opacity: [0, 1], scale: [0.8, 1] }, { duration: 0.5, delay: 0.6 + i * 0.15, ease: 'backOut' });
+  });
 
-/* ========= COUNTER ANIMATION ========= */
-function animateCounters() {
-  document.querySelectorAll('[data-target]').forEach(el => {
-    const target = parseInt(el.getAttribute('data-target'));
-    const suffix = el.getAttribute('data-suffix') || '';
-    let count = 0;
-    const step = target / 60;
+  // Hover animation on service cards via Framer Motion
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      animate(card, { scale: 1.03 }, { duration: 0.25, ease: 'easeOut' });
+    });
+    card.addEventListener('mouseleave', () => {
+      animate(card, { scale: 1 }, { duration: 0.25, ease: 'easeOut' });
+    });
+  });
+
+  // Pulsing CTA button
+  const ctaBtn = document.getElementById('heroBtnPrimary');
+  if (ctaBtn) {
+    animate(ctaBtn, { boxShadow: ['0 8px 24px rgba(26,107,60,.35)', '0 12px 36px rgba(26,107,60,.6)', '0 8px 24px rgba(26,107,60,.35)'] }, { duration: 2, repeat: Infinity, ease: 'easeInOut' });
+  }
+})();
+
+// ===== FRAMER MOTION SCROLL ANIMATIONS =====
+window.addEventListener('scroll', function() {
+  if (typeof window.FramerMotion === 'undefined') return;
+  const { animate } = window.FramerMotion;
+
+  // Parallax on hero blobs
+  const scrollY = window.scrollY;
+  document.querySelectorAll('.hero-blob-1').forEach(b => {
+    b.style.transform = `translateY(${scrollY * 0.15}px)`;
+  });
+  document.querySelectorAll('.hero-blob-2').forEach(b => {
+    b.style.transform = `translateY(${scrollY * -0.1}px)`;
+  });
+}, { passive: true });
+
+// ===== COUNTERS =====
+function initCounters() {
+  const stats = [
+    { id: 'stat-patients', target: 50000, suffix: '+', prefix: '' },
+    { id: 'stat-locations', target: 7, suffix: '', prefix: '' },
+    { id: 'stat-exp', target: 10, suffix: '+', prefix: '' },
+    { id: 'stat-satisfaction', target: 100, suffix: '%', prefix: '' },
+  ];
+  stats.forEach(({ id, target, suffix, prefix }) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    let start = 0;
+    const duration = 2000;
+    const step = target / (duration / 16);
     const timer = setInterval(() => {
-      count = Math.min(count + step, target);
-      el.textContent = Math.floor(count) + suffix;
-      if (count >= target) clearInterval(timer);
+      start = Math.min(start + step, target);
+      el.textContent = prefix + Math.floor(start).toLocaleString() + suffix;
+      if (start >= target) clearInterval(timer);
     }, 16);
   });
 }
 
-/* ========= NAVBAR SCROLL ========= */
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('navbar');
-  nav.style.boxShadow = window.scrollY > 50
-    ? '0 4px 30px rgba(26,58,92,0.15)'
-    : '0 2px 20px rgba(26,58,92,0.08)';
+// ===== LIGHTBOX =====
+const lbPhotos = [
+  'images/clinic/new_img1.jpg',
+  'images/session1.jpg',
+  'images/clinic/new_img2.jpg',
+  'images/clinic/new_img3.jpg',
+  'images/session3.jpg',
+  'images/clinic/new_img4.jpg',
+  'images/clinic/new_img5.jpg',
+  'images/session4.jpg',
+];
+let lbIndex = 0;
+function openLightbox(i) {
+  lbIndex = i;
+  document.getElementById('lightbox-img').src = lbPhotos[i];
+  document.getElementById('photo-lightbox').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('photo-lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (document.getElementById('photo-lightbox').style.display === 'block') {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbPhotos.length) % lbPhotos.length; document.getElementById('lightbox-img').src = lbPhotos[lbIndex]; }
+    if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbPhotos.length; document.getElementById('lightbox-img').src = lbPhotos[lbIndex]; }
+  }
 });
 
-/* ========= INIT ========= */
-document.addEventListener('DOMContentLoaded', () => {
-  // Set initial styles for all fm elements on home page
-  const homePage = document.getElementById('page-home');
-  if (homePage) {
-    homePage.querySelectorAll('[data-fm]').forEach(el => {
-      el.style.opacity = '0';
+// ===== BOOKING / CONTACT SUBMIT =====
+function submitBooking() {
+  const name = document.getElementById('f-name')?.value || '';
+  const phone = document.getElementById('f-phone')?.value || '';
+  const loc = document.getElementById('f-location')?.value || '';
+  const service = document.getElementById('f-service')?.value || '';
+  const desc = document.getElementById('f-desc')?.value || '';
+  if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+  const msg = `Hello O3 Physio! I'd like to book an appointment.\n\nName: ${name}\nPhone: ${phone}\nLocation: ${loc}\nService: ${service}\nCondition: ${desc}`;
+  window.open('https://wa.me/918128700700?text=' + encodeURIComponent(msg), '_blank');
+}
+function submitContact() {
+  const name = document.getElementById('c-name')?.value || '';
+  const phone = document.getElementById('c-phone')?.value || '';
+  const msg = document.getElementById('c-msg')?.value || '';
+  const text = `Hello O3 Physio! I'm ${name} (${phone}).\n\n${msg}`;
+  window.open('https://wa.me/918128700700?text=' + encodeURIComponent(text), '_blank');
+}
+
+// ===== FRAMER MOTION — STAGGER REVEAL ON SECTION ENTER =====
+(function initSectionStagger() {
+  if (typeof window.FramerMotion === 'undefined') return;
+  const { animate, stagger } = window.FramerMotion;
+
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const section = entry.target;
+      const cards = section.querySelectorAll('.service-card, .testi-card, .loc-card, .pn-pcard, .cond-card');
+      if (cards.length) {
+        animate(cards, { opacity: [0, 1], y: [24, 0] }, {
+          duration: 0.55,
+          delay: stagger(0.08),
+          ease: [0.25, 0.46, 0.45, 0.94]
+        });
+      }
+      sectionObs.unobserve(section);
     });
-    setTimeout(() => initFM(homePage), 100);
-  }
+  }, { threshold: 0.1 });
 
-  // Animate hero immediately
-  const heroLeft = document.querySelector('.hero-left[data-fm]');
-  const heroRight = document.querySelector('.hero-right[data-fm]');
-  if (heroLeft) {
-    setTimeout(() => animateElement(heroLeft), 200);
-  }
-  if (heroRight) {
-    setTimeout(() => animateElement(heroRight), 500);
-  }
+  document.querySelectorAll('section').forEach(s => sectionObs.observe(s));
+})();
 
-  // Counters
-  setTimeout(animateCounters, 800);
+// Run counters on home load
+window.addEventListener('load', () => {
+  initCounters();
+  initReveal();
 });
 </script>
+<script src="script.js"></script>
 </body>
 </html>
