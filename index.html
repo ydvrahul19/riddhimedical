@@ -231,80 +231,138 @@ ul { list-style:none; }
 /* ===== HERO ===== */
 .hero-section {
   min-height:calc(100vh - 104px); display:flex; align-items:center;
-  background:linear-gradient(135deg,#f0f9ff 0%,#e8f4fb 50%,#f0fff4 100%);
+  background:linear-gradient(150deg,#0a1f3c 0%,#0d3056 45%,#0a2d4a 100%);
   position:relative; overflow:hidden; padding:60px 5%;
 }
-.hero-blob {
-  position:absolute; border-radius:50%; filter:blur(80px); opacity:.35; pointer-events:none;
+.hero-bg-pattern {
+  position:absolute; inset:0; pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(0,180,216,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 10% 80%, rgba(26,107,60,0.15) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
-.hero-blob-1 { width:500px; height:500px; background:radial-gradient(circle,var(--ozone) 0%,transparent 70%); top:-150px; right:-100px; }
-.hero-blob-2 { width:350px; height:350px; background:radial-gradient(circle,var(--light-green) 0%,transparent 70%); bottom:-100px; left:5%; }
-.hero-blob-3 { width:250px; height:250px; background:radial-gradient(circle,rgba(0,180,216,.3) 0%,transparent 70%); top:40%; left:30%; }
+.hero-blob {
+  position:absolute; border-radius:50%; filter:blur(90px); opacity:.25; pointer-events:none;
+}
+.hero-blob-1 { width:600px; height:600px; background:radial-gradient(circle,var(--ozone) 0%,transparent 70%); top:-200px; right:-120px; }
+.hero-blob-2 { width:400px; height:400px; background:radial-gradient(circle,var(--green) 0%,transparent 70%); bottom:-100px; left:5%; opacity:.2; }
+.hero-blob-3 { width:280px; height:280px; background:radial-gradient(circle,rgba(0,180,216,.5) 0%,transparent 70%); top:45%; left:35%; opacity:.15; }
+
+/* Animated accent line */
+.hero-accent-line {
+  position:absolute; left:0; bottom:0; height:3px; width:100%;
+  background:linear-gradient(90deg, transparent 0%, var(--ozone) 30%, var(--green) 70%, transparent 100%);
+  opacity:0.5;
+}
+
 .hero-inner {
   max-width:1320px; margin:0 auto; width:100%;
-  display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+  display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; align-items:center;
 }
-.hero-clinic-brand { display:flex; align-items:center; gap:12px; margin-bottom:1.5rem; }
-.hero-brand-logo { width:52px; height:52px; border-radius:12px; object-fit:cover; }
+.hero-clinic-brand { display:flex; align-items:center; gap:14px; margin-bottom:1.6rem; }
+.hero-brand-logo { width:54px; height:54px; border-radius:14px; object-fit:cover; border:2px solid rgba(255,255,255,0.15); box-shadow:0 4px 16px rgba(0,0,0,0.3); }
 .hero-brand-words { display:flex; flex-direction:column; line-height:1.1; }
-.hbw-line1 { font-family:'Playfair Display',serif; font-weight:800; font-size:1.3rem; color:var(--navy); }
-.hbw-line2 { font-family:'Playfair Display',serif; font-weight:700; font-size:1rem; color:var(--ozone-dark); }
+.hbw-line1 { font-family:'Playfair Display',serif; font-weight:800; font-size:1.25rem; color:#fff; }
+.hbw-line2 { font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.82rem; color:rgba(255,255,255,0.6); margin-top:2px; letter-spacing:0.2px; }
+
 .hero-slide-badge {
   display:inline-flex; align-items:center; gap:8px;
-  background:rgba(0,180,216,.1); color:var(--ozone-dark);
-  border:1px solid rgba(0,180,216,.25); border-radius:50px;
-  padding:8px 18px; font-size:0.82rem; font-weight:600;
-  margin-bottom:1.4rem;
+  background:rgba(0,180,216,.15); color:var(--ozone);
+  border:1px solid rgba(0,180,216,.35); border-radius:50px;
+  padding:8px 20px; font-size:0.8rem; font-weight:600;
+  margin-bottom:1.6rem; letter-spacing:0.2px;
 }
+.hero-slide-badge::before {
+  content:''; width:7px; height:7px; background:var(--ozone); border-radius:50%;
+  box-shadow:0 0 0 3px rgba(0,180,216,0.25);
+  animation:heroPulse 2s ease-in-out infinite;
+}
+@keyframes heroPulse { 0%,100%{box-shadow:0 0 0 3px rgba(0,180,216,0.25)} 50%{box-shadow:0 0 0 6px rgba(0,180,216,0.05)} }
+
 .hero-title {
   font-family:'Playfair Display',serif;
-  font-size:clamp(2.4rem,4.5vw,3.8rem); font-weight:800;
-  line-height:1.12; color:var(--navy); margin-bottom:1.2rem;
+  font-size:clamp(2.6rem,4.8vw,4.2rem); font-weight:800;
+  line-height:1.1; color:#fff; margin-bottom:1.3rem;
+  letter-spacing:-0.5px;
 }
 .hero-accent {
-  background:linear-gradient(135deg,var(--ozone),var(--green));
+  background:linear-gradient(135deg, #00d4ff, #2ecc71);
   -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
 }
-.hero-sub { color:var(--muted); font-size:1.02rem; line-height:1.85; margin-bottom:2rem; max-width:540px; }
-.hero-btns { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:2.2rem; }
+.hero-sub { color:rgba(255,255,255,0.65); font-size:1.02rem; line-height:1.9; margin-bottom:2.2rem; max-width:520px; }
+
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:2.8rem; }
 .hero-btn-primary {
-  display:inline-flex; align-items:center; gap:8px;
-  background:var(--green); color:white;
-  padding:14px 30px; border-radius:50px;
+  display:inline-flex; align-items:center; gap:9px;
+  background:linear-gradient(135deg,var(--green),#1a9950); color:white;
+  padding:15px 32px; border-radius:50px;
   font-weight:700; font-size:0.95rem; text-decoration:none;
-  transition:all .3s; box-shadow:0 8px 24px rgba(26,107,60,.35);
+  transition:all .3s; box-shadow:0 8px 28px rgba(26,107,60,.5);
+  position:relative; overflow:hidden;
 }
-.hero-btn-primary:hover { background:var(--navy); transform:translateY(-2px); box-shadow:0 14px 36px rgba(26,107,60,.45); }
+.hero-btn-primary::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);
+  opacity:0; transition:opacity .3s;
+}
+.hero-btn-primary:hover { transform:translateY(-3px); box-shadow:0 16px 40px rgba(26,107,60,.6); }
+.hero-btn-primary:hover::before { opacity:1; }
 .hero-btn-ghost {
-  display:inline-flex; align-items:center; gap:8px;
-  background:transparent; color:var(--navy);
-  padding:14px 30px; border-radius:50px;
+  display:inline-flex; align-items:center; gap:9px;
+  background:rgba(255,255,255,0.08); color:#fff;
+  padding:15px 32px; border-radius:50px;
   font-weight:600; font-size:0.95rem; text-decoration:none;
-  border:2px solid rgba(26,46,74,.2); transition:all .3s;
+  border:1.5px solid rgba(255,255,255,.25); transition:all .3s;
+  backdrop-filter:blur(10px);
 }
-.hero-btn-ghost:hover { border-color:var(--ozone); color:var(--ozone-dark); transform:translateY(-2px); }
-.hero-right { display:flex; justify-content:center; }
-.hero-oval-wrap {
-  position:relative; width:420px; max-width:100%;
+.hero-btn-ghost:hover { border-color:var(--ozone); color:var(--ozone); background:rgba(0,180,216,.1); transform:translateY(-3px); }
+
+/* Trust row */
+.hero-trust-row {
+  display:flex; align-items:center; gap:20px; flex-wrap:wrap;
 }
-.hero-oval-inner {
-  border-radius:60% 60% 60% 60% / 50% 50% 50% 50%;
-  overflow:hidden; width:100%; aspect-ratio:3/4;
-  box-shadow:0 30px 80px rgba(26,46,74,.2);
-}
-.hero-oval-inner img { width:100%; height:100%; object-fit:cover; object-position:center top; }
-.oval-badge {
-  position:absolute; background:white;
-  border-radius:50px; padding:10px 20px;
-  box-shadow:0 8px 30px rgba(26,46,74,.15);
+.hero-trust-item {
   display:flex; align-items:center; gap:8px;
-  font-size:0.8rem; font-weight:600; color:var(--navy);
+  color:rgba(255,255,255,0.6); font-size:0.8rem; font-weight:500;
 }
-.oval-badge-top { top:20px; left:-30px; }
-.oval-badge-bot { bottom:30px; right:-20px; background:var(--navy); color:white; }
-.hero-dots { display:flex; gap:8px; }
-.hero-dot { width:8px; height:8px; border-radius:50%; background:rgba(26,46,74,.2); cursor:pointer; transition:.3s; }
-.hero-dot.active { background:var(--ozone-dark); width:24px; border-radius:4px; }
+.hero-trust-item span { font-size:1rem; }
+.hero-trust-sep { width:1px; height:20px; background:rgba(255,255,255,0.15); }
+
+/* Right image panel */
+.hero-right { display:flex; justify-content:center; align-items:center; }
+.hero-oval-wrap { position:relative; width:400px; max-width:100%; }
+.hero-oval-inner {
+  border-radius:40% 60% 55% 45% / 45% 45% 55% 55%;
+  overflow:hidden; width:100%; aspect-ratio:3/4;
+  box-shadow:0 40px 100px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.08);
+  transition:border-radius 1.5s ease;
+}
+.hero-oval-inner:hover { border-radius:50% 50% 50% 50% / 50% 50% 50% 50%; }
+.hero-oval-inner img { width:100%; height:100%; object-fit:cover; object-position:center top; transition:transform 6s ease; }
+.hero-oval-inner:hover img { transform:scale(1.05); }
+
+/* Floating badges */
+.oval-badge {
+  position:absolute; background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:50px; padding:10px 18px;
+  display:flex; align-items:center; gap:8px;
+  font-size:0.78rem; font-weight:600; color:#fff;
+  box-shadow:0 8px 32px rgba(0,0,0,.25);
+  animation:floatBadge 3s ease-in-out infinite;
+}
+.oval-badge-top { top:24px; left:-20px; animation-delay:0s; }
+.oval-badge-bot { bottom:32px; right:-16px; animation-delay:1.5s; }
+.oval-badge-star { color:#fbbf24; margin-right:2px; }
+@keyframes floatBadge {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}
+}
+
+/* Image carousel dots */
+.hero-dots { display:flex; gap:7px; margin-top:20px; justify-content:center; }
+.hero-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.25); cursor:pointer; transition:.3s; }
+.hero-dot.active { background:var(--ozone); width:22px; border-radius:4px; }
 .hero-slide { display:none; }
 .hero-slide.active { display:block; }
 
@@ -531,8 +589,10 @@ footer {
 }
 @media(max-width:768px) {
   .top-bar .top-right { display:none; }
-  .hero-inner { grid-template-columns:1fr; }
+  .hero-inner { grid-template-columns:1fr; gap:40px; }
   .hero-right { display:none; }
+  .hero-trust-row { gap:12px; }
+  .hero-trust-sep { display:none; }
   .quality-inner { grid-template-columns:1fr; }
   .pn-inner { grid-template-columns:1fr; gap:40px; }
   .s6-row { grid-template-columns:1fr; }
@@ -620,47 +680,56 @@ footer {
 
   <!-- HERO -->
   <section class="hero-section" id="heroSection">
+    <div class="hero-bg-pattern" aria-hidden="true"></div>
     <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
     <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
     <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
+    <div class="hero-accent-line" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-left" id="heroLeft">
         <div class="hero-clinic-brand">
-          <img src="images/riddhi-logo.svg" alt="Riddhi Medical" class="hero-brand-logo" style="background:transparent;">
+          <img src="images/riddhi-logo-wide.svg" alt="Riddhi Medical" class="hero-brand-logo" style="background:transparent;">
           <div class="hero-brand-words">
             <span class="hbw-line1">Riddhi Medical</span>
-            <span class="hbw-line2">Bhagwanpura, Alwar</span>
+            <span class="hbw-line2">📍 Bhagwanpura, Alwar</span>
           </div>
         </div>
-        <div class="hero-slide-badge" id="heroBadge">🏥 Alwar's Trusted Medical Store & Clinic</div>
+        <div class="hero-slide-badge" id="heroBadge">Alwar's Trusted Medical Store &amp; Clinic</div>
         <h1 class="hero-title" id="heroTitle">Your Health,<br><span class="hero-accent">Our Priority.</span><br>Always.</h1>
         <p class="hero-sub" id="heroSub">Expert medical care &amp; quality medicines — led by Dr. Babulal Yadav (Sr. General Physician, Ex-Army) &amp; Dr. Sarita Yadav (Gynaecologist &amp; Obstetrician) at Bhagwanpura, Alwar.</p>
         <div class="hero-btns">
           <a href="#" onclick="showPage('booking');return false;" class="hero-btn-primary" id="heroBtnPrimary">📅 Book Consultation</a>
           <a href="https://wa.me/919462591098" target="_blank" class="hero-btn-ghost">💬 WhatsApp Us</a>
         </div>
-        <div class="hero-dots" id="heroDots">
-          <span class="hero-dot active" onclick="goHeroSlide(0)"></span>
-          <span class="hero-dot" onclick="goHeroSlide(1)"></span>
-          <span class="hero-dot" onclick="goHeroSlide(2)"></span>
-          <span class="hero-dot" onclick="goHeroSlide(3)"></span>
+        <div class="hero-trust-row">
+          <div class="hero-trust-item"><span>⭐</span> 5.0 Google Rating</div>
+          <div class="hero-trust-sep"></div>
+          <div class="hero-trust-item"><span>🏥</span> Est. Since 2010</div>
+          <div class="hero-trust-sep"></div>
+          <div class="hero-trust-item"><span>💊</span> 500+ Medicines</div>
         </div>
       </div>
       <div class="hero-right">
         <div class="hero-oval-wrap">
           <div class="hero-oval-inner">
-            <div class="hero-slide active"><img src="images/session5.jpg" alt="Physiotherapy Session" style="object-position:center"></div>
+            <div class="hero-slide active"><img src="images/session5.jpg" alt="Clinic Session" style="object-position:center"></div>
             <div class="hero-slide"><img src="images/session2.jpg" alt="Treatment" style="object-position:center"></div>
-            <div class="hero-slide"><img src="images/manual_therapy.webp" alt="Manual Therapy" style="object-position:center"></div>
+            <div class="hero-slide"><img src="images/dr_babulal.png" alt="Dr. Babulal Yadav" style="object-position:center top"></div>
             <div class="hero-slide"><img src="images/clinic/new_img9.jpg" alt="Riddhi Medical Clinic" style="object-position:top"></div>
           </div>
-          <div class="oval-badge oval-badge-top"><span>⭐ 5.0 Google Rating</span></div>
-          <div class="oval-badge oval-badge-bot"><span id="slideConditionTag">Medical Store</span></div>
+          <div class="oval-badge oval-badge-top"><span class="oval-badge-star">⭐⭐⭐⭐⭐</span> 5.0 Rated</div>
+          <div class="oval-badge oval-badge-bot">🏥 <span id="slideConditionTag">Medical Store</span></div>
+          <div class="hero-dots" id="heroDots">
+            <span class="hero-dot active" onclick="goHeroSlide(0)"></span>
+            <span class="hero-dot" onclick="goHeroSlide(1)"></span>
+            <span class="hero-dot" onclick="goHeroSlide(2)"></span>
+            <span class="hero-dot" onclick="goHeroSlide(3)"></span>
+          </div>
         </div>
       </div>
     </div>
-    <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:#aaa;font-size:0.78rem;">
-      <div style="width:24px;height:38px;border:2px solid #ddd;border-radius:12px;display:flex;justify-content:center;padding-top:6px;"><div style="width:4px;height:8px;background:#bbb;border-radius:2px;animation:scrollAnim 2s ease-in-out infinite;"></div></div>
+    <div style="position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,0.3);font-size:0.75rem;letter-spacing:0.5px;">
+      <div style="width:22px;height:36px;border:1.5px solid rgba(255,255,255,0.2);border-radius:12px;display:flex;justify-content:center;padding-top:6px;"><div style="width:3px;height:7px;background:rgba(255,255,255,0.35);border-radius:2px;animation:scrollAnim 2s ease-in-out infinite;"></div></div>
       <span>Scroll to explore</span>
     </div>
   </section>
