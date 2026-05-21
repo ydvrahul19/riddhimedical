@@ -1,4 +1,4 @@
-/* ===== O3 PHYSIOTHERAPY CLINIC — script.js ===== */
+/* ===== O3 GENERAL CLINIC & MEDICAL CENTRE — script.js ===== */
 
 /* ─────────────────────────────────────────────
    SVG ICON LIBRARY
@@ -264,16 +264,16 @@ function injectMotionStyles() {
    CHATBOT
 ───────────────────────────────────────────── */
 const chatbotReplies = {
-  'book': 'To book an appointment, please call <strong>+91 94625 91098</strong> or <a href="https://wa.me/919462591098" target="_blank" style="color:#00b4d8;">WhatsApp us</a>. We\'re open Mon–Sat, 8AM–8PM.',
-  'location': 'We have 7 clinics across Ahmedabad and Mumbai:<br>Ganpati Vihar, B-97, Tijara Rd, Patak,<br>Bhagwanpura, Alwar, Rajasthan – 301001',
-  'timing': 'We are open <strong>Monday to Saturday, 9:00 AM – 9:00 PM</strong>. Sunday is closed.',
-  'service': 'We offer: Pharmacy & Medicines, General Physician Consultations, Health Supplements, Baby & Mother Care, Surgical Supplies, and Diagnostics Support. Tap a service above or ask me anything!',
-  'fee': 'Fees vary by service and location. Please WhatsApp or call us for current pricing: <strong>+91 94625 91098</strong>.',
-  'doctor': 'Our clinic is led by <strong>Dr. Hiren Patel (MPT – Ortho & Sports)</strong>, one of India\'s most qualified physiotherapists, alumnus of RGUHS Bengaluru.',
-  'pain': 'We treat back pain, neck pain, sports injuries, frozen shoulder, knee pain, chronic headaches, posture issues and much more. What\'s troubling you?',
-  'hello': 'Hello! 👋 I\'m the Riddhi Medical assistant. I can help with bookings, locations, services, fees or any questions. How can I help?',
-  'hi': 'Hi there! 👋 Welcome to O3 Physio Clinic. What can I help you with today?',
-  'default': 'I\'d be happy to help! For detailed information, please <a href="https://wa.me/919462591098" target="_blank" style="color:#00b4d8;">WhatsApp us</a> or call <strong>+91 94625 91098</strong>.',
+  'book': 'To book an appointment, please call <strong>+91 81287 00700</strong> or <a href="https://wa.me/918128700700" target="_blank" style="color:#00b4d8;">WhatsApp us</a>. We\'re open Mon–Sat, 8AM–8PM.',
+  'location': 'We have 7 clinics across Ahmedabad and Mumbai:<br>• Prahlad Nagar<br>• Thaltej<br>• South Bopal<br>• Ambawadi<br>• Science City<br>• Shilaj (Coming Soon)<br>• Dadar, Mumbai',
+  'timing': 'Our clinics are open <strong>Monday to Saturday, 8:00 AM – 8:00 PM</strong>. Sunday is closed.',
+  'service': 'We offer: General Medicine, Preventive Health Check-ups, Chronic Disease Management, Paediatric Care, Diagnostics & Lab Tests, and Specialist Consultations. Ask me anything!',
+  'fee': 'Fees vary by service and location. Please WhatsApp or call us for current pricing: <strong>+91 81287 00700</strong>.',
+  'doctor': 'Our clinic is led by <strong>Dr. Hiren Patel (MBBS)</strong>, an experienced general physician with over a decade of clinical practice in Ahmedabad.',
+  'pain': 'We treat fever, diabetes, hypertension, thyroid disorders, respiratory conditions, paediatric illnesses, headaches and much more. What can we help you with?',
+  'hello': 'Hello! 👋 I\'m the O3 Clinic assistant. I can help with bookings, locations, services, fees or any questions. How can I help?',
+  'hi': 'Hi there! 👋 Welcome to O3 General Clinic & Medical Centre. What can I help you with today?',
+  'default': 'I\'d be happy to help! For detailed information, please <a href="https://wa.me/918128700700" target="_blank" style="color:#00b4d8;">WhatsApp us</a> or call <strong>+91 81287 00700</strong>. We\'re here Mon–Sat, 8AM–8PM.',
 };
 
 function getBotReply(msg) {
@@ -297,14 +297,14 @@ function initChatbot() {
   fabGroup.style.cssText = 'position:fixed;bottom:28px;right:28px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:10px;';
 
   const fabCall = document.createElement('a');
-  fabCall.href = 'tel:919462591098';
+  fabCall.href = 'tel:918128700700';
   fabCall.className = 'fab-child';
-  fabCall.title = 'Call: +91 94625 91098';
+  fabCall.title = 'Call Us';
   fabCall.style.cssText = 'display:flex;align-items:center;gap:10px;background:white;color:#1a2e4a;padding:10px 18px 10px 14px;border-radius:50px;box-shadow:0 4px 20px rgba(26,46,74,.18);font-size:.82rem;font-weight:700;text-decoration:none;white-space:nowrap;';
-  fabCall.innerHTML = `<span style="background:#1a2e4a;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;">${ICONS.phone}</span> Call: +91 94625 91098`;
+  fabCall.innerHTML = `<span style="background:#1a2e4a;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;">${ICONS.phone}</span> Call Us`;
 
   const fabWA = document.createElement('a');
-  fabWA.href = 'https://wa.me/919462591098';
+  fabWA.href = 'https://wa.me/918128700700';
   fabWA.target = '_blank';
   fabWA.className = 'fab-child';
   fabWA.title = 'WhatsApp';
@@ -359,14 +359,14 @@ function initChatbot() {
         <div style="position:absolute;width:10px;height:10px;background:#00e5b0;border-radius:50%;bottom:0;right:0;border:2px solid white;"></div>
       </div>
       <div style="flex:1;">
-        <div style="color:white;font-weight:700;font-size:.9rem;">Riddhi Medical Assistant</div>
+        <div style="color:white;font-weight:700;font-size:.9rem;">O3 Physio Assistant</div>
         <div style="color:rgba(255,255,255,.75);font-size:.72rem;">Usually replies instantly</div>
       </div>
       <button onclick="toggleChatbot()" style="background:rgba(255,255,255,.15);border:none;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;">${ICONS.close}</button>
     </div>
     <div id="chatMessages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:280px;">
       <div class="chat-msg" style="background:#f4f7fb;border-radius:0 14px 14px 14px;padding:12px 14px;font-size:.84rem;line-height:1.6;max-width:85%;">
-        Hi! 👋 I'm the Riddhi Medical assistant. I can help with:<br>
+        Hi! 👋 I'm the O3 Clinic assistant. I can help with:<br>
         <span style="color:#0077b6;font-weight:600;">bookings · locations · services · timings</span><br>
         What can I help you with today?
       </div>
@@ -516,9 +516,9 @@ function animateCounters() {
     obs.disconnect();
 
     const items = [
-      { id: 'stat-patients', target: 10000, suffix: '+', format: true },
-      { id: 'stat-locations', target: 5000, suffix: '+', format: false },
-      { id: 'stat-exp', target: 500, suffix: '+', format: false },
+      { id: 'stat-patients', target: 50000, suffix: '+', format: true },
+      { id: 'stat-locations', target: 7, suffix: '', format: false },
+      { id: 'stat-exp', target: 10, suffix: '+', format: false },
       { id: 'stat-satisfaction', target: 100, suffix: '%', format: false },
     ];
 
@@ -627,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardHovers();
 
   // Show toast after 3 seconds
-  setTimeout(() => showToast('Welcome to Riddhi Medical, Alwar! 👋'), 3000);
+  setTimeout(() => showToast('Welcome to O3 General Clinic! 👋'), 3000);
 });
 
 // Re-init on page switch
@@ -650,10 +650,10 @@ if (typeof window.showPage === 'function') {
 const allVideos = [
   { src:'videos/clinic_video1.mp4', thumb:'images/clinic/thumb1.jpg', label:'Treatment Session 1' },
   { src:'videos/clinic_video2.mp4', thumb:'images/clinic/thumb2.jpg', label:'Treatment Session 2' },
-  { src:'videos/clinic_video3.mp4', thumb:'images/clinic/thumb3.jpg', label:'Physiotherapy Session 3' },
+  { src:'videos/clinic_video3.mp4', thumb:'images/clinic/thumb3.jpg', label:'Clinic Session 3' },
   { src:'videos/clinic_video4.mp4', thumb:'images/clinic/thumb4.jpg', label:'Rehab Session 4' },
-  { src:'videos/clinic_video5.mp4', thumb:'images/clinic/thumb5.jpg', label:'Sports Recovery 5' },
-  { src:'videos/clinic_video6.mp4', thumb:'images/clinic/thumb6.jpg', label:'Manual Therapy 6' },
+  { src:'videos/clinic_video5.mp4', thumb:'images/clinic/thumb5.jpg', label:'Clinic Session 5' },
+  { src:'videos/clinic_video6.mp4', thumb:'images/clinic/thumb6.jpg', label:'Clinic Session 6' },
   { src:'videos/clinic_video7.mp4', thumb:'images/clinic/thumb7.jpg', label:'Clinic Session 7' },
   { src:'videos/clinic_video8.mp4', thumb:'images/clinic/thumb8.jpg', label:'Rehabilitation 8' },
   { src:'videos/clinic_video9.mp4', thumb:'images/clinic/thumb9.jpg', label:'Treatment Session 9' },
@@ -728,171 +728,3 @@ window.addEventListener('DOMContentLoaded', () => {
   loadMoreVideos(); // load first 3
 });
 
-/* ─────────────────────────────────────────────
-   MEDICINES / PHARMACY SECTION
-───────────────────────────────────────────── */
-const MEDICINES = [
-  // Supplements
-  { id:1, name:'Calcium + Vitamin D3', category:'supplement', price:299, mrp:399, discount:25, desc:'Bone strength & joint support. 60 tablets. Doctor recommended.', emoji:'🦴', color:'#e3f2fd', textColor:'#1565c0', label:'Supplement', rx:false },
-  { id:2, name:'Omega-3 Fish Oil 1000mg', category:'supplement', price:449, mrp:599, discount:25, desc:'Reduces inflammation, supports joint mobility. 90 softgels.', emoji:'🐟', color:'#e8f5e9', textColor:'#2e7d32', label:'Supplement', rx:false },
-  { id:3, name:'Glucosamine + Chondroitin', category:'supplement', price:549, mrp:749, discount:27, desc:'Cartilage repair & knee joint support. 90 capsules.', emoji:'💊', color:'#fff3e0', textColor:'#e65100', label:'Supplement', rx:false },
-  { id:4, name:'Magnesium Glycinate 400mg', category:'supplement', price:349, mrp:499, discount:30, desc:'Muscle relaxation, reduces cramps & spasms. 60 tablets.', emoji:'⚡', color:'#f3e5f5', textColor:'#6a1b9a', label:'Supplement', rx:false },
-  { id:5, name:'Vitamin B12 + Folic Acid', category:'supplement', price:199, mrp:279, discount:29, desc:'Nerve health & energy support. 30 tablets.', emoji:'💉', color:'#e0f2f1', textColor:'#00695c', label:'Supplement', rx:false },
-  { id:6, name:'Collagen Peptides Powder', category:'supplement', price:799, mrp:1099, discount:27, desc:'Joint, skin & bone collagen. 250g vanilla flavour.', emoji:'✨', color:'#fce4ec', textColor:'#880e4f', label:'Supplement', rx:false },
-  { id:7, name:'Whey Protein Isolate', category:'supplement', price:1299, mrp:1799, discount:28, desc:'Muscle recovery post-physio. 500g. 25g protein/serving.', emoji:'💪', color:'#e8f5e9', textColor:'#1b5e20', label:'Supplement', rx:false },
-  { id:8, name:'Zinc + Selenium + Vit E', category:'supplement', price:249, mrp:349, discount:29, desc:'Antioxidant immune & muscle support. 60 capsules.', emoji:'🛡️', color:'#fff8e1', textColor:'#f57f17', label:'Supplement', rx:false },
-
-  // Pain Relief
-  { id:9, name:'Diclofenac Gel 1%', category:'pain', price:89, mrp:120, discount:26, desc:'Topical NSAID for local pain & inflammation. 30g tube.', emoji:'🩹', color:'#fff3e0', textColor:'#bf360c', label:'Pain Relief', rx:true },
-  { id:10, name:'Volini Spray 55g', category:'pain', price:149, mrp:199, discount:25, desc:'Instant muscle pain & sprain relief spray.', emoji:'💨', color:'#e3f2fd', textColor:'#0d47a1', label:'Pain Relief', rx:false },
-  { id:11, name:'Hot & Cold Gel Pack', category:'pain', price:199, mrp:299, discount:33, desc:'Reusable thermotherapy for muscle recovery. 500ml.', emoji:'🧊', color:'#e0f7fa', textColor:'#00697a', label:'Pain Relief', rx:false },
-  { id:12, name:'Ibuprofen 400mg (Strip)', category:'pain', price:29, mrp:45, discount:36, desc:'Anti-inflammatory pain relief. Strip of 10 tablets.', emoji:'💊', color:'#fbe9e7', textColor:'#bf360c', label:'Pain Relief', rx:true },
-  { id:13, name:'Methyl Salicylate Cream', category:'pain', price:119, mrp:169, discount:30, desc:'Deep heat muscle & joint pain cream. 50g.', emoji:'🔥', color:'#fff3e0', textColor:'#e65100', label:'Pain Relief', rx:false },
-  { id:14, name:'Capsaicin Patch', category:'pain', price:249, mrp:349, discount:29, desc:'8-hour sustained pain relief patch. Pack of 5.', emoji:'🩺', color:'#fce4ec', textColor:'#880e4f', label:'Pain Relief', rx:false },
-
-  // Braces & Supports
-  { id:15, name:'Lumbar Back Support Belt', category:'support', price:699, mrp:999, discount:30, desc:'Rigid lumbar support for back pain & posture. Size M/L/XL.', emoji:'🦺', color:'#e3f2fd', textColor:'#1565c0', label:'Brace & Support', rx:false },
-  { id:16, name:'Knee Cap (Neoprene)', category:'support', price:349, mrp:499, discount:30, desc:'Compression knee support for stability & pain. Open patella.', emoji:'🦿', color:'#e8f5e9', textColor:'#2e7d32', label:'Brace & Support', rx:false },
-  { id:17, name:'Cervical Neck Collar', category:'support', price:249, mrp:399, discount:38, desc:'Foam cervical collar for neck pain & whiplash. Soft support.', emoji:'🔄', color:'#fff3e0', textColor:'#e65100', label:'Brace & Support', rx:false },
-  { id:18, name:'Shoulder Immobilizer', category:'support', price:549, mrp:799, discount:31, desc:'Post-surgical shoulder support & immobilization. Adjustable.', emoji:'💪', color:'#f3e5f5', textColor:'#6a1b9a', label:'Brace & Support', rx:false },
-  { id:19, name:'Ankle Brace (Lace-up)', category:'support', price:399, mrp:599, discount:33, desc:'Lateral ankle support for sprains & instability.', emoji:'🦶', color:'#e0f2f1', textColor:'#00695c', label:'Brace & Support', rx:false },
-  { id:20, name:'Wrist Splint', category:'support', price:299, mrp:449, discount:33, desc:'Carpal tunnel & wrist pain splint. Left/Right available.', emoji:'🤲', color:'#fff8e1', textColor:'#f57f17', label:'Brace & Support', rx:false },
-
-  // Therapy Aids
-  { id:21, name:'Resistance Bands Set (5)', category:'therapy', price:499, mrp:699, discount:29, desc:'Latex exercise bands for physio rehab. 5 resistance levels.', emoji:'🎗️', color:'#e8f5e9', textColor:'#1b5e20', label:'Therapy Aid', rx:false },
-  { id:22, name:'Foam Roller 30cm', category:'therapy', price:599, mrp:849, discount:29, desc:'Deep tissue myofascial release & muscle recovery roller.', emoji:'🔵', color:'#e3f2fd', textColor:'#0d47a1', label:'Therapy Aid', rx:false },
-  { id:23, name:'TENS Machine (Portable)', category:'therapy', price:1299, mrp:1999, discount:35, desc:'Dual-channel electrotherapy pain relief. 4 pads included.', emoji:'⚡', color:'#fff3e0', textColor:'#bf360c', label:'Therapy Aid', rx:false },
-  { id:24, name:'Theraband Exercise Ball 65cm', category:'therapy', price:799, mrp:1099, discount:27, desc:'Anti-burst stability ball for core & rehab exercise.', emoji:'🏐', color:'#fce4ec', textColor:'#880e4f', label:'Therapy Aid', rx:false },
-  { id:25, name:'Trigger Point Massage Ball', category:'therapy', price:199, mrp:299, discount:33, desc:'Deep trigger point release ball. Spiky silicone. 6cm.', emoji:'🎱', color:'#f3e5f5', textColor:'#6a1b9a', label:'Therapy Aid', rx:false },
-  { id:26, name:'Heat Therapy Pad (Electric)', category:'therapy', price:699, mrp:999, discount:30, desc:'3-level electric heating pad for muscle stiffness. Auto-off.', emoji:'♨️', color:'#fff8e1', textColor:'#f57f17', label:'Therapy Aid', rx:false },
-
-  // Wellness
-  { id:27, name:'Turmeric Curcumin 500mg', category:'wellness', price:299, mrp:449, discount:33, desc:'Natural anti-inflammatory & joint support. 60 capsules.', emoji:'🌿', color:'#fff8e1', textColor:'#f57f17', label:'Wellness', rx:false },
-  { id:28, name:'Ashwagandha KSM-66 600mg', category:'wellness', price:349, mrp:499, discount:30, desc:'Adaptogen for stress, recovery & energy. 60 capsules.', emoji:'🌾', color:'#e8f5e9', textColor:'#2e7d32', label:'Wellness', rx:false },
-  { id:29, name:'Protein Energy Bar (Box 6)', category:'wellness', price:399, mrp:540, discount:26, desc:'Post-treatment recovery snack. 20g protein each. Mixed flavours.', emoji:'🍫', color:'#fce4ec', textColor:'#880e4f', label:'Wellness', rx:false },
-  { id:30, name:'Electrolyte ORS Sachets (x10)', category:'wellness', price:99, mrp:149, discount:34, desc:'Rehydration & muscle cramp prevention. Sugar-free formula.', emoji:'💧', color:'#e0f7fa', textColor:'#00697a', label:'Wellness', rx:false },
-  { id:31, name:'Sleep & Recovery Formula', category:'wellness', price:449, mrp:649, discount:31, desc:'Melatonin + L-Theanine + Magnesium for deep recovery sleep.', emoji:'🌙', color:'#e8eaf6', textColor:'#283593', label:'Wellness', rx:false },
-  { id:32, name:'Arnica Homeopathic Gel', category:'wellness', price:149, mrp:219, discount:32, desc:'Natural bruising, muscle soreness & sprain relief gel. 75g.', emoji:'🌸', color:'#f3e5f5', textColor:'#6a1b9a', label:'Wellness', rx:false },
-];
-
-let currentMedCategory = 'all';
-
-function getDiscountPct(price, mrp) {
-  return Math.round(((mrp - price) / mrp) * 100);
-}
-
-function buildScrollCard(med) {
-  const card = document.createElement('div');
-  card.className = 'med-scroll-card';
-  card.innerHTML = `
-    <div style="width:80px;height:80px;border-radius:16px;background:${med.color};display:flex;align-items:center;justify-content:center;font-size:2.2rem;margin:0 auto 12px;">
-      ${med.emoji}
-    </div>
-    <div class="med-scroll-name">${med.name}</div>
-    <div class="med-scroll-cat">${med.label}</div>
-    <div>
-      <span class="med-scroll-price">₹${med.price}</span>
-      <span class="med-scroll-mrp">₹${med.mrp}</span>
-    </div>
-  `;
-  card.onclick = () => enquireMed(med.name);
-  return card;
-}
-
-function buildGridCard(med) {
-  const card = document.createElement('div');
-  card.className = 'med-grid-card';
-  card.dataset.category = med.category;
-  const disc = getDiscountPct(med.price, med.mrp);
-  card.innerHTML = `
-    ${med.rx ? '<div class="med-rx-badge">Rx</div>' : ''}
-    <div class="med-grid-img-wrap">
-      <div style="font-size:4rem;line-height:1;">${med.emoji}</div>
-    </div>
-    <div class="med-grid-body">
-      <span class="med-grid-badge" style="background:${med.color};color:${med.textColor};">${med.label}</span>
-      <div class="med-grid-name">${med.name}</div>
-      <div class="med-grid-desc">${med.desc}</div>
-      <div class="med-grid-price-row">
-        <div>
-          <span class="med-grid-price">₹${med.price}</span>
-          <span class="med-grid-mrp" style="margin-left:6px;">₹${med.mrp}</span>
-        </div>
-        <span class="med-grid-discount">${disc}% OFF</span>
-      </div>
-      <button class="med-grid-enquire" onclick="enquireMed('${med.name.replace(/'/g,"\\'")}')">
-        💬 Enquire / Order
-      </button>
-    </div>
-  `;
-  // hover spring animation
-  card.addEventListener('mouseenter', () => {
-    if (typeof Motion !== 'undefined') {
-      Motion.animate(card, [
-        { transform: 'translateY(0) scale(1)' },
-        { transform: 'translateY(-7px) scale(1.02)' }
-      ], { duration: 260, fill: 'forwards', easing: Motion.springEase });
-    }
-  });
-  card.addEventListener('mouseleave', () => {
-    if (typeof Motion !== 'undefined') {
-      Motion.animate(card, [
-        { transform: 'translateY(-7px) scale(1.02)' },
-        { transform: 'translateY(0) scale(1)' }
-      ], { duration: 260, fill: 'forwards', easing: Motion.springEase });
-    }
-  });
-  return card;
-}
-
-function renderMedScrollStrip() {
-  const track = document.getElementById('medTrack');
-  if (!track) return;
-  track.innerHTML = '';
-  // Build double set for seamless loop
-  const doubled = [...MEDICINES, ...MEDICINES];
-  doubled.forEach(med => track.appendChild(buildScrollCard(med)));
-}
-
-function renderMedGrid(category) {
-  const grid = document.getElementById('medGrid');
-  if (!grid) return;
-  const filtered = category === 'all' ? MEDICINES : MEDICINES.filter(m => m.category === category);
-  grid.innerHTML = '';
-
-  if (typeof Motion !== 'undefined') {
-    filtered.forEach((med, i) => {
-      const card = buildGridCard(med);
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px) scale(0.97)';
-      grid.appendChild(card);
-      setTimeout(() => {
-        Motion.animate(card, [
-          { opacity: 0, transform: 'translateY(20px) scale(0.97)' },
-          { opacity: 1, transform: 'translateY(0) scale(1)' }
-        ], { duration: 380, easing: Motion.smoothEase });
-      }, i * 50);
-    });
-  } else {
-    filtered.forEach(med => grid.appendChild(buildGridCard(med)));
-  }
-}
-
-function filterMeds(category, btn) {
-  currentMedCategory = category;
-  // Update button states
-  document.querySelectorAll('.med-cat-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  renderMedGrid(category);
-}
-
-function enquireMed(name) {
-  const msg = `Hello Riddhi Medical! I'd like to enquire about: *${name}*. Please let me know availability and pricing at your store in Bhagwanpura, Alwar.`;
-  window.open('https://wa.me/919462591098?text=' + encodeURIComponent(msg), '_blank');
-}
-
-// Init on DOM ready
-window.addEventListener('DOMContentLoaded', () => {
-  renderMedScrollStrip();
-  renderMedGrid('all');
-});
