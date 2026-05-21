@@ -651,7 +651,7 @@ footer {
           <a href="#" class="dropdown-item" onclick="showPage('services');return false;"><div class="dd-icon">👶</div><div><div class="dd-title">Baby & Mother Care</div><div class="dd-sub">All age group products</div></div></a>
         </div>
       </li>
-      <li><a href="#" class="nav-link" onclick="showPage('team');return false;">Our Team</a></li>
+      <li><a href="#" class="nav-link" onclick="showPage('about');return false;">About & Team</a></li>
       <li><a href="#" class="nav-link" onclick="showPage('locations');return false;">Our Location</a></li>
       <li><a href="#" class="nav-link" onclick="showPage('contact');return false;">Contact</a></li>
     </ul>
@@ -669,7 +669,7 @@ footer {
   <a href="#" class="mobile-nav-link" onclick="showPage('home');closeMobileNav();return false;">Home</a>
   <a href="#" class="mobile-nav-link" onclick="showPage('about');closeMobileNav();return false;">About</a>
   <a href="#" class="mobile-nav-link" onclick="showPage('services');closeMobileNav();return false;">Services</a>
-  <a href="#" class="mobile-nav-link" onclick="showPage('team');closeMobileNav();return false;">Our Team</a>
+  <a href="#" class="mobile-nav-link" onclick="showPage('about');closeMobileNav();return false;">About & Team</a>
   <a href="#" class="mobile-nav-link" onclick="showPage('locations');closeMobileNav();return false;">Our Location</a>
   <a href="#" class="mobile-nav-link" onclick="showPage('booking');closeMobileNav();return false;">Book Appointment</a>
   <a href="#" class="mobile-nav-link" onclick="showPage('contact');closeMobileNav();return false;">Contact</a>
@@ -1176,84 +1176,53 @@ footer {
   </section>
 </div>
 
-<!-- ========================== ABOUT PAGE ========================== -->
+<!-- ========================== ABOUT + TEAM PAGE ========================== -->
 <div id="page-about" class="page">
   <div class="page-header">
-    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>About Us</span></div>
-    <h1>About Riddhi Medical</h1>
-    <p>Led by Dr. Babulal Yadav (Ex-Army, Sr. General Physician) &amp; Dr. Sarita Yadav (Gynaecologist) — dedicated to quality healthcare in Alwar.</p>
+    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>About Us &amp; Our Team</span></div>
+    <h1>About Us &amp; Our Team</h1>
+    <p>Our story, our mission, and the compassionate experts behind Riddhi Medical — dedicated to quality healthcare in Alwar.</p>
   </div>
-  <section style="padding:80px 5%;">
-    <div class="max-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
-      <div data-reveal-left>
+
+  <!-- OUR STORY -->
+  <section style="padding:90px 5% 80px;">
+    <div class="max-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div data-reveal-left style="position:relative;border-radius:28px;overflow:hidden;box-shadow:0 30px 80px rgba(26,46,74,.18);">
+        <img src="images/clinic/new_img9.jpg" alt="Riddhi Medical Clinic" style="width:100%;height:480px;object-fit:cover;object-position:center;display:block;">
+        <div style="position:absolute;bottom:20px;left:20px;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:12px 18px;">
+          <div style="color:rgba(255,255,255,.8);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Our Clinic</div>
+          <div style="color:#fff;font-size:.95rem;font-weight:700;font-family:'Playfair Display',serif;margin-top:2px;">Bhagwanpura, Alwar</div>
+        </div>
+      </div>
+      <div data-reveal-right>
         <div class="section-pill">Our Story</div>
         <h2 class="section-title">Our Story &amp; <span class="color-green">Our Mission</span></h2>
         <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.2rem;">Riddhi Medical was established with a single mission: to be Alwar's most trusted, accessible and quality-focused healthcare destination. Located in the heart of Bhagwanpura, we serve families across Alwar with genuine medicines and compassionate physician care.</p>
         <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.2rem;">We started with a single store and a single promise: <strong style="color:var(--navy);">Your health, our priority.</strong> Today, hundreds of families across Alwar trust us for their everyday healthcare needs.</p>
         <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:2rem;">Every patient at Riddhi Medical receives genuine medicines, personalised attention and trusted health guidance — whether a simple prescription or a complex consultation.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
-          <div style="display:flex;align-items:center;gap:8px;background:rgba(0,180,216,.1);border-radius:50px;padding:8px 18px;"><span style="font-size:.85rem;font-weight:600;color:var(--ozone-dark);">🏥 Trusted Since Years</span></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;background:rgba(0,180,216,.1);border-radius:50px;padding:8px 18px;"><span style="font-size:.85rem;font-weight:600;color:var(--ozone-dark);">🏥 Trusted Since 2010</span></div>
           <div style="display:flex;align-items:center;gap:8px;background:rgba(26,107,60,.1);border-radius:50px;padding:8px 18px;"><span style="font-size:.85rem;font-weight:600;color:var(--green);">💊 Complete Medical Store</span></div>
-        </div>
-      </div>
-      <div data-reveal-right>
-        <img src="images/clinic/new_img9.jpg" alt="Riddhi Medical Clinic" style="width:100%;border-radius:24px;box-shadow:0 24px 70px rgba(26,46,74,.18);">
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ========================== SERVICES PAGE ========================== -->
-<div id="page-services" class="page">
-  <div class="page-header">
-    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Services</span></div>
-    <h1>Our Services</h1>
-    <p>Comprehensive physiotherapy and pain management services — all under one roof.</p>
-  </div>
-  <section class="services-section" style="padding:80px 5%;">
-    <div class="max-wrap">
-      <div class="services-grid">
-        <div class="service-card" data-reveal>
-          <img src="images/manual_therapy.webp" alt="Pharmacy" class="service-img">
-          <div class="service-body"><div class="service-icon">💊</div><div class="service-title">Pharmacy & Medicines</div><div class="service-desc">Complete range of allopathic, ayurvedic and homeopathic medicines. All genuine, quality-assured brands — prescription and OTC drugs stocked and dispensed by expert pharmacists.</div><span class="service-tag">Allopathic · Ayurvedic · Homeopathic</span></div>
-        </div>
-        <div class="service-card" data-reveal>
-          <img src="images/osteopathy.webp" alt="General Physician" class="service-img">
-          <div class="service-body"><div class="service-icon">🩺</div><div class="service-title">General Physician Clinic</div><div class="service-desc">Expert medical consultations for fever, infections, diabetes, hypertension, thyroid, respiratory conditions and all common health issues — for patients of all ages.</div><span class="service-tag">Fever · Diabetes · BP · Thyroid</span></div>
-        </div>
-        <div class="service-card" data-reveal>
-          <img src="images/alignment.webp" alt="Supplements" class="service-img">
-          <div class="service-body"><div class="service-icon">🌿</div><div class="service-title">Health Supplements</div><div class="service-desc">Vitamins, minerals, protein supplements, immunity boosters, omega-3, calcium, iron and complete wellness nutrition — for adults, seniors and children.</div><span class="service-tag">Vitamins · Protein · Immunity</span></div>
-        </div>
-        <div class="service-card" data-reveal>
-          <img src="images/dry_needling.webp" alt="Baby Care" class="service-img">
-          <div class="service-body"><div class="service-icon">👶</div><div class="service-title">Baby & Mother Care</div><div class="service-desc">Baby formula, nutrition, diapers, baby skincare, mother supplements, prenatal vitamins and complete post-natal care from top brands like Nestle, Himalaya, Medela and more.</div><span class="service-tag">Baby · Mother · Nutrition</span></div>
-        </div>
-        <div class="service-card" data-reveal>
-          <img src="images/cupping.webp" alt="Surgical Supplies" class="service-img">
-          <div class="service-body"><div class="service-icon">🩹</div><div class="service-title">Surgical & First Aid</div><div class="service-desc">Bandages, sutures, syringes, gloves, BP monitors, pulse oximeters, glucometers, nebulizers and complete range of surgical and first-aid products.</div><span class="service-tag">Surgical · Monitors · First Aid</span></div>
-        </div>
-        <div class="service-card" data-reveal>
-          <img src="images/rehabilitation.webp" alt="Diagnostics" class="service-img">
-          <div class="service-body"><div class="service-icon">🔬</div><div class="service-title">Diagnostic Support</div><div class="service-desc">Lab test referrals, health checkup package guidance, report interpretation and diagnostics support — we help you understand your health reports clearly.</div><span class="service-tag">Lab Tests · Checkups · Reports</span></div>
+          <div style="display:flex;align-items:center;gap:8px;background:rgba(230,168,23,.1);border-radius:50px;padding:8px 18px;"><span style="font-size:.85rem;font-weight:600;color:#b7821a;">⭐ 5.0 Google Rating</span></div>
         </div>
       </div>
     </div>
   </section>
-</div>
 
-<!-- ========================== TEAM PAGE ========================== -->
-<div id="page-team" class="page">
-  <div class="page-header">
-    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Our Team</span></div>
-    <h1>Our Expert Team</h1>
-    <p>Compassionate professionals dedicated to your health and well-being at Riddhi Medical, Bhagwanpura, Alwar.</p>
-  </div>
-  <section class="team-section">
+  <!-- DIVIDER -->
+  <div style="max-width:1200px;margin:0 auto;padding:0 5%;"><div style="height:1px;background:linear-gradient(90deg,transparent,rgba(26,46,74,.1),transparent);"></div></div>
+
+  <!-- OUR TEAM -->
+  <section class="team-section" style="padding:90px 5%;">
     <div class="max-wrap">
+      <div class="text-center" style="margin-bottom:64px;">
+        <div class="section-pill" style="margin-bottom:1rem;">Meet the Doctors</div>
+        <h2 class="section-title" style="margin:0 auto;">The Expert Hands Behind <span class="color-green">Your Care</span></h2>
+        <p class="section-sub" style="margin:1rem auto 0;">Compassionate professionals dedicated to your health and well-being at Riddhi Medical, Bhagwanpura, Alwar.</p>
+      </div>
 
       <!-- Dr. Sarita Yadav -->
-      <div class="team-featured" data-reveal style="margin-bottom:80px;">
+      <div class="team-featured" data-reveal style="margin-bottom:72px;">
         <div class="team-img-wrap">
           <img src="images/dr_sarita.png" alt="Dr. Sarita Yadav" class="team-img-main">
           <div class="team-badge">
@@ -1280,7 +1249,7 @@ footer {
       </div>
 
       <!-- Dr. Babulal Yadav -->
-      <div class="team-featured" data-reveal style="margin-bottom:80px;">
+      <div class="team-featured" data-reveal style="margin-bottom:72px;">
         <div class="team-img-wrap" style="order:2;">
           <img src="images/dr_babulal.png" alt="Dr. Babulal Yadav" class="team-img-main">
           <div class="team-badge">
@@ -1324,6 +1293,46 @@ footer {
     </div>
   </section>
 </div>
+
+<!-- ========================== SERVICES PAGE ========================== -->
+<div id="page-services" class="page">
+  <div class="page-header">
+    <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Services</span></div>
+    <h1>Our Services</h1>
+    <p>Comprehensive physiotherapy and pain management services — all under one roof.</p>
+  </div>
+  <section class="services-section" style="padding:80px 5%;">
+    <div class="max-wrap">
+      <div class="services-grid">
+        <div class="service-card" data-reveal>
+          <img src="images/manual_therapy.webp" alt="Pharmacy" class="service-img">
+          <div class="service-body"><div class="service-icon">💊</div><div class="service-title">Pharmacy & Medicines</div><div class="service-desc">Complete range of allopathic, ayurvedic and homeopathic medicines. All genuine, quality-assured brands — prescription and OTC drugs stocked and dispensed by expert pharmacists.</div><span class="service-tag">Allopathic · Ayurvedic · Homeopathic</span></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <img src="images/osteopathy.webp" alt="General Physician" class="service-img">
+          <div class="service-body"><div class="service-icon">🩺</div><div class="service-title">General Physician Clinic</div><div class="service-desc">Expert medical consultations for fever, infections, diabetes, hypertension, thyroid, respiratory conditions and all common health issues — for patients of all ages.</div><span class="service-tag">Fever · Diabetes · BP · Thyroid</span></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <img src="images/alignment.webp" alt="Supplements" class="service-img">
+          <div class="service-body"><div class="service-icon">🌿</div><div class="service-title">Health Supplements</div><div class="service-desc">Vitamins, minerals, protein supplements, immunity boosters, omega-3, calcium, iron and complete wellness nutrition — for adults, seniors and children.</div><span class="service-tag">Vitamins · Protein · Immunity</span></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <img src="images/dry_needling.webp" alt="Baby Care" class="service-img">
+          <div class="service-body"><div class="service-icon">👶</div><div class="service-title">Baby & Mother Care</div><div class="service-desc">Baby formula, nutrition, diapers, baby skincare, mother supplements, prenatal vitamins and complete post-natal care from top brands like Nestle, Himalaya, Medela and more.</div><span class="service-tag">Baby · Mother · Nutrition</span></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <img src="images/cupping.webp" alt="Surgical Supplies" class="service-img">
+          <div class="service-body"><div class="service-icon">🩹</div><div class="service-title">Surgical & First Aid</div><div class="service-desc">Bandages, sutures, syringes, gloves, BP monitors, pulse oximeters, glucometers, nebulizers and complete range of surgical and first-aid products.</div><span class="service-tag">Surgical · Monitors · First Aid</span></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <img src="images/rehabilitation.webp" alt="Diagnostics" class="service-img">
+          <div class="service-body"><div class="service-icon">🔬</div><div class="service-title">Diagnostic Support</div><div class="service-desc">Lab test referrals, health checkup package guidance, report interpretation and diagnostics support — we help you understand your health reports clearly.</div><span class="service-tag">Lab Tests · Checkups · Reports</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 <!-- ========================== LOCATIONS PAGE ========================== -->
 <div id="page-locations" class="page">
   <div class="page-header">
@@ -1486,7 +1495,7 @@ footer {
       <div class="footer-col-title">Quick Links</div>
       <a href="#" class="footer-link" onclick="showPage('home');return false;">Home</a>
       <a href="#" class="footer-link" onclick="showPage('about');return false;">About Us</a>
-      <a href="#" class="footer-link" onclick="showPage('team');return false;">Our Team</a>
+      <a href="#" class="footer-link" onclick="showPage('about');return false;">About & Team</a>
       <a href="#" class="footer-link" onclick="showPage('locations');return false;">Our Location</a>
       <a href="#" class="footer-link" onclick="showPage('booking');return false;">Book Appointment</a>
       <a href="#" class="footer-link" onclick="showPage('contact');return false;">Contact Us</a>
