@@ -645,3 +645,125 @@ if (typeof window.showPage === 'function') {
 }
 
 /* End of script */
+/* ─────────────────────────────────────────────
+   MEDICINES / PHARMACY SECTION
+───────────────────────────────────────────── */
+const MEDICINES = [
+  { id:1,  name:'Calcium + Vitamin D3',       category:'supplement', price:299,  mrp:399,  emoji:'🦴', color:'#e3f2fd', tc:'#1565c0', label:'Supplement',    desc:'Bone strength & joint support. 60 tablets.' },
+  { id:2,  name:'Omega-3 Fish Oil 1000mg',    category:'supplement', price:449,  mrp:599,  emoji:'🐟', color:'#e8f5e9', tc:'#2e7d32', label:'Supplement',    desc:'Reduces inflammation, supports joint mobility. 90 softgels.' },
+  { id:3,  name:'Glucosamine + Chondroitin',  category:'supplement', price:549,  mrp:749,  emoji:'💊', color:'#fff3e0', tc:'#e65100', label:'Supplement',    desc:'Cartilage repair & knee joint support. 90 caps.' },
+  { id:4,  name:'Magnesium Glycinate 400mg',  category:'supplement', price:349,  mrp:499,  emoji:'⚡', color:'#f3e5f5', tc:'#6a1b9a', label:'Supplement',    desc:'Muscle relaxation, reduces cramps & spasms. 60 tabs.' },
+  { id:5,  name:'Vitamin B12 + Folic Acid',   category:'supplement', price:199,  mrp:279,  emoji:'💉', color:'#e0f2f1', tc:'#00695c', label:'Supplement',    desc:'Nerve health & energy support. 30 tablets.' },
+  { id:6,  name:'Collagen Peptides Powder',   category:'supplement', price:799,  mrp:1099, emoji:'✨', color:'#fce4ec', tc:'#880e4f', label:'Supplement',    desc:'Joint, skin & bone collagen. 250g vanilla.' },
+  { id:7,  name:'Whey Protein Isolate',       category:'supplement', price:1299, mrp:1799, emoji:'💪', color:'#e8f5e9', tc:'#1b5e20', label:'Supplement',    desc:'Muscle recovery. 500g. 25g protein/serving.' },
+  { id:8,  name:'Zinc + Selenium + Vit E',    category:'supplement', price:249,  mrp:349,  emoji:'🛡️', color:'#fff8e1', tc:'#f57f17', label:'Supplement',    desc:'Antioxidant immune & muscle support. 60 caps.' },
+  { id:9,  name:'Diclofenac Gel 1%',          category:'pain',       price:89,   mrp:120,  emoji:'🩹', color:'#fff3e0', tc:'#bf360c', label:'Pain Relief',   desc:'Topical NSAID for local pain & inflammation. 30g.', rx:true },
+  { id:10, name:'Volini Spray 55g',           category:'pain',       price:149,  mrp:199,  emoji:'💨', color:'#e3f2fd', tc:'#0d47a1', label:'Pain Relief',   desc:'Instant muscle pain & sprain relief spray.' },
+  { id:11, name:'Hot & Cold Gel Pack',        category:'pain',       price:199,  mrp:299,  emoji:'🧊', color:'#e0f7fa', tc:'#00697a', label:'Pain Relief',   desc:'Reusable thermotherapy for muscle recovery.' },
+  { id:12, name:'Ibuprofen 400mg (Strip)',    category:'pain',       price:29,   mrp:45,   emoji:'💊', color:'#fbe9e7', tc:'#bf360c', label:'Pain Relief',   desc:'Anti-inflammatory pain relief. Strip of 10.', rx:true },
+  { id:13, name:'Methyl Salicylate Cream',    category:'pain',       price:119,  mrp:169,  emoji:'🔥', color:'#fff3e0', tc:'#e65100', label:'Pain Relief',   desc:'Deep heat muscle & joint pain cream. 50g.' },
+  { id:14, name:'Capsaicin Patch',            category:'pain',       price:249,  mrp:349,  emoji:'🩺', color:'#fce4ec', tc:'#880e4f', label:'Pain Relief',   desc:'8-hour sustained pain relief patch. Pack of 5.' },
+  { id:15, name:'Lumbar Back Support Belt',   category:'support',    price:699,  mrp:999,  emoji:'🦺', color:'#e3f2fd', tc:'#1565c0', label:'Brace',        desc:'Rigid lumbar support for back pain. M/L/XL.' },
+  { id:16, name:'Knee Cap (Neoprene)',        category:'support',    price:349,  mrp:499,  emoji:'🦿', color:'#e8f5e9', tc:'#2e7d32', label:'Brace',        desc:'Compression knee support for stability.' },
+  { id:17, name:'Cervical Neck Collar',       category:'support',    price:249,  mrp:399,  emoji:'🔄', color:'#fff3e0', tc:'#e65100', label:'Brace',        desc:'Foam cervical collar for neck pain. Soft support.' },
+  { id:18, name:'Shoulder Immobilizer',       category:'support',    price:549,  mrp:799,  emoji:'💪', color:'#f3e5f5', tc:'#6a1b9a', label:'Brace',        desc:'Post-surgical shoulder support. Adjustable.' },
+  { id:19, name:'Ankle Brace (Lace-up)',      category:'support',    price:399,  mrp:599,  emoji:'🦶', color:'#e0f2f1', tc:'#00695c', label:'Brace',        desc:'Lateral ankle support for sprains.' },
+  { id:20, name:'Wrist Splint',               category:'support',    price:299,  mrp:449,  emoji:'🤲', color:'#fff8e1', tc:'#f57f17', label:'Brace',        desc:'Carpal tunnel & wrist pain splint.' },
+  { id:21, name:'Resistance Bands Set (5)',   category:'therapy',    price:499,  mrp:699,  emoji:'🎗️', color:'#e8f5e9', tc:'#1b5e20', label:'Therapy Aid',  desc:'Latex exercise bands. 5 resistance levels.' },
+  { id:22, name:'Foam Roller 30cm',           category:'therapy',    price:599,  mrp:849,  emoji:'🔵', color:'#e3f2fd', tc:'#0d47a1', label:'Therapy Aid',  desc:'Deep tissue myofascial release roller.' },
+  { id:23, name:'TENS Machine (Portable)',    category:'therapy',    price:1299, mrp:1999, emoji:'⚡', color:'#fff3e0', tc:'#bf360c', label:'Therapy Aid',  desc:'Dual-channel electrotherapy pain relief.' },
+  { id:24, name:'Exercise Ball 65cm',         category:'therapy',    price:799,  mrp:1099, emoji:'🏐', color:'#fce4ec', tc:'#880e4f', label:'Therapy Aid',  desc:'Anti-burst stability ball for core & rehab.' },
+  { id:25, name:'Trigger Point Massage Ball', category:'therapy',    price:199,  mrp:299,  emoji:'🎱', color:'#f3e5f5', tc:'#6a1b9a', label:'Therapy Aid',  desc:'Deep trigger point release. Spiky silicone.' },
+  { id:26, name:'Electric Heat Therapy Pad',  category:'therapy',    price:699,  mrp:999,  emoji:'♨️', color:'#fff8e1', tc:'#f57f17', label:'Therapy Aid',  desc:'3-level electric heating pad. Auto-off.' },
+  { id:27, name:'Turmeric Curcumin 500mg',    category:'wellness',   price:299,  mrp:449,  emoji:'🌿', color:'#fff8e1', tc:'#f57f17', label:'Wellness',     desc:'Natural anti-inflammatory & joint support.' },
+  { id:28, name:'Ashwagandha KSM-66 600mg',   category:'wellness',   price:349,  mrp:499,  emoji:'🌾', color:'#e8f5e9', tc:'#2e7d32', label:'Wellness',     desc:'Adaptogen for stress, recovery & energy.' },
+  { id:29, name:'Protein Energy Bar (Box 6)', category:'wellness',   price:399,  mrp:540,  emoji:'🍫', color:'#fce4ec', tc:'#880e4f', label:'Wellness',     desc:'Post-treatment recovery snack. 20g protein each.' },
+  { id:30, name:'Electrolyte ORS Sachets x10',category:'wellness',   price:99,   mrp:149,  emoji:'💧', color:'#e0f7fa', tc:'#00697a', label:'Wellness',     desc:'Rehydration & muscle cramp prevention.' },
+  { id:31, name:'Sleep & Recovery Formula',   category:'wellness',   price:449,  mrp:649,  emoji:'🌙', color:'#e8eaf6', tc:'#283593', label:'Wellness',     desc:'Melatonin + L-Theanine + Magnesium for sleep.' },
+  { id:32, name:'Arnica Homeopathic Gel',     category:'wellness',   price:149,  mrp:219,  emoji:'🌸', color:'#f3e5f5', tc:'#6a1b9a', label:'Wellness',     desc:'Natural bruising & muscle soreness relief. 75g.' },
+];
+
+function buildMedScrollCard(med) {
+  const card = document.createElement('div');
+  card.className = 'med-scroll-card';
+  card.innerHTML = `
+    <div style="width:72px;height:72px;border-radius:14px;background:${med.color};display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 10px;flex-shrink:0;">${med.emoji}</div>
+    <div style="font-weight:700;font-size:.8rem;color:#1a2e4a;margin-bottom:3px;line-height:1.3;">${med.name}</div>
+    <div style="font-size:.68rem;color:#888;margin-bottom:7px;">${med.label}</div>
+    <div><span style="font-weight:800;font-size:.92rem;color:#1a6b3c;">₹${med.price}</span><span style="font-size:.7rem;color:#bbb;text-decoration:line-through;margin-left:5px;">₹${med.mrp}</span></div>
+  `;
+  card.onclick = () => enquireMed(med.name);
+  return card;
+}
+
+function buildMedGridCard(med) {
+  const disc = Math.round(((med.mrp - med.price) / med.mrp) * 100);
+  const card = document.createElement('div');
+  card.className = 'med-grid-card';
+  card.dataset.category = med.category;
+  card.innerHTML = `
+    ${med.rx ? '<div class="med-rx-badge">Rx</div>' : ''}
+    <div class="med-grid-img-wrap"><div style="font-size:3.5rem;line-height:1;">${med.emoji}</div></div>
+    <div class="med-grid-body">
+      <span class="med-grid-badge" style="background:${med.color};color:${med.tc};">${med.label}</span>
+      <div class="med-grid-name">${med.name}</div>
+      <div class="med-grid-desc">${med.desc}</div>
+      <div class="med-grid-price-row">
+        <div><span class="med-grid-price">₹${med.price}</span><span class="med-grid-mrp" style="margin-left:5px;">₹${med.mrp}</span></div>
+        <span class="med-grid-discount">${disc}% OFF</span>
+      </div>
+      <button class="med-grid-enquire" onclick="enquireMed('${med.name.replace(/'/g,"\\'")}')">💬 Enquire / Order</button>
+    </div>
+  `;
+  card.addEventListener('mouseenter', () => {
+    card.style.transform = 'translateY(-6px) scale(1.01)';
+    card.style.boxShadow = '0 16px 40px rgba(26,46,74,.14)';
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.boxShadow = '';
+  });
+  return card;
+}
+
+function renderMedScrollStrip() {
+  const track = document.getElementById('medTrack');
+  if (!track) return;
+  track.innerHTML = '';
+  [...MEDICINES, ...MEDICINES].forEach(m => track.appendChild(buildMedScrollCard(m)));
+}
+
+function renderMedGrid(category) {
+  const grid = document.getElementById('medGrid');
+  if (!grid) return;
+  const list = category === 'all' ? MEDICINES : MEDICINES.filter(m => m.category === category);
+  grid.innerHTML = '';
+  list.forEach((med, i) => {
+    const card = buildMedGridCard(med);
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(18px)';
+    grid.appendChild(card);
+    setTimeout(() => {
+      card.style.transition = 'opacity .35s ease, transform .35s ease';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, i * 40);
+  });
+}
+
+function filterMeds(category, btn) {
+  document.querySelectorAll('.med-cat-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderMedGrid(category);
+}
+
+function enquireMed(name) {
+  const msg = `Hello Riddhi Medical! I'd like to enquire about: *${name}*. Please let me know availability and price at your Bhagwanpura store.`;
+  window.open('https://wa.me/919462591098?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// Init medicines on load
+window.addEventListener('DOMContentLoaded', () => {
+  renderMedScrollStrip();
+  renderMedGrid('all');
+});
