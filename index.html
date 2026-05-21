@@ -1060,42 +1060,80 @@ footer {
     </div>
   </section>
 
-  <!-- MEDICINES / PHARMACY SECTION -->
-  <section id="medicines-section" style="padding:100px 5% 80px;background:var(--white);overflow:hidden;position:relative;">
-    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--ozone),var(--green),var(--blue));"></div>
-    <div class="max-wrap">
-      <div class="text-center" data-reveal style="margin-bottom:56px;">
-        <div class="section-pill" style="background:rgba(26,107,60,.08);color:var(--green);border-color:rgba(26,107,60,.2);">💊 Medical Store</div>
-        <h2 class="section-title">Medicines &amp; <span class="color-green">Healthcare Products</span></h2>
-        <p class="section-sub" style="margin:0 auto;">Quality medicines, health supplements &amp; wellness products — available at Riddhi Medical, Bhagwanpura, Alwar.</p>
+  <!-- MEDICAL STORE SHOWCASE -->
+  <section id="medicines-section" class="store-section">
+    <!-- Dark header band -->
+    <div class="store-header-band">
+      <div class="store-hb-inner max-wrap">
+        <div>
+          <div class="section-pill" style="background:rgba(0,229,176,.12);color:#00e5b0;border-color:rgba(0,229,176,.25);margin-bottom:.8rem;">🏥 Our Medical Store</div>
+          <h2 class="section-title" style="color:#fff;margin-bottom:.6rem;">Your Complete <span style="background:linear-gradient(135deg,#00d4ff,#2ecc71);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Health Store</span></h2>
+          <p style="color:rgba(255,255,255,.6);font-size:.95rem;max-width:520px;line-height:1.8;">500+ medicines, supplements, health devices &amp; wellness products — all genuine, quality-assured brands stocked at Riddhi Medical, Bhagwanpura.</p>
+        </div>
+        <div class="store-stats-row">
+          <div class="store-stat"><div class="store-stat-num">500+</div><div class="store-stat-label">Products in Stock</div></div>
+          <div class="store-stat-div"></div>
+          <div class="store-stat"><div class="store-stat-num">All</div><div class="store-stat-label">Major Brands</div></div>
+          <div class="store-stat-div"></div>
+          <div class="store-stat"><div class="store-stat-num">Daily</div><div class="store-stat-label">Fresh Stock</div></div>
+        </div>
       </div>
+    </div>
 
-      <!-- Category filter tabs -->
-      <div id="medCategoryBar" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;">
+    <!-- Category tabs -->
+    <div class="store-cat-wrap">
+      <div class="store-cat-inner max-wrap">
         <button class="med-cat-btn active" onclick="filterMeds('all',this)">All Products</button>
         <button class="med-cat-btn" onclick="filterMeds('supplement',this)">💊 Supplements</button>
         <button class="med-cat-btn" onclick="filterMeds('pain',this)">⚡ Pain Relief</button>
-        <button class="med-cat-btn" onclick="filterMeds('support',this)">🦴 Braces & Supports</button>
+        <button class="med-cat-btn" onclick="filterMeds('support',this)">🦴 Braces &amp; Supports</button>
         <button class="med-cat-btn" onclick="filterMeds('therapy',this)">🏃 Therapy Aids</button>
         <button class="med-cat-btn" onclick="filterMeds('wellness',this)">🌿 Wellness</button>
       </div>
+    </div>
 
-      <!-- Auto-scroll marquee track -->
-      <div class="med-scroll-outer" id="medScrollOuter">
-        <div class="med-track" id="medTrack"></div>
+    <!-- Scrolling photo strip -->
+    <div class="store-photo-strip-wrap">
+      <div class="store-photo-strip" id="storePhotoStrip">
+        <div class="store-photo-track" id="storePhotoTrack"></div>
       </div>
+    </div>
 
-      <!-- Static grid below (filterable) -->
-      <div id="medGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;"></div>
-
-      <div style="text-align:center;margin-top:40px;">
-        <p style="color:var(--muted);font-size:.88rem;margin-bottom:16px;">All medicines available at Riddhi Medical, Bhagwanpura · Visit us or call for prescriptions</p>
+    <!-- Product grid -->
+    <div class="max-wrap" style="padding:0 0 80px;">
+      <div id="medGrid" class="store-grid"></div>
+      <div style="text-align:center;margin-top:44px;">
+        <p style="color:var(--muted);font-size:.88rem;margin-bottom:16px;">All products available in-store at Riddhi Medical, Bhagwanpura, Alwar · No delivery — visit us or call ahead</p>
         <a href="https://wa.me/919462591098?text=Hello!%20I%20want%20to%20enquire%20about%20medicines%20and%20healthcare%20products." target="_blank" class="btn-primary">💬 Enquire on WhatsApp</a>
       </div>
     </div>
   </section>
 
   <style>
+  /* ===== STORE SECTION ===== */
+  .store-section { background:var(--gray); overflow:hidden; }
+
+  .store-header-band {
+    background:linear-gradient(135deg,#0a1f3c 0%,#0d3056 60%,#0a2d4a 100%);
+    padding:70px 5% 60px; position:relative; overflow:hidden;
+  }
+  .store-header-band::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(0,180,216,.15) 0%,transparent 60%);
+  }
+  .store-hb-inner {
+    display:flex; align-items:center; justify-content:space-between;
+    gap:40px; flex-wrap:wrap; position:relative; z-index:1;
+  }
+  .store-stats-row { display:flex; align-items:center; gap:24px; }
+  .store-stat { text-align:center; }
+  .store-stat-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:800; color:#fff; line-height:1; }
+  .store-stat-label { font-size:.75rem; color:rgba(255,255,255,.5); margin-top:4px; }
+  .store-stat-div { width:1px; height:48px; background:rgba(255,255,255,.15); }
+
+  /* Category bar */
+  .store-cat-wrap { background:#fff; border-bottom:1px solid rgba(26,46,74,.07); padding:16px 5%; position:sticky; top:104px; z-index:10; }
+  .store-cat-inner { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
   .med-cat-btn {
     padding:8px 20px; border-radius:50px; font-size:.82rem; font-weight:600;
     border:1.5px solid rgba(26,46,74,.15); background:white; color:var(--navy);
@@ -1104,61 +1142,86 @@ footer {
   .med-cat-btn:hover { border-color:var(--ozone); color:var(--ozone-dark); }
   .med-cat-btn.active { background:var(--ozone-dark); color:white; border-color:var(--ozone-dark); }
 
-  /* Scroll strip */
-  .med-scroll-outer {
-    overflow:hidden; position:relative; padding:8px 0;
-    mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
-    -webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);
+  /* Photo strip */
+  .store-photo-strip-wrap {
+    background:white; padding:28px 0;
+    border-bottom:1px solid rgba(26,46,74,.06);
   }
-  .med-track {
-    display:flex; gap:20px; width:max-content;
-    animation:medScroll 38s linear infinite;
+  .store-photo-strip {
+    overflow:hidden; position:relative;
+    mask-image:linear-gradient(90deg,transparent,black 5%,black 95%,transparent);
+    -webkit-mask-image:linear-gradient(90deg,transparent,black 5%,black 95%,transparent);
   }
-  .med-track:hover { animation-play-state:paused; }
-  @keyframes medScroll {
+  .store-photo-track {
+    display:flex; gap:16px; width:max-content;
+    animation:storeScroll 45s linear infinite;
+  }
+  .store-photo-track:hover { animation-play-state:paused; }
+  @keyframes storeScroll {
     0%   { transform:translateX(0); }
     100% { transform:translateX(-50%); }
   }
-  .med-scroll-card {
-    background:white; border-radius:18px; padding:20px;
-    width:200px; flex-shrink:0;
-    box-shadow:0 4px 20px rgba(26,46,74,.08);
+  .store-photo-card {
+    width:160px; flex-shrink:0; border-radius:16px; overflow:hidden;
+    background:#fff; box-shadow:0 3px 16px rgba(26,46,74,.09);
     border:1.5px solid rgba(26,46,74,.06);
-    text-align:center; cursor:pointer;
-    transition:transform .3s,box-shadow .3s;
+    cursor:pointer; transition:transform .3s,box-shadow .3s;
+    text-align:center;
   }
-  .med-scroll-card:hover { transform:translateY(-5px); box-shadow:0 12px 32px rgba(26,46,74,.14); }
-  .med-scroll-img { width:80px; height:80px; object-fit:contain; margin:0 auto 12px; display:block; }
-  .med-scroll-name { font-weight:700; font-size:.82rem; color:var(--navy); margin-bottom:4px; line-height:1.3; }
-  .med-scroll-cat { font-size:.7rem; color:var(--muted); margin-bottom:8px; }
-  .med-scroll-price { font-weight:800; font-size:.95rem; color:var(--green); }
-  .med-scroll-mrp { font-size:.72rem; color:#bbb; text-decoration:line-through; margin-left:6px; }
+  .store-photo-card:hover { transform:translateY(-6px) scale(1.03); box-shadow:0 14px 36px rgba(26,46,74,.15); }
+  .store-photo-img-wrap {
+    height:120px; background:linear-gradient(135deg,#f0f9ff 0%,#e8f5e9 100%);
+    display:flex; align-items:center; justify-content:center; padding:12px; position:relative; overflow:hidden;
+  }
+  .store-photo-img {
+    max-width:100%; max-height:100px; object-fit:contain;
+    transition:transform .4s ease;
+  }
+  .store-photo-card:hover .store-photo-img { transform:scale(1.1); }
+  .store-photo-info { padding:10px 10px 12px; }
+  .store-photo-name { font-weight:700; font-size:.72rem; color:var(--navy); line-height:1.3; margin-bottom:3px; }
+  .store-photo-price { font-weight:800; font-size:.8rem; color:var(--green); }
+  .store-photo-mrp { font-size:.65rem; color:#bbb; text-decoration:line-through; margin-left:4px; }
 
-  /* Grid cards */
+  /* Product grid */
+  .store-grid {
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:20px; padding:40px 5% 0;
+  }
   .med-grid-card {
     background:white; border-radius:20px; overflow:hidden;
-    box-shadow:0 4px 20px rgba(26,46,74,.08);
-    border:1.5px solid rgba(26,46,74,.06);
+    box-shadow:0 4px 20px rgba(26,46,74,.07);
+    border:1.5px solid rgba(26,46,74,.05);
     transition:all .3s; cursor:pointer; position:relative;
   }
-  .med-grid-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(26,46,74,.14); }
-  .med-grid-img-wrap { background:linear-gradient(135deg,#f0f9ff,#e8f4fb); padding:24px; display:flex; align-items:center; justify-content:center; height:160px; }
-  .med-grid-img { max-width:110px; max-height:120px; object-fit:contain; transition:.3s; }
-  .med-grid-card:hover .med-grid-img { transform:scale(1.08); }
+  .med-grid-card:hover { transform:translateY(-7px); box-shadow:0 20px 48px rgba(26,46,74,.14); }
+  .med-grid-img-wrap {
+    background:linear-gradient(135deg,#f5fbff 0%,#eef8f0 100%);
+    padding:20px; display:flex; align-items:center; justify-content:center; height:160px;
+    position:relative; overflow:hidden;
+  }
+  .med-grid-photo { max-width:120px; max-height:130px; object-fit:contain; transition:transform .4s ease; display:block; }
+  .med-grid-card:hover .med-grid-photo { transform:scale(1.1); }
   .med-grid-body { padding:16px; }
-  .med-grid-badge { display:inline-block; font-size:.65rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:3px 10px; border-radius:50px; margin-bottom:8px; }
+  .med-grid-badge { display:inline-block; font-size:.63rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:3px 10px; border-radius:50px; margin-bottom:8px; }
   .med-grid-name { font-weight:700; font-size:.88rem; color:var(--navy); margin-bottom:4px; line-height:1.4; }
   .med-grid-desc { font-size:.75rem; color:var(--muted); line-height:1.6; margin-bottom:10px; }
   .med-grid-price-row { display:flex; align-items:center; justify-content:space-between; }
   .med-grid-price { font-weight:800; font-size:1rem; color:var(--green); }
   .med-grid-mrp { font-size:.75rem; color:#bbb; text-decoration:line-through; }
-  .med-grid-discount { font-size:.7rem; font-weight:700; color:#e53935; background:#fff3f3; padding:2px 8px; border-radius:50px; }
-  .med-grid-enquire { margin-top:12px; width:100%; padding:8px; background:transparent; border:1.5px solid var(--ozone-dark); color:var(--ozone-dark); border-radius:50px; font-size:.78rem; font-weight:600; cursor:pointer; transition:.25s; font-family:'DM Sans',sans-serif; }
+  .med-grid-discount { font-size:.68rem; font-weight:700; color:#e53935; background:#fff3f3; padding:2px 8px; border-radius:50px; }
+  .med-grid-enquire { margin-top:12px; width:100%; padding:9px; background:transparent; border:1.5px solid var(--ozone-dark); color:var(--ozone-dark); border-radius:50px; font-size:.78rem; font-weight:600; cursor:pointer; transition:.25s; font-family:'DM Sans',sans-serif; }
   .med-grid-enquire:hover { background:var(--ozone-dark); color:white; }
-  .med-rx-badge { position:absolute; top:12px; right:12px; background:var(--navy); color:white; font-size:.6rem; font-weight:700; padding:3px 8px; border-radius:50px; letter-spacing:.05em; }
-  @media(max-width:1024px){ #medGrid { grid-template-columns:repeat(3,1fr); } }
-  @media(max-width:768px){ #medGrid { grid-template-columns:repeat(2,1fr); } .med-scroll-card { width:170px; } }
-  @media(max-width:480px){ #medGrid { grid-template-columns:1fr 1fr; } }
+  .med-rx-badge { position:absolute; top:10px; right:10px; background:var(--navy); color:white; font-size:.58rem; font-weight:700; padding:3px 8px; border-radius:50px; letter-spacing:.05em; }
+  @media(max-width:1024px){ .store-grid { grid-template-columns:repeat(3,1fr); } }
+  @media(max-width:768px){
+    .store-grid { grid-template-columns:repeat(2,1fr); }
+    .store-hb-inner { flex-direction:column; align-items:flex-start; }
+    .store-cat-wrap { position:static; }
+    .store-photo-card { width:130px; }
+    .store-photo-img-wrap { height:100px; }
+  }
+  @media(max-width:480px){ .store-grid { grid-template-columns:1fr 1fr; } }
   </style>
 
   <!-- FINAL CTA -->
