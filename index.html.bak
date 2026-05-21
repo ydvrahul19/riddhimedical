@@ -564,7 +564,7 @@ footer {
   <div>📍 Ganpati Vihar, Bhagwanpura, Alwar, Rajasthan – 301001</div>
   <div class="top-right">
     <a href="tel:919462591098">📞 +91 94625 91098</a> &nbsp;|&nbsp;
-    <span>24 × 7 Available</span>
+    <span>Mon–Sat 9AM–9PM</span>
   </div>
 </div>
 
@@ -634,7 +634,7 @@ footer {
         </div>
         <div class="hero-slide-badge" id="heroBadge">🏥 Alwar's Trusted Medical Store & Clinic</div>
         <h1 class="hero-title" id="heroTitle">Your Health,<br><span class="hero-accent">Our Priority.</span><br>Always.</h1>
-        <p class="hero-sub" id="heroSub">Expert medical care &amp; quality medicines — led by Dr. Babulal Yadav (Sr. General Physician, Ex-Army) &amp; Dr. Sarita Yadav (Gynaecologist &amp; Obstetrician) at Bhagwanpura, Alwar.</p>
+        <p class="hero-sub" id="heroSub">Expert physiotherapy, sports injury management & chiropractic care — led by Dr. Hiren Patel (MPT Ortho & Sports) and a team of specialised professionals across 7 clinics in Ahmedabad & Mumbai.</p>
         <div class="hero-btns">
           <a href="#" onclick="showPage('booking');return false;" class="hero-btn-primary" id="heroBtnPrimary">📅 Book Consultation</a>
           <a href="https://wa.me/919462591098" target="_blank" class="hero-btn-ghost">💬 WhatsApp Us</a>
@@ -723,7 +723,7 @@ footer {
         <div class="pn-signoff">
           <img src="images/riddhi-logo.svg" class="pn-doc-img" alt="Riddhi Medical" style="object-fit:contain;background:linear-gradient(135deg,#0d3b6e,#00b4d8);padding:6px;">
           <div class="pn-signoff-text">
-            <div class="pn-doc-name">Dr. Babulal Yadav &amp; Dr. Sarita Yadav</div>
+            <div class="pn-doc-name">Dr. Hiren Patel</div>
             <div class="pn-doc-creds">General Physician &amp; Pharmacist · Riddhi Medical, Alwar</div>
             <div class="pn-signature">— Personally committed to your recovery</div>
           </div>
@@ -1112,7 +1112,7 @@ footer {
   <div class="page-header">
     <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>About Us</span></div>
     <h1>About Riddhi Medical</h1>
-    <p>Led by Dr. Babulal Yadav (Ex-Army, Sr. General Physician) &amp; Dr. Sarita Yadav (Gynaecologist) — dedicated to quality healthcare in Alwar.</p>
+    <p>Led by Dr. Hiren Patel (MPT Ortho & Sports) — on a mission to make Ahmedabad Pain-Free.</p>
   </div>
   <section style="padding:80px 5%;">
     <div class="max-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
@@ -1178,83 +1178,42 @@ footer {
   <div class="page-header">
     <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Our Team</span></div>
     <h1>Our Expert Team</h1>
-    <p>Compassionate professionals dedicated to your health and well-being at Riddhi Medical, Bhagwanpura, Alwar.</p>
+    <p>Led by one of India's most qualified physiotherapists — Dr. Hiren Patel, MPT (Ortho & Sports).</p>
   </div>
   <section class="team-section">
     <div class="max-wrap">
-
-      <!-- Dr. Sarita Yadav -->
-      <div class="team-featured" data-reveal style="margin-bottom:80px;">
+      <div class="team-featured" data-reveal>
         <div class="team-img-wrap">
-          <img src="images/dr_sarita.png" alt="Dr. Sarita Yadav" class="team-img-main">
+          <img src="images/riddhi-logo.svg" alt="Riddhi Medical" class="team-img-main" style="object-fit:contain;background:linear-gradient(135deg,#f0f9ff,#e8f4fb);padding:40px;">
           <div class="team-badge">
-            <div class="team-badge-title">Co-Founder &amp; Gynaecologist</div>
-            <div class="team-badge-name">Dr. Sarita Yadav</div>
+            <div class="team-badge-title">Lead Physiotherapist & Founder</div>
+            <div class="team-badge-name">Riddhi Medical</div>
           </div>
         </div>
         <div>
-          <div class="section-pill">Co-Founder</div>
-          <h2 class="section-title">Dr. Sarita Yadav <span class="color-green">Gynaecologist &amp; Obstetrician</span></h2>
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.2rem;">Dr. Sarita Yadav is the co-founder of Riddhi Medical and a dedicated Gynaecologist &amp; Obstetrician with 6+ years of experience since 2020. She brings compassionate, personalised women's healthcare to every patient — from routine consultations and antenatal care to high-risk pregnancies and gynaecological conditions.</p>
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.5rem;">Her patient-first approach and commitment to accessible healthcare has made her a trusted name for women's health across Bhagwanpura and Alwar.</p>
+          <div class="section-pill">Our Expert Team</div>
+          <h2 class="section-title">Dr. Hiren Patel <span class="color-green">MPT (Ortho & Sports)</span></h2>
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.2rem;">Dr. Hiren Patel is one of the most qualified and sought-after physiotherapists in India — a distinguished alumnus of the prestigious Rajiv Gandhi University of Health Sciences, Bengaluru. He completed both his Bachelor's and Master's degrees in Orthopaedic & Sports Injury from one of India's most advanced Health Science Universities.</p>
+          <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.5rem;">At Riddhi Medical, we believe healthcare is a right, not a privilege. Our mission is to ensure every resident of Bhagwanpura and Alwar has access to quality medicines, honest advice, and compassionate physician care — all under one roof.</p>
           <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem;">
-            <span class="cred-badge">🏥 Gynaecologist &amp; Obstetrician</span>
-            <span class="cred-badge">⭐ 6+ Years Experience</span>
-            <span class="cred-badge">🗓 Practising since 2020</span>
-            <span class="cred-badge">💛 Co-Founder, Riddhi Medical</span>
-            <span class="cred-badge">⏰ 24 × 7 Available</span>
+            <span class="cred-badge">🎓 MPT (Ortho & Sports)</span>
+            <span class="cred-badge">💊 Complete Medical Store</span>
+            <span class="cred-badge">📍 Bhagwanpura, Alwar</span>
+            <span class="cred-badge">👨‍👩‍👧 All Age Groups</span>
+            <span class="cred-badge">⏰ Mon–Sat 9AM–9PM</span>
           </div>
           <a href="#" onclick="showPage('booking');return false;" class="btn-primary">Book a Consultation</a>
         </div>
       </div>
-
-      <!-- Dr. Babulal Yadav -->
-      <div class="team-featured" data-reveal style="margin-bottom:80px;">
-        <div class="team-img-wrap" style="order:2;">
-          <img src="images/dr_babulal.png" alt="Dr. Babulal Yadav" class="team-img-main">
-          <div class="team-badge">
-            <div class="team-badge-title">Founder &amp; Sr. General Physician</div>
-            <div class="team-badge-name">Dr. Babulal Yadav</div>
-          </div>
-        </div>
-        <div style="order:1;">
-          <div class="section-pill">Founder</div>
-          <h2 class="section-title">Dr. Babulal Yadav <span class="color-green">Sr. General Physician</span></h2>
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.2rem;">Dr. Babulal Yadav is the founder of Riddhi Medical and a Senior General Physician with 18+ years of medical experience since 2009. A proud ex-Army officer, he brings the discipline, precision, and dedication of military service into every patient consultation.</p>
-          <p style="color:var(--muted);font-size:.95rem;line-height:1.9;margin-bottom:1.5rem;">His extensive expertise in general medicine, preventive care, and chronic disease management makes him a trusted name for families across Alwar for over a decade.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem;">
-            <span class="cred-badge">🩺 Sr. General Physician</span>
-            <span class="cred-badge">🎖 Ex-Army Officer</span>
-            <span class="cred-badge">⭐ 18+ Years Experience</span>
-            <span class="cred-badge">🗓 Practising since 2009</span>
-            <span class="cred-badge">💛 Founder, Riddhi Medical</span>
-          </div>
-          <a href="#" onclick="showPage('booking');return false;" class="btn-primary">Book a Consultation</a>
-        </div>
-      </div>
-
-      <!-- Bharat Yadav -->
-      <div style="background:white;border-radius:24px;padding:40px;box-shadow:var(--shadow);display:flex;align-items:center;gap:32px;" data-reveal>
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--mint));display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;">🏥</div>
-        <div>
-          <div class="section-pill" style="margin-bottom:8px;">Nursing Staff</div>
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:6px;">Bharat Yadav</h3>
-          <p style="color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:10px;">Nursing staff at Riddhi Medical with 2+ years of experience. Bharat provides compassionate patient care, assists with clinical procedures, and ensures every patient feels comfortable during their visit.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            <span class="cred-badge">💉 Nursing Staff</span>
-            <span class="cred-badge">⭐ 2+ Years Experience</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 </div>
+
 <!-- ========================== LOCATIONS PAGE ========================== -->
 <div id="page-locations" class="page">
   <div class="page-header">
     <div class="ph-breadcrumb"><a href="#" onclick="showPage('home');return false;" style="color:rgba(255,255,255,.6);text-decoration:none">Home</a> <span style="margin:0 8px;opacity:.4">/</span> <span>Locations</span></div>
-    <h1>Our Location</h1>
+    <h1>Our 7 Clinics</h1>
     <p>Visit us at our store in Bhagwanpura, Alwar.</p>
   </div>
   <section class="locations-section" style="padding:80px 5%;background:var(--gray);">
@@ -1273,7 +1232,7 @@ footer {
           </div>
           <div class="contact-info-card">
             <div class="ci-title">🕐 Hours</div>
-            <div class="ci-item">Open 24 × 7</div>
+            <div class="ci-item">Mon – Sat: 9AM – 9PM</div>
           </div>
           <div class="contact-info-card">
             <div class="ci-title">💬 WhatsApp</div>
@@ -1349,11 +1308,12 @@ footer {
         </div>
         <div class="contact-info-card">
           <div class="ci-title">📧 Email</div>
-          <div class="ci-item"><a href="mailto:riddhimedicalndstore@gmail.com" style="text-decoration:none;color:inherit;">riddhimedicalndstore@gmail.com</a></div>
+          <div class="ci-item"><a href="mailto:riddhi.medical.alwar@gmail.com" style="text-decoration:none;color:inherit;">riddhi.medical.alwar@gmail.com</a></div>
         </div>
         <div class="contact-info-card">
           <div class="ci-title">🕐 Clinic Hours</div>
-          <div class="ci-item">Open 24 × 7 — Always Available</div>
+          <div class="ci-item">Monday – Saturday: 8:00 AM – 8:00 PM</div>
+          <div class="ci-item">Sunday: Closed</div>
         </div>
         <div class="contact-info-card">
           <div class="ci-title">📍 Our Store Address</div>
@@ -1421,14 +1381,14 @@ footer {
       <div class="footer-col-title">Contact Us</div>
       <a href="tel:919462591098" class="footer-link">📞 +91 94625 91098</a>
       <a href="https://wa.me/919462591098" target="_blank" class="footer-link">💬 WhatsApp Us</a>
-      <a href="mailto:riddhimedicalndstore@gmail.com" class="footer-link">✉️ Email Us</a>
+      <a href="mailto:riddhi.medical.alwar@gmail.com" class="footer-link">✉️ Email Us</a>
       <a href="#" class="footer-link" onclick="showPage('locations');return false;">📍 Get Directions</a>
-      <span class="footer-link" style="cursor:default;">🕐 24 × 7 Available</span>
+      <span class="footer-link" style="cursor:default;">🕐 Mon–Sat 9AM–9PM</span>
     </div>
   </div>
   <div class="footer-bottom max-wrap">
     <div class="footer-copy">© 2026 Riddhi Medical. All rights reserved. | Bhagwanpura, Alwar, Rajasthan – 301001</div>
-    <div class="footer-copy"><a href="tel:919462591098" style="color:rgba(255,255,255,.4);text-decoration:none;">📞 +91 94625 91098</a> &nbsp;·&nbsp; <a href="mailto:riddhimedicalndstore@gmail.com" style="color:rgba(255,255,255,.4);text-decoration:none;">riddhimedicalndstore@gmail.com</a></div>
+    <div class="footer-copy"><a href="tel:919462591098" style="color:rgba(255,255,255,.4);text-decoration:none;">📞 +91 94625 91098</a> &nbsp;·&nbsp; <a href="mailto:riddhi.medical.alwar@gmail.com" style="color:rgba(255,255,255,.4);text-decoration:none;">riddhi.medical.alwar@gmail.com</a></div>
   </div>
 </footer>
 
