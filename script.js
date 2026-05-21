@@ -264,16 +264,16 @@ function injectMotionStyles() {
    CHATBOT
 ───────────────────────────────────────────── */
 const chatbotReplies = {
-  'book': 'To book an appointment, please call <strong>+91 81287 00700</strong> or <a href="https://wa.me/918128700700" target="_blank" style="color:#00b4d8;">WhatsApp us</a>. We\'re open Mon–Sat, 8AM–8PM.',
-  'location': 'We have 7 clinics across Ahmedabad and Mumbai:<br>• Prahlad Nagar<br>• Thaltej<br>• South Bopal<br>• Ambawadi<br>• Science City<br>• Shilaj (Coming Soon)<br>• Dadar, Mumbai',
-  'timing': 'Our clinics are open <strong>Monday to Saturday, 8:00 AM – 8:00 PM</strong>. Sunday is closed.',
-  'service': 'We offer: Physiotherapy, Massage Therapy, Chiropractic, Sports Injury Rehab, Pain Management, and Work Injury Rehab. Tap a service above or ask me anything!',
-  'fee': 'Fees vary by service and location. Please WhatsApp or call us for current pricing: <strong>+91 81287 00700</strong>.',
+  'book': 'To book an appointment, please call <strong>+91 94625 91098</strong> or <a href="https://wa.me/919462591098" target="_blank" style="color:#00b4d8;">WhatsApp us</a>. We\'re open Mon–Sat, 8AM–8PM.',
+  'location': 'We have 7 clinics across Ahmedabad and Mumbai:<br>Ganpati Vihar, B-97, Tijara Rd, Patak,<br>Bhagwanpura, Alwar, Rajasthan – 301001',
+  'timing': 'We are open <strong>Monday to Saturday, 9:00 AM – 9:00 PM</strong>. Sunday is closed.',
+  'service': 'We offer: Pharmacy & Medicines, General Physician Consultations, Health Supplements, Baby & Mother Care, Surgical Supplies, and Diagnostics Support. Tap a service above or ask me anything!',
+  'fee': 'Fees vary by service and location. Please WhatsApp or call us for current pricing: <strong>+91 94625 91098</strong>.',
   'doctor': 'Our clinic is led by <strong>Dr. Hiren Patel (MPT – Ortho & Sports)</strong>, one of India\'s most qualified physiotherapists, alumnus of RGUHS Bengaluru.',
   'pain': 'We treat back pain, neck pain, sports injuries, frozen shoulder, knee pain, chronic headaches, posture issues and much more. What\'s troubling you?',
-  'hello': 'Hello! 👋 I\'m the O3 Physio assistant. I can help with bookings, locations, services, fees or any questions. How can I help?',
+  'hello': 'Hello! 👋 I\'m the Riddhi Medical assistant. I can help with bookings, locations, services, fees or any questions. How can I help?',
   'hi': 'Hi there! 👋 Welcome to O3 Physio Clinic. What can I help you with today?',
-  'default': 'I\'d be happy to help! For detailed information, please <a href="https://wa.me/918128700700" target="_blank" style="color:#00b4d8;">WhatsApp us</a> or call <strong>+91 81287 00700</strong>.',
+  'default': 'I\'d be happy to help! For detailed information, please <a href="https://wa.me/919462591098" target="_blank" style="color:#00b4d8;">WhatsApp us</a> or call <strong>+91 94625 91098</strong>.',
 };
 
 function getBotReply(msg) {
@@ -297,14 +297,14 @@ function initChatbot() {
   fabGroup.style.cssText = 'position:fixed;bottom:28px;right:28px;z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:10px;';
 
   const fabCall = document.createElement('a');
-  fabCall.href = 'tel:918128700700';
+  fabCall.href = 'tel:919462591098';
   fabCall.className = 'fab-child';
-  fabCall.title = 'Call Us';
+  fabCall.title = 'Call: +91 94625 91098';
   fabCall.style.cssText = 'display:flex;align-items:center;gap:10px;background:white;color:#1a2e4a;padding:10px 18px 10px 14px;border-radius:50px;box-shadow:0 4px 20px rgba(26,46,74,.18);font-size:.82rem;font-weight:700;text-decoration:none;white-space:nowrap;';
-  fabCall.innerHTML = `<span style="background:#1a2e4a;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;">${ICONS.phone}</span> Call Us`;
+  fabCall.innerHTML = `<span style="background:#1a2e4a;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;">${ICONS.phone}</span> Call: +91 94625 91098`;
 
   const fabWA = document.createElement('a');
-  fabWA.href = 'https://wa.me/918128700700';
+  fabWA.href = 'https://wa.me/919462591098';
   fabWA.target = '_blank';
   fabWA.className = 'fab-child';
   fabWA.title = 'WhatsApp';
@@ -359,14 +359,14 @@ function initChatbot() {
         <div style="position:absolute;width:10px;height:10px;background:#00e5b0;border-radius:50%;bottom:0;right:0;border:2px solid white;"></div>
       </div>
       <div style="flex:1;">
-        <div style="color:white;font-weight:700;font-size:.9rem;">O3 Physio Assistant</div>
+        <div style="color:white;font-weight:700;font-size:.9rem;">Riddhi Medical Assistant</div>
         <div style="color:rgba(255,255,255,.75);font-size:.72rem;">Usually replies instantly</div>
       </div>
       <button onclick="toggleChatbot()" style="background:rgba(255,255,255,.15);border:none;color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;">${ICONS.close}</button>
     </div>
     <div id="chatMessages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:280px;">
       <div class="chat-msg" style="background:#f4f7fb;border-radius:0 14px 14px 14px;padding:12px 14px;font-size:.84rem;line-height:1.6;max-width:85%;">
-        Hi! 👋 I'm the O3 Physio assistant. I can help with:<br>
+        Hi! 👋 I'm the Riddhi Medical assistant. I can help with:<br>
         <span style="color:#0077b6;font-weight:600;">bookings · locations · services · timings</span><br>
         What can I help you with today?
       </div>
@@ -516,9 +516,9 @@ function animateCounters() {
     obs.disconnect();
 
     const items = [
-      { id: 'stat-patients', target: 50000, suffix: '+', format: true },
-      { id: 'stat-locations', target: 7, suffix: '', format: false },
-      { id: 'stat-exp', target: 10, suffix: '+', format: false },
+      { id: 'stat-patients', target: 10000, suffix: '+', format: true },
+      { id: 'stat-locations', target: 5000, suffix: '+', format: false },
+      { id: 'stat-exp', target: 500, suffix: '+', format: false },
       { id: 'stat-satisfaction', target: 100, suffix: '%', format: false },
     ];
 
@@ -627,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardHovers();
 
   // Show toast after 3 seconds
-  setTimeout(() => showToast('Welcome to O3 Physio Clinic! 👋'), 3000);
+  setTimeout(() => showToast('Welcome to Riddhi Medical, Alwar! 👋'), 3000);
 });
 
 // Re-init on page switch
@@ -887,8 +887,8 @@ function filterMeds(category, btn) {
 }
 
 function enquireMed(name) {
-  const msg = `Hello O3 Physio! I'd like to enquire about: *${name}*. Please let me know availability and pricing at my nearest clinic.`;
-  window.open('https://wa.me/918128700700?text=' + encodeURIComponent(msg), '_blank');
+  const msg = `Hello Riddhi Medical! I'd like to enquire about: *${name}*. Please let me know availability and pricing at your store in Bhagwanpura, Alwar.`;
+  window.open('https://wa.me/919462591098?text=' + encodeURIComponent(msg), '_blank');
 }
 
 // Init on DOM ready
